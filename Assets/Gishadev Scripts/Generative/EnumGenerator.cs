@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace gishadev.tools.Generative
 {
+#if UNITY_EDITOR
     public static class EnumGenerator
     {
         public static void GenerateEnumClass(string enumName, string[] enumEntries)
@@ -57,4 +58,5 @@ namespace gishadev.tools.Generative
             return result;
         }
     }
+#endif
 }

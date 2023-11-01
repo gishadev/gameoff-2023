@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using gishadev.tools.Generative;
 using gishadev.tools.Core;
 using UnityEngine;
 
@@ -18,13 +19,15 @@ namespace gishadev.tools.Audio
         private const string MUSIC_ENUM_NAME = "MusicAudioEnum";
         private const string SFX_ENUM_NAME = "SFXAudioEnum";
 
+#if UNITY_EDITOR
         // Enum auto generation method.
         public override void OnCollectionChanged()
         {
             InitEnumForCollection(SFXCollection, SFXCollection.Select(x => x.Name), SFX_ENUM_NAME);
             InitEnumForCollection(MusicCollection, MusicCollection.Select(x => x.Name), MUSIC_ENUM_NAME);
         }
-        
+#endif
+
         public void OnDragNDropped<T, U>(U importKeyObject, IEnumerable<T> targetCollection)
             where T : IDropdownTargetData, new()
             where U : class

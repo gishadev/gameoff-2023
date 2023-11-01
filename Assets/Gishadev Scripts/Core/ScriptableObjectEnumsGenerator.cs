@@ -7,6 +7,7 @@ namespace gishadev.tools.Core
 {
     public abstract class ScriptableObjectEnumsGenerator : ScriptableObject
     {
+#if UNITY_EDITOR
         public abstract void OnCollectionChanged();
 
         protected void InitEnumForCollection(IEnumerable<EnumEntryTarget> collection,
@@ -24,5 +25,6 @@ namespace gishadev.tools.Core
 
             EnumGenerator.GenerateEnumClass(enumName, entries);
         }
+#endif
     }
 }

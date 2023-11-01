@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using gishadev.tools.Generative;
 using gishadev.tools.Core;
 using UnityEngine;
 
@@ -14,16 +15,17 @@ namespace gishadev.tools.Pooling
         private const string SFX_ENUM_NAME = "SoundEffectsEnum";
         private const string VFX_ENUM_NAME = "VisualEffectsEnum";
 
+#if UNITY_EDITOR
         // Enum auto generation method.
         public override void OnCollectionChanged()
         {
             InitEnumForCollection(SFXPoolObjects, SFXPoolObjects.Select(x => x.Name), SFX_ENUM_NAME);
             InitEnumForCollection(VFXPoolObjects, VFXPoolObjects.Select(x => x.Name), VFX_ENUM_NAME);
         }
-
+#endif
 
         public void OnDragNDropped<T, U>(U importKeyObject, IEnumerable<T> targetCollection)
-            where T : IDropdownTargetData, new() 
+            where T : IDropdownTargetData, new()
             where U : class
         {
             var tempCollection = targetCollection.ToList();
