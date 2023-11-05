@@ -1,4 +1,5 @@
-using System;
+using gameoff.Core;
+using gishadev.tools.SceneLoading;
 using UnityEngine;
 
 namespace gameoff.Infrastructure
@@ -7,6 +8,7 @@ namespace gameoff.Infrastructure
     {
         private void Awake()
         {
+            SceneLoader.I.AsyncSceneLoad(Constants.GAME_SCENE_NAME);
         }
     }
 }
