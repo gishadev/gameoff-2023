@@ -3,6 +3,7 @@ name: GameCI Template 🎮
 on:
   push:
     branches:
+    - test
     - main
 
 env:
