@@ -1,5 +1,7 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace gameoff.PlayerManager
 {
@@ -9,34 +11,57 @@ namespace gameoff.PlayerManager
         [SerializeField] private float moveSpeed = 5f;
 
         private Rigidbody2D _rb;
-        private Vector2 _input;
+        private CustomInput _input;
+        private Vector2 _moveInputVector;
 
         private void Awake()
         {
+            _input = new CustomInput();
             _rb = GetComponent<Rigidbody2D>();
+        }
+
+        private void OnEnable()
+        {
+            _input.Enable();
+            _input.Player.Movement.performed += OnMovementPerformed;
+            _input.Player.Movement.canceled += OnMovementCanceled;
+        }
+
+
+        private void OnDisable()
+        {
+            _input.Disable();
+            _input.Player.Movement.performed -= OnMovementPerformed;
+            _input.Player.Movement.canceled -= OnMovementCanceled;
         }
 
         private void Update()
         {
-            _input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
-
             HandleMovementAnimation();
+        }
+
+        private void FixedUpdate()
+        {
+            _rb.velocity = _moveInputVector * (moveSpeed * Time.deltaTime);
         }
 
         private void HandleMovementAnimation()
         {
-            var rawInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-            if (rawInput.magnitude > 0f && !DOTween.IsTweening(transform))
+            if (_moveInputVector.magnitude > 0f && !DOTween.IsTweening(transform))
                 transform.DOScaleY(.9f, .1f).SetEase(Ease.InSine).OnComplete(() =>
                 {
                     transform.DOScaleY(1f, .1f).SetEase(Ease.InSine);
                 });
         }
-
-        private void FixedUpdate()
+        
+        private void OnMovementPerformed(InputAction.CallbackContext value)
         {
-            _rb.velocity = _input * (moveSpeed * Time.deltaTime);
+            _moveInputVector = value.ReadValue<Vector2>();
+        }
+
+        private void OnMovementCanceled(InputAction.CallbackContext value)
+        {
+            _moveInputVector = Vector2.zero;
         }
     }
 }
