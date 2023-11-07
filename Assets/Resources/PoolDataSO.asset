@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: PoolDataSO
   m_EditorClassIdentifier: 
   <SFXPoolObjects>k__BackingField: []
-  <VFXPoolObjects>k__BackingField: []
+  <VFXPoolObjects>k__BackingField:
+  - <Name>k__BackingField: Explosion_Ability_VFX
+    <Prefabs>k__BackingField:
+    - {fileID: 855633080919731518, guid: bc771b02c8fd7014db5e4079152be5f5, type: 3}

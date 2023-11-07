@@ -73,6 +73,15 @@ namespace gameoff
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SpecialAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""9de426ce-7e4b-4b34-96b6-4e79d86810b4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -361,6 +370,28 @@ namespace gameoff
                     ""action"": ""PrimaryAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea168287-1fdd-46a5-888a-3ce1a2df5fd9"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpecialAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f75cbcb6-0176-47b7-9e06-df24876352d4"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpecialAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -374,6 +405,7 @@ namespace gameoff
             m_Player_WeaponRotationMouse = m_Player.FindAction("WeaponRotationMouse", throwIfNotFound: true);
             m_Player_WeaponRotationGamepad = m_Player.FindAction("WeaponRotationGamepad", throwIfNotFound: true);
             m_Player_PrimaryAttack = m_Player.FindAction("PrimaryAttack", throwIfNotFound: true);
+            m_Player_SpecialAttack = m_Player.FindAction("SpecialAttack", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -438,6 +470,7 @@ namespace gameoff
         private readonly InputAction m_Player_WeaponRotationMouse;
         private readonly InputAction m_Player_WeaponRotationGamepad;
         private readonly InputAction m_Player_PrimaryAttack;
+        private readonly InputAction m_Player_SpecialAttack;
         public struct PlayerActions
         {
             private @CustomInput m_Wrapper;
@@ -447,6 +480,7 @@ namespace gameoff
             public InputAction @WeaponRotationMouse => m_Wrapper.m_Player_WeaponRotationMouse;
             public InputAction @WeaponRotationGamepad => m_Wrapper.m_Player_WeaponRotationGamepad;
             public InputAction @PrimaryAttack => m_Wrapper.m_Player_PrimaryAttack;
+            public InputAction @SpecialAttack => m_Wrapper.m_Player_SpecialAttack;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -471,6 +505,9 @@ namespace gameoff
                     @PrimaryAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrimaryAttack;
                     @PrimaryAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrimaryAttack;
                     @PrimaryAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrimaryAttack;
+                    @SpecialAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialAttack;
+                    @SpecialAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialAttack;
+                    @SpecialAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialAttack;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -490,6 +527,9 @@ namespace gameoff
                     @PrimaryAttack.started += instance.OnPrimaryAttack;
                     @PrimaryAttack.performed += instance.OnPrimaryAttack;
                     @PrimaryAttack.canceled += instance.OnPrimaryAttack;
+                    @SpecialAttack.started += instance.OnSpecialAttack;
+                    @SpecialAttack.performed += instance.OnSpecialAttack;
+                    @SpecialAttack.canceled += instance.OnSpecialAttack;
                 }
             }
         }
@@ -501,6 +541,7 @@ namespace gameoff
             void OnWeaponRotationMouse(InputAction.CallbackContext context);
             void OnWeaponRotationGamepad(InputAction.CallbackContext context);
             void OnPrimaryAttack(InputAction.CallbackContext context);
+            void OnSpecialAttack(InputAction.CallbackContext context);
         }
     }
 }

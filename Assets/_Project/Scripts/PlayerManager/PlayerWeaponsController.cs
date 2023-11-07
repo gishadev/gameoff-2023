@@ -3,24 +3,28 @@ using UnityEngine.InputSystem;
 
 namespace gameoff.PlayerManager
 {
-    public class BlasterController : MonoBehaviour
+    [RequireComponent(typeof(Player))]
+    public class PlayerWeaponsController : MonoBehaviour
     {
-        private CustomInput _input;
-        private ParticleSystem _shootingPS;
+        [SerializeField] private GameObject blasterObject;
 
+        private Blaster _blaster;
+        private IAbility _ability;
+
+        private CustomInput _input;
         private Camera _cam;
+
         private bool _isUsingMouse;
-        private readonly float _startEmission = 500f;
 
         private void Awake()
         {
+            _blaster = new Blaster(blasterObject);
+            _ability = new ExplosionAbility(GetComponent<Player>());
+
             _cam = Camera.main;
             _input = new CustomInput();
-            
-            _shootingPS = GetComponentInChildren<ParticleSystem>(true);
-            var emission = _shootingPS.emission;
-            emission.rateOverTime = new ParticleSystem.MinMaxCurve(0f);
         }
+
 
         private void OnEnable()
         {
@@ -31,6 +35,7 @@ namespace gameoff.PlayerManager
 
             _input.Player.PrimaryAttack.performed += OnPrimaryAttackPerformed;
             _input.Player.PrimaryAttack.canceled += OnPrimaryAttackCanceled;
+            _input.Player.SpecialAttack.performed += OnSpecialAttackPerformed;
         }
 
         private void OnDisable()
@@ -42,6 +47,7 @@ namespace gameoff.PlayerManager
 
             _input.Player.PrimaryAttack.performed -= OnPrimaryAttackPerformed;
             _input.Player.PrimaryAttack.canceled -= OnPrimaryAttackCanceled;
+            _input.Player.SpecialAttack.performed -= OnSpecialAttackPerformed;
         }
 
         private void Update()
@@ -50,11 +56,13 @@ namespace gameoff.PlayerManager
                 HandleWeaponRotationMouse(Mouse.current.position.ReadValue());
         }
 
+        #region Input Actions
+
         private void HandleWeaponRotationMouse(Vector2 position)
         {
             Vector3 worldPos = _cam.ScreenToWorldPoint(position);
             var direction = worldPos - transform.position;
-            RotateBlaster(direction);
+            _blaster.RotateBlaster(direction);
         }
 
         private void OnWeaponRotationMousePerformed(InputAction.CallbackContext value)
@@ -69,29 +77,24 @@ namespace gameoff.PlayerManager
             Cursor.visible = false;
 
             var direction = value.ReadValue<Vector2>();
-            RotateBlaster(direction);
-        }
-
-        private void RotateBlaster(Vector2 direction)
-        {
-            float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-            Quaternion rotation = Quaternion.AngleAxis(rotZ, Vector3.forward);
-
-            transform.rotation = rotation;
-            // transform.DORotateQuaternion(rotation, blasterRotateDuration);
+            _blaster.RotateBlaster(direction);
         }
 
         private void OnPrimaryAttackPerformed(InputAction.CallbackContext value)
         {
-            var emission = _shootingPS.emission; 
-            emission.rateOverTime = new ParticleSystem.MinMaxCurve(_startEmission);
+            _blaster.StartShooting();
         }
 
         private void OnPrimaryAttackCanceled(InputAction.CallbackContext value)
         {
-            var emission = _shootingPS.emission; 
-            emission.rateOverTime = new ParticleSystem.MinMaxCurve(0f);
+            _blaster.StopShooting();
         }
+
+        private void OnSpecialAttackPerformed(InputAction.CallbackContext value)
+        {
+            _ability.Trigger();
+        }
+
+        #endregion
     }
 }

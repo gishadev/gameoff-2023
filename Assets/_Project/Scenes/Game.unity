@@ -135,7 +135,9 @@ GameObject:
   - component: {fileID: 201452848}
   - component: {fileID: 201452850}
   - component: {fileID: 201452851}
+  - component: {fileID: 201452853}
   - component: {fileID: 201452849}
+  - component: {fileID: 201452852}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -331,6 +333,31 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &201452852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201452846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9a6b879c7748248c9b1c894cae774c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blasterObject: {fileID: 999057701}
+--- !u!114 &201452853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201452846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f843331c7ed45239b484b207ff8ad96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &209721771
 GameObject:
   m_ObjectHideFlags: 0
@@ -5788,7 +5815,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 999057702}
-  - component: {fileID: 999057703}
   m_Layer: 6
   m_Name: Blaster
   m_TagString: Untagged
@@ -5813,18 +5839,6 @@ Transform:
   m_Father: {fileID: 201452847}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &999057703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 999057701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 507efa4c2eea42269dac89f2beeda999, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1000599677
 GameObject:
   m_ObjectHideFlags: 0
