@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Cysharp.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace gameoff.PlayerManager
@@ -7,6 +8,7 @@ namespace gameoff.PlayerManager
     public class PlayerWeaponsController : MonoBehaviour
     {
         [SerializeField] private GameObject blasterObject;
+        [SerializeField] private float specialAttackDelay = 1f;
 
         private Blaster _blaster;
         private IAbility _ability;
@@ -15,6 +17,7 @@ namespace gameoff.PlayerManager
         private Camera _cam;
 
         private bool _isUsingMouse;
+        private bool _isSpecialAttackDelay;
 
         private void Awake()
         {
@@ -90,9 +93,15 @@ namespace gameoff.PlayerManager
             _blaster.StopShooting();
         }
 
-        private void OnSpecialAttackPerformed(InputAction.CallbackContext value)
+        private async void OnSpecialAttackPerformed(InputAction.CallbackContext value)
         {
+            if (_isSpecialAttackDelay)
+                return;
+
             _ability.Trigger();
+            _isSpecialAttackDelay = true;
+            await UniTask.WaitForSeconds(specialAttackDelay);
+            _isSpecialAttackDelay = false;
         }
 
         #endregion
