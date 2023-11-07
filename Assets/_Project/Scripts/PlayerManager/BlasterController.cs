@@ -6,16 +6,20 @@ namespace gameoff.PlayerManager
     public class BlasterController : MonoBehaviour
     {
         private CustomInput _input;
-        private LineRenderer _lineRenderer;
+        private ParticleSystem _shootingPS;
 
         private Camera _cam;
         private bool _isUsingMouse;
+        private readonly float _startEmission = 500f;
 
         private void Awake()
         {
             _cam = Camera.main;
             _input = new CustomInput();
-            _lineRenderer = GetComponentInChildren<LineRenderer>();
+            
+            _shootingPS = GetComponentInChildren<ParticleSystem>(true);
+            var emission = _shootingPS.emission;
+            emission.rateOverTime = new ParticleSystem.MinMaxCurve(0f);
         }
 
         private void OnEnable()
@@ -80,12 +84,14 @@ namespace gameoff.PlayerManager
 
         private void OnPrimaryAttackPerformed(InputAction.CallbackContext value)
         {
-            _lineRenderer.enabled = true;
+            var emission = _shootingPS.emission; 
+            emission.rateOverTime = new ParticleSystem.MinMaxCurve(_startEmission);
         }
 
         private void OnPrimaryAttackCanceled(InputAction.CallbackContext value)
         {
-            _lineRenderer.enabled = false;
+            var emission = _shootingPS.emission; 
+            emission.rateOverTime = new ParticleSystem.MinMaxCurve(0f);
         }
     }
 }
