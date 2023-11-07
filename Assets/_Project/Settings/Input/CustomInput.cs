@@ -46,6 +46,24 @@ namespace gameoff
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WeaponRotationMouse"",
+                    ""type"": ""Value"",
+                    ""id"": ""91cb181d-9bbb-4732-9668-d45d6973e6bf"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""WeaponRotationGamepad"",
+                    ""type"": ""Value"",
+                    ""id"": ""bab9b7f8-22a0-472a-bca8-9ecad06a7673"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -246,6 +264,72 @@ namespace gameoff
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""30b8119f-ac1d-49ca-987b-d94ccdce3d78"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WeaponRotationMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Controller Right Analogue"",
+                    ""id"": ""c5c8ca00-31f7-46a2-8810-b47d9f2503b6"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WeaponRotationGamepad"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""73c550be-558c-450c-a3bd-887454ba60af"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WeaponRotationGamepad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""34a6e2ef-0e37-48e7-820b-a88c0783c688"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WeaponRotationGamepad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""ec385686-e652-487f-ab3a-b209c6e42da7"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WeaponRotationGamepad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""d6564d95-933e-48d9-91ef-e21d118c2cfe"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WeaponRotationGamepad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -256,6 +340,8 @@ namespace gameoff
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
             m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
+            m_Player_WeaponRotationMouse = m_Player.FindAction("WeaponRotationMouse", throwIfNotFound: true);
+            m_Player_WeaponRotationGamepad = m_Player.FindAction("WeaponRotationGamepad", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -317,12 +403,16 @@ namespace gameoff
         private IPlayerActions m_PlayerActionsCallbackInterface;
         private readonly InputAction m_Player_Movement;
         private readonly InputAction m_Player_Dash;
+        private readonly InputAction m_Player_WeaponRotationMouse;
+        private readonly InputAction m_Player_WeaponRotationGamepad;
         public struct PlayerActions
         {
             private @CustomInput m_Wrapper;
             public PlayerActions(@CustomInput wrapper) { m_Wrapper = wrapper; }
             public InputAction @Movement => m_Wrapper.m_Player_Movement;
             public InputAction @Dash => m_Wrapper.m_Player_Dash;
+            public InputAction @WeaponRotationMouse => m_Wrapper.m_Player_WeaponRotationMouse;
+            public InputAction @WeaponRotationGamepad => m_Wrapper.m_Player_WeaponRotationGamepad;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -338,6 +428,12 @@ namespace gameoff
                     @Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                     @Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                     @Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                    @WeaponRotationMouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponRotationMouse;
+                    @WeaponRotationMouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponRotationMouse;
+                    @WeaponRotationMouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponRotationMouse;
+                    @WeaponRotationGamepad.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponRotationGamepad;
+                    @WeaponRotationGamepad.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponRotationGamepad;
+                    @WeaponRotationGamepad.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponRotationGamepad;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -348,6 +444,12 @@ namespace gameoff
                     @Dash.started += instance.OnDash;
                     @Dash.performed += instance.OnDash;
                     @Dash.canceled += instance.OnDash;
+                    @WeaponRotationMouse.started += instance.OnWeaponRotationMouse;
+                    @WeaponRotationMouse.performed += instance.OnWeaponRotationMouse;
+                    @WeaponRotationMouse.canceled += instance.OnWeaponRotationMouse;
+                    @WeaponRotationGamepad.started += instance.OnWeaponRotationGamepad;
+                    @WeaponRotationGamepad.performed += instance.OnWeaponRotationGamepad;
+                    @WeaponRotationGamepad.canceled += instance.OnWeaponRotationGamepad;
                 }
             }
         }
@@ -356,6 +458,8 @@ namespace gameoff
         {
             void OnMovement(InputAction.CallbackContext context);
             void OnDash(InputAction.CallbackContext context);
+            void OnWeaponRotationMouse(InputAction.CallbackContext context);
+            void OnWeaponRotationGamepad(InputAction.CallbackContext context);
         }
     }
 }
