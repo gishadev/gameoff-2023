@@ -64,6 +64,15 @@ namespace gameoff
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""PrimaryAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""b8a10d0b-2035-4422-ba47-dafac3912492"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -330,6 +339,28 @@ namespace gameoff
                     ""action"": ""WeaponRotationGamepad"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""074a05d2-d64b-4db0-86c5-790c478bdcce"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrimaryAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""65725fbc-30ba-4494-bb9d-9b7577022d0e"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrimaryAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -342,6 +373,7 @@ namespace gameoff
             m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
             m_Player_WeaponRotationMouse = m_Player.FindAction("WeaponRotationMouse", throwIfNotFound: true);
             m_Player_WeaponRotationGamepad = m_Player.FindAction("WeaponRotationGamepad", throwIfNotFound: true);
+            m_Player_PrimaryAttack = m_Player.FindAction("PrimaryAttack", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -405,6 +437,7 @@ namespace gameoff
         private readonly InputAction m_Player_Dash;
         private readonly InputAction m_Player_WeaponRotationMouse;
         private readonly InputAction m_Player_WeaponRotationGamepad;
+        private readonly InputAction m_Player_PrimaryAttack;
         public struct PlayerActions
         {
             private @CustomInput m_Wrapper;
@@ -413,6 +446,7 @@ namespace gameoff
             public InputAction @Dash => m_Wrapper.m_Player_Dash;
             public InputAction @WeaponRotationMouse => m_Wrapper.m_Player_WeaponRotationMouse;
             public InputAction @WeaponRotationGamepad => m_Wrapper.m_Player_WeaponRotationGamepad;
+            public InputAction @PrimaryAttack => m_Wrapper.m_Player_PrimaryAttack;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -434,6 +468,9 @@ namespace gameoff
                     @WeaponRotationGamepad.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponRotationGamepad;
                     @WeaponRotationGamepad.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponRotationGamepad;
                     @WeaponRotationGamepad.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWeaponRotationGamepad;
+                    @PrimaryAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrimaryAttack;
+                    @PrimaryAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrimaryAttack;
+                    @PrimaryAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrimaryAttack;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -450,6 +487,9 @@ namespace gameoff
                     @WeaponRotationGamepad.started += instance.OnWeaponRotationGamepad;
                     @WeaponRotationGamepad.performed += instance.OnWeaponRotationGamepad;
                     @WeaponRotationGamepad.canceled += instance.OnWeaponRotationGamepad;
+                    @PrimaryAttack.started += instance.OnPrimaryAttack;
+                    @PrimaryAttack.performed += instance.OnPrimaryAttack;
+                    @PrimaryAttack.canceled += instance.OnPrimaryAttack;
                 }
             }
         }
@@ -460,6 +500,7 @@ namespace gameoff
             void OnDash(InputAction.CallbackContext context);
             void OnWeaponRotationMouse(InputAction.CallbackContext context);
             void OnWeaponRotationGamepad(InputAction.CallbackContext context);
+            void OnPrimaryAttack(InputAction.CallbackContext context);
         }
     }
 }

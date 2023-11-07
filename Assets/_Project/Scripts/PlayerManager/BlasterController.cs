@@ -1,48 +1,69 @@
-﻿using DG.Tweening;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace gameoff.PlayerManager
 {
     public class BlasterController : MonoBehaviour
     {
-        [SerializeField] private float blasterRotateDuration = .1f;
-
-
         private CustomInput _input;
+        private LineRenderer _lineRenderer;
+
+        private Camera _cam;
+        private bool _isUsingMouse;
 
         private void Awake()
         {
+            _cam = Camera.main;
             _input = new CustomInput();
+            _lineRenderer = GetComponentInChildren<LineRenderer>();
         }
 
         private void OnEnable()
         {
             _input.Enable();
 
-            _input.Player.WeaponRotationMouse.performed += OnWeaponRotationMousePerformed;
             _input.Player.WeaponRotationGamepad.performed += OnWeaponRotationGamepadPerformed;
+            _input.Player.WeaponRotationMouse.performed += OnWeaponRotationMousePerformed;
+
+            _input.Player.PrimaryAttack.performed += OnPrimaryAttackPerformed;
+            _input.Player.PrimaryAttack.canceled += OnPrimaryAttackCanceled;
         }
 
         private void OnDisable()
         {
             _input.Disable();
 
-            _input.Player.WeaponRotationMouse.performed -= OnWeaponRotationMousePerformed;
             _input.Player.WeaponRotationGamepad.performed -= OnWeaponRotationGamepadPerformed;
+            _input.Player.WeaponRotationMouse.performed -= OnWeaponRotationMousePerformed;
+
+            _input.Player.PrimaryAttack.performed -= OnPrimaryAttackPerformed;
+            _input.Player.PrimaryAttack.canceled -= OnPrimaryAttackCanceled;
         }
 
-
-        private void OnWeaponRotationMousePerformed(InputAction.CallbackContext value)
+        private void Update()
         {
-            var position = value.ReadValue<Vector2>();
-            Vector3 worldPos = Camera.main.ScreenToWorldPoint(position);
+            if (_isUsingMouse)
+                HandleWeaponRotationMouse(Mouse.current.position.ReadValue());
+        }
+
+        private void HandleWeaponRotationMouse(Vector2 position)
+        {
+            Vector3 worldPos = _cam.ScreenToWorldPoint(position);
             var direction = worldPos - transform.position;
             RotateBlaster(direction);
         }
 
+        private void OnWeaponRotationMousePerformed(InputAction.CallbackContext value)
+        {
+            _isUsingMouse = true;
+            Cursor.visible = true;
+        }
+
         private void OnWeaponRotationGamepadPerformed(InputAction.CallbackContext value)
         {
+            _isUsingMouse = false;
+            Cursor.visible = false;
+
             var direction = value.ReadValue<Vector2>();
             RotateBlaster(direction);
         }
@@ -55,6 +76,16 @@ namespace gameoff.PlayerManager
 
             transform.rotation = rotation;
             // transform.DORotateQuaternion(rotation, blasterRotateDuration);
+        }
+
+        private void OnPrimaryAttackPerformed(InputAction.CallbackContext value)
+        {
+            _lineRenderer.enabled = true;
+        }
+
+        private void OnPrimaryAttackCanceled(InputAction.CallbackContext value)
+        {
+            _lineRenderer.enabled = false;
         }
     }
 }
