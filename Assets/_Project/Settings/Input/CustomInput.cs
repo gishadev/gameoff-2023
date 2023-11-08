@@ -198,7 +198,7 @@ namespace gameoff
                 {
                     ""name"": ""Controller Left Analogue"",
                     ""id"": ""a943ab5d-4651-4aa3-96fa-427cc2026a28"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
