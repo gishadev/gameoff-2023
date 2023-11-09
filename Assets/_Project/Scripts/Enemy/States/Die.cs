@@ -1,4 +1,5 @@
 ﻿using gishadev.tools.StateMachine;
+using UnityEngine;
 
 namespace gameoff.Enemy.States
 {
@@ -17,6 +18,7 @@ namespace gameoff.Enemy.States
 
         public void OnEnter()
         {
+            Object.Destroy(_roach.gameObject);
         }
 
         public void OnExit()

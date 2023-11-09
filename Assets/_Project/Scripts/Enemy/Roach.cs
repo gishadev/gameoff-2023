@@ -13,7 +13,7 @@ namespace gameoff.Enemy
         [SerializeField] private float followRadius = 5f;
         [SerializeField] private float attackRadius = 1f;
 
-        public int CurrentHealth { get; private set; } = 1;
+        public int CurrentHealth { get; private set; } = 2;
 
         public float MoveSpeed => moveSpeed;
 
@@ -52,8 +52,11 @@ namespace gameoff.Enemy
 
             _stateMachine.SetState(idle);
 
-            bool InSightWithPlayer() => Vector3.Distance(Player.Current.transform.position, transform.position) < followRadius;
-            bool InAttackReachWithPlayer() => Vector3.Distance(Player.Current.transform.position, transform.position) < attackRadius;
+            bool InSightWithPlayer() =>
+                Vector3.Distance(Player.Current.transform.position, transform.position) < followRadius;
+
+            bool InAttackReachWithPlayer() =>
+                Vector3.Distance(Player.Current.transform.position, transform.position) < attackRadius;
 
             void At(IState from, IState to, Func<bool> cond) => _stateMachine.AddTransition(from, to, cond);
             void Aat(IState to, Func<bool> cond) => _stateMachine.AddAnyTransition(to, cond);
@@ -62,6 +65,11 @@ namespace gameoff.Enemy
         public void TakeDamage(int count)
         {
             CurrentHealth -= count;
+        }
+
+        private void OnParticleCollision(GameObject other)
+        {
+            TakeDamage(1);
         }
 
         private void OnDrawGizmos()
