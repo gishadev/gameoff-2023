@@ -3760,7 +3760,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -7382,7 +7382,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.26415092, g: 0, b: 0.24876955, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9739,6 +9739,7 @@ GameObject:
   - component: {fileID: 1957255081}
   - component: {fileID: 1957255080}
   - component: {fileID: 1957255082}
+  - component: {fileID: 1957255083}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -9815,6 +9816,18 @@ MonoBehaviour:
   minSize: 7
   maxSize: 8
   maxVelocityMagnitude: 5
+--- !u!114 &1957255083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957255079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1964417474 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7958972308095696763, guid: 8db0d0964172d6445a9f0d19f39240f6, type: 3}
