@@ -106,6 +106,7 @@ Material:
     - _AlphaClip: 0
     - _AngleOffset: 10
     - _AnlgeChangeSpeed: 0.4
+    - _BaseAlpha: 0.97
     - _Blend: 0
     - _BumpScale: 1
     - _CellDensity: 200
