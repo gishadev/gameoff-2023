@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2431296442014268788}
   - component: {fileID: 2431296442014268784}
   - component: {fileID: 2431296442014268789}
+  - component: {fileID: 1432470746}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -236,6 +237,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blasterObject: {fileID: 2431296442894383460}
   specialAttackDelay: 1
+--- !u!114 &1432470746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2431296442014268783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d18b42fbbc34410bb15af3f7e4b598f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textureRenderer: {fileID: 0}
+  brushRadius: 5
 --- !u!1 &2431296442751661226
 GameObject:
   m_ObjectHideFlags: 0
