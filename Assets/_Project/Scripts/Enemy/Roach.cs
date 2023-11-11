@@ -9,11 +9,12 @@ namespace gameoff.Enemy
     [RequireComponent(typeof(EnemyMovement))]
     public class Roach : MonoBehaviour, IDamageable
     {
+        [SerializeField] private int health = 2;
         [SerializeField] private float moveSpeed = 10f;
         [SerializeField] private float followRadius = 5f;
         [SerializeField] private float attackRadius = 1f;
-
-        public int CurrentHealth { get; private set; } = 2;
+        
+        public int CurrentHealth { get; private set; }
 
         public float MoveSpeed => moveSpeed;
 
@@ -22,6 +23,7 @@ namespace gameoff.Enemy
 
         private void Awake()
         {
+            CurrentHealth = health;
             _enemyMovement = GetComponent<EnemyMovement>();
         }
 

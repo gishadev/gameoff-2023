@@ -7,10 +7,9 @@ namespace gameoff.PlayerManager
     [RequireComponent(typeof(Player))]
     public class PlayerWeaponsController : MonoBehaviour
     {
-        [SerializeField] private GameObject blasterObject;
+        [SerializeField] private Blaster blaster;
         [SerializeField] private float specialAttackDelay = 1f;
 
-        private Blaster _blaster;
         private IAbility _ability;
 
         private CustomInput _input;
@@ -21,7 +20,6 @@ namespace gameoff.PlayerManager
 
         private void Awake()
         {
-            _blaster = new Blaster(blasterObject);
             _ability = new ExplosionAbility(GetComponent<Player>());
 
             _cam = Camera.main;
@@ -65,7 +63,7 @@ namespace gameoff.PlayerManager
         {
             Vector3 worldPos = _cam.ScreenToWorldPoint(position);
             var direction = worldPos - transform.position;
-            _blaster.RotateBlaster(direction);
+            blaster.RotateBlaster(direction);
         }
 
         private void OnWeaponRotationMousePerformed(InputAction.CallbackContext value)
@@ -80,17 +78,17 @@ namespace gameoff.PlayerManager
             Cursor.visible = false;
 
             var direction = value.ReadValue<Vector2>();
-            _blaster.RotateBlaster(direction);
+            blaster.RotateBlaster(direction);
         }
 
         private void OnPrimaryAttackPerformed(InputAction.CallbackContext value)
         {
-            _blaster.StartShooting();
+            blaster.StartShooting();
         }
 
         private void OnPrimaryAttackCanceled(InputAction.CallbackContext value)
         {
-            _blaster.StopShooting();
+            blaster.StopShooting();
         }
 
         private async void OnSpecialAttackPerformed(InputAction.CallbackContext value)

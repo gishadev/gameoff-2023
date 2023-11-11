@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &943601577269314607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2955248729071630628}
+  m_Layer: 6
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2955248729071630628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943601577269314607}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.563, y: -0.041, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2431296442894383463}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2431296442014268783
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,7 +46,6 @@ GameObject:
   - component: {fileID: 2431296442014268788}
   - component: {fileID: 2431296442014268784}
   - component: {fileID: 2431296442014268789}
-  - component: {fileID: 1432470746}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -235,22 +265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9a6b879c7748248c9b1c894cae774c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blasterObject: {fileID: 2431296442894383460}
+  blaster: {fileID: 5421872262145223096}
   specialAttackDelay: 1
---- !u!114 &1432470746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2431296442014268783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d18b42fbbc34410bb15af3f7e4b598f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textureRenderer: {fileID: 0}
-  brushRadius: 5
 --- !u!1 &2431296442751661226
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,6 +360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2431296442894383463}
+  - component: {fileID: 5421872262145223096}
   m_Layer: 6
   m_Name: Blaster
   m_TagString: Untagged
@@ -365,9 +382,26 @@ Transform:
   m_Children:
   - {fileID: 2431296442751661229}
   - {fileID: 2431296443055072979}
+  - {fileID: 2955248729071630628}
   m_Father: {fileID: 2431296442014268782}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5421872262145223096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2431296442894383460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507efa4c2eea42269dac89f2beeda999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 3917482445967802638, guid: 2b13472e092077f4591005ed1df34143, type: 3}
+  shootPoint: {fileID: 2955248729071630628}
+  damage: 1
+  shootingDelay: 0.15
 --- !u!1 &2431296443055072976
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2431296443055072979
 Transform:
   m_ObjectHideFlags: 0
@@ -4157,7 +4191,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 1
+    collisionMessages: 0
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:

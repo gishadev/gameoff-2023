@@ -1,41 +1,70 @@
-﻿using UnityEngine;
+﻿using System;
+using Cysharp.Threading.Tasks;
+using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace gameoff.PlayerManager
 {
-    public class Blaster
+    public class Blaster : MonoBehaviour
     {
-        private readonly GameObject _blasterObj;
+        [SerializeField] private GameObject projectilePrefab;
+        [SerializeField] private Transform shootPoint;
+
+        [SerializeField] private int damage = 1;
+        [SerializeField] private float shootingDelay = 0.1f;
+
         private ParticleSystem _shootingPS;
+        private readonly float _startEmission = 150f;
+        private bool _isShooting;
 
-        private readonly float _startEmission = 500f;
-
-        public Blaster(GameObject blasterObj)
+        private void Awake()
         {
-            _blasterObj = blasterObj;
-            _shootingPS = blasterObj.GetComponentInChildren<ParticleSystem>(true);
+            _shootingPS = GetComponentInChildren<ParticleSystem>(true);
+
             var emission = _shootingPS.emission;
             emission.rateOverTime = new ParticleSystem.MinMaxCurve(0f);
         }
-        
+
         public void RotateBlaster(Vector2 direction)
         {
             float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
             Quaternion rotation = Quaternion.AngleAxis(rotZ, Vector3.forward);
 
-            _blasterObj.transform.rotation = rotation;
+            transform.rotation = rotation;
         }
 
         public void StartShooting()
         {
+            _isShooting = true;
+
+            ShootingAsync();
             var emission = _shootingPS.emission;
             emission.rateOverTime = new ParticleSystem.MinMaxCurve(_startEmission);
         }
 
         public void StopShooting()
         {
+            _isShooting = false;
+
             var emission = _shootingPS.emission;
             emission.rateOverTime = new ParticleSystem.MinMaxCurve(0f);
+        }
+
+        private async void ShootingAsync()
+        {
+            while (_isShooting)
+            {
+                ShootProjectile();
+                await UniTask.WaitForSeconds(shootingDelay);
+            }
+        }
+
+        // TODO: pooling needed.
+        private void ShootProjectile()
+        {
+            var projectile = Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation)
+                .GetComponent<BlasterProjectile>();
+            projectile.SetDamage(damage);
         }
     }
 }

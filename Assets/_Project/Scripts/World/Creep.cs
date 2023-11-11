@@ -1,38 +1,28 @@
 ﻿using UnityEngine;
 
-namespace gameoff.Core
+namespace gameoff.World
 {
-    public class TexturePainter : MonoBehaviour
+    [RequireComponent(typeof(SpriteRenderer))]
+    public class Creep : MonoBehaviour
     {
-        [SerializeField] private SpriteRenderer textureRenderer;
-        [SerializeField] private int brushRadius = 5;
+        public SpriteRenderer SpriteRenderer { get; private set; }
 
         private static readonly int AlphaTextureID = Shader.PropertyToID("_AlphaTexture");
         private Texture2D _tmpTexture;
 
         private void Awake()
         {
-            _tmpTexture = CopyTexture2D(textureRenderer.material.GetTexture(AlphaTextureID) as Texture2D);
+            SpriteRenderer = GetComponent<SpriteRenderer>();
+            _tmpTexture = CopyTexture2D(SpriteRenderer.material.GetTexture(AlphaTextureID) as Texture2D);
         }
 
-        private void Update()
+        public void ClearCreep(Vector2 worldPos, int brushSize)
         {
-            Vector3 worldPosition = transform.position;
-            Vector2 textureCoordinates = WorldToTextureCoordinates(worldPosition);
-            UpdateTexturePixels(textureCoordinates);
+            Vector2 textureCoordinates = WorldToTextureCoordinates(worldPos);
+            UpdateTexturePixels(textureCoordinates, brushSize);
         }
 
-        private Vector2 WorldToTextureCoordinates(Vector3 worldPosition)
-        {
-            Vector2 textureCoordinates = new Vector2(
-                Mathf.InverseLerp(textureRenderer.bounds.min.x, textureRenderer.bounds.max.x, worldPosition.x),
-                Mathf.InverseLerp(textureRenderer.bounds.min.y, textureRenderer.bounds.max.y, worldPosition.y)
-            );
-
-            return textureCoordinates;
-        }
-
-        private void UpdateTexturePixels(Vector2 centerCoordinates)
+        private void UpdateTexturePixels(Vector2 centerCoordinates, int brushRadius)
         {
             // Ensure the texture coordinates are within the valid range (0 to 1)
             centerCoordinates = new Vector2(
@@ -60,7 +50,17 @@ namespace gameoff.Core
 
             // Apply the changes to the texture
             _tmpTexture.Apply();
-            textureRenderer.material.SetTexture(AlphaTextureID, _tmpTexture);
+            SpriteRenderer.material.SetTexture(AlphaTextureID, _tmpTexture);
+        }
+
+        private Vector2 WorldToTextureCoordinates(Vector3 worldPosition)
+        {
+            Vector2 textureCoordinates = new Vector2(
+                Mathf.InverseLerp(SpriteRenderer.bounds.min.x, SpriteRenderer.bounds.max.x, worldPosition.x),
+                Mathf.InverseLerp(SpriteRenderer.bounds.min.y, SpriteRenderer.bounds.max.y, worldPosition.y)
+            );
+
+            return textureCoordinates;
         }
 
         private Texture2D CopyTexture2D(Texture2D copiedTexture)
