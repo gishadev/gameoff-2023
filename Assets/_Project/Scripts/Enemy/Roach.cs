@@ -1,6 +1,8 @@
 ﻿using System;
+using gameoff.Enemy;
 using gameoff.Enemy.States;
 using gameoff.PlayerManager;
+using gameoff.World;
 using gishadev.tools.StateMachine;
 using UnityEngine;
 
@@ -18,6 +20,8 @@ namespace gameoff.Enemy
 
         public float MoveSpeed => moveSpeed;
 
+        public EnemySpawnData SpawnData { private set; get; }
+        
         private EnemyMovement _enemyMovement;
         private StateMachine _stateMachine;
 
@@ -69,12 +73,10 @@ namespace gameoff.Enemy
             CurrentHealth -= count;
         }
 
-        private void OnParticleCollision(GameObject other)
-        {
-            TakeDamage(1);
-        }
+        public void SetSpawnData(EnemySpawnData spawnData) => SpawnData = spawnData;
+        
 
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(transform.position, followRadius);
@@ -82,11 +84,5 @@ namespace gameoff.Enemy
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, attackRadius);
         }
-    }
-
-    public interface IDamageable
-    {
-        int CurrentHealth { get; }
-        void TakeDamage(int count);
     }
 }

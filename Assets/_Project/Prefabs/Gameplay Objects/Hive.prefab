@@ -62,6 +62,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2d6ba1bc20408d9b9d562520194f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnRadius: 3
+  spawnDelayInSeconds: 3
+  enemySpawnSettings:
+  - <EnemyPrefab>k__BackingField: {fileID: 7958972308095696765, guid: 8db0d0964172d6445a9f0d19f39240f6, type: 3}
+    <MaxCount>k__BackingField: 5
+    <MinSpawnCount>k__BackingField: 1
+    <MaxSpawnCount>k__BackingField: 3
+    <SpawnChance>k__BackingField: 0.1
 --- !u!1 &6063498413704622996
 GameObject:
   m_ObjectHideFlags: 0
