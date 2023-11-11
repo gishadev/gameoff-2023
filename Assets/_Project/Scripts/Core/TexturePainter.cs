@@ -69,7 +69,6 @@ namespace gameoff.Core
 
             texture.filterMode = FilterMode.Point;
             texture.wrapMode = TextureWrapMode.Clamp;
-            texture.alphaIsTransparency = true;
 
             int y = 0;
             while (y < texture.height)
