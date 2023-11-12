@@ -11,9 +11,11 @@ namespace gishadev.tools.Pooling
     {
         [field: SerializeField] public SFXPoolObject[] SFXPoolObjects { get; private set; }
         [field: SerializeField] public VFXPoolObject[] VFXPoolObjects { get; private set; }
+        [field: SerializeField] public OtherPoolObject[] OtherPoolObjects { get; private set; }
 
         private const string SFX_ENUM_NAME = "SoundEffectsEnum";
         private const string VFX_ENUM_NAME = "VisualEffectsEnum";
+        private const string OTHER_ENUM_NAME = "OtherPoolEnum";
 
 #if UNITY_EDITOR
         // Enum auto generation method.
@@ -21,6 +23,7 @@ namespace gishadev.tools.Pooling
         {
             InitEnumForCollection(SFXPoolObjects, SFXPoolObjects.Select(x => x.Name), SFX_ENUM_NAME);
             InitEnumForCollection(VFXPoolObjects, VFXPoolObjects.Select(x => x.Name), VFX_ENUM_NAME);
+            InitEnumForCollection(OtherPoolObjects, OtherPoolObjects.Select(x => x.Name), OTHER_ENUM_NAME);
         }
 #endif
 
@@ -36,6 +39,8 @@ namespace gishadev.tools.Pooling
                 SFXPoolObjects = tempCollection.Cast<SFXPoolObject>().ToArray();
             if (typeof(T) == typeof(VFXPoolObject))
                 VFXPoolObjects = tempCollection.Cast<VFXPoolObject>().ToArray();
+            if (typeof(T) == typeof(OtherPoolObject))
+                OtherPoolObjects = tempCollection.Cast<OtherPoolObject>().ToArray();
         }
     }
 }

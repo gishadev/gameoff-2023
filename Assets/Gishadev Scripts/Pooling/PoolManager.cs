@@ -10,7 +10,7 @@ namespace gishadev.tools.Pooling
     public abstract class PoolManager<T> : MonoBehaviour where T : PoolObject, new()
     {
         public const string POOL_ASSET = "PoolDataSO";
-        
+
         private Dictionary<IPoolObject, List<GameObject>> _objectsByPoolObject = new();
         private Dictionary<IPoolObject, Transform> _parentByPoolObject = new();
 
@@ -22,7 +22,7 @@ namespace gishadev.tools.Pooling
         protected virtual void Awake()
         {
             PoolDataSO = Resources.Load<PoolDataSO>(POOL_ASSET);
-            
+
             _objectsByPoolObject = new Dictionary<IPoolObject, List<GameObject>>();
             _parentByPoolObject = new Dictionary<IPoolObject, Transform>();
 
@@ -31,10 +31,14 @@ namespace gishadev.tools.Pooling
 
         protected bool TryInstantiate(int index, out GameObject emittedObj)
         {
-            var collection = typeof(T) == typeof(SFXPoolObject)
-                ? PoolDataSO.SFXPoolObjects.Cast<T>().ToArray()
-                : PoolDataSO.VFXPoolObjects.Cast<T>().ToArray();
-            
+            T[] collection;
+            if (typeof(T) == typeof(SFXPoolObject))
+                collection = PoolDataSO.SFXPoolObjects.Cast<T>().ToArray();
+            else if (typeof(T) == typeof(VFXPoolObject))
+                collection = PoolDataSO.VFXPoolObjects.Cast<T>().ToArray();
+            else
+                collection = PoolDataSO.OtherPoolObjects.Cast<T>().ToArray();
+
             var poolObj = collection[index];
             var prefab = poolObj.GetPrefab();
             emittedObj = null;
@@ -108,7 +112,7 @@ namespace gishadev.tools.Pooling
 
             if (index == -1)
             {
-                var newPO = (T)Activator.CreateInstance(typeof(T), prefab);
+                var newPO = (T) Activator.CreateInstance(typeof(T), prefab);
                 poolCollection.Add(newPO);
                 index = poolCollection.Count - 1;
 

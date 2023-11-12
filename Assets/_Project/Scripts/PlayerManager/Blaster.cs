@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using gishadev.tools.Effects;
 using UnityEngine;
 
 namespace gameoff.PlayerManager
@@ -59,10 +60,9 @@ namespace gameoff.PlayerManager
             }
         }
 
-        // TODO: pooling needed.
         private void ShootProjectile()
         {
-            var projectile = Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation)
+            var projectile = OtherEmitter.I.EmitAt(OtherPoolEnum.BLASTER_PROJECTILE, shootPoint.position, shootPoint.rotation)
                 .GetComponent<BlasterProjectile>();
             projectile.SetDamage(damage);
         }

@@ -52,4 +52,16 @@ namespace gishadev.tools.Pooling
         {
         }
     }
+    
+    [System.Serializable]
+    public class OtherPoolObject : PoolObject
+    {
+        public OtherPoolObject(GameObject prefab) : base(prefab)
+        {
+        }
+        
+        public OtherPoolObject()
+        {
+        }
+    }
 }

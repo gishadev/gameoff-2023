@@ -1,4 +1,5 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using gameoff.Enemy;
 using gameoff.World;
 using UnityEngine;
@@ -19,10 +20,10 @@ namespace gameoff.PlayerManager
             _creep = FindObjectOfType<Creep>();
         }
 
-        private void Start()
+        private async void OnEnable()
         {
-            // TODO: Pooling neeeded!
-            Destroy(gameObject, lifeTime);
+            await UniTask.WaitForSeconds(lifeTime);
+            Die();
         }
 
         private void Update() => transform.Translate(transform.right * (flySpeed * Time.deltaTime), Space.World);
@@ -41,10 +42,9 @@ namespace gameoff.PlayerManager
             Die();
         }
 
-        // TODO: Pooling neeeded!
         private void Die()
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
