@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 using Random = System.Random;
 
@@ -14,7 +15,7 @@ namespace gishadev.tools.Pooling
         private Dictionary<IPoolObject, List<GameObject>> _objectsByPoolObject = new();
         private Dictionary<IPoolObject, Transform> _parentByPoolObject = new();
 
-        protected abstract Transform Parent { get; set; }
+        protected abstract Transform Parent { get; }
         protected abstract List<T> PoolObjectsCollection { get; }
 
         protected PoolDataSO PoolDataSO { get; private set; }
@@ -23,13 +24,7 @@ namespace gishadev.tools.Pooling
         protected virtual void Awake()
         {
             PoolDataSO = Resources.Load<PoolDataSO>(POOL_ASSET);
-        }
 
-        /// <summary>
-        /// Trick to fix b-u-g with empty dictionaries on scene restart (object values are becoming null).
-        /// </summary>
-        protected void Initialize()
-        {
             _objectsByPoolObject = new Dictionary<IPoolObject, List<GameObject>>();
             _parentByPoolObject = new Dictionary<IPoolObject, Transform>();
 
@@ -88,7 +83,7 @@ namespace gishadev.tools.Pooling
         {
             Transform parent = _parentByPoolObject[po];
 
-            GameObject createdObject = Object.Instantiate(prefab, parent);
+            GameObject createdObject = Instantiate(prefab, parent);
             _objectsByPoolObject[po].Add(createdObject);
 
             return createdObject;

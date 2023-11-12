@@ -34,6 +34,7 @@ namespace gameoff.World
             int centerX = Mathf.FloorToInt(centerCoordinates.x * _tmpTexture.width);
             int centerY = Mathf.FloorToInt(centerCoordinates.y * _tmpTexture.height);
 
+            bool pixelsChanged = false;
             // Iterate over a square region around the center (adjust as needed)
             for (int x = Mathf.Max(0, centerX - brushRadius);
                  x < Mathf.Min(_tmpTexture.width, centerX + brushRadius);
@@ -44,13 +45,22 @@ namespace gameoff.World
                      y++)
                 {
                     if (Vector2.Distance(new Vector2(x, y), new Vector2(centerX, centerY)) <= brushRadius)
-                        _tmpTexture.SetPixel(x, y, Color.clear);
+                    {
+                        if (_tmpTexture.GetPixel(x, y) != Color.clear)
+                        {
+                            _tmpTexture.SetPixel(x, y, Color.clear);
+                            pixelsChanged = true;
+                        }
+                    }
                 }
             }
 
-            // Apply the changes to the texture
-            _tmpTexture.Apply();
-            SpriteRenderer.material.SetTexture(AlphaTextureID, _tmpTexture);
+            if (pixelsChanged)
+            {
+                // Apply the changes to the texture
+                _tmpTexture.Apply();
+                SpriteRenderer.material.SetTexture(AlphaTextureID, _tmpTexture);
+            }
         }
 
         private Vector2 WorldToTextureCoordinates(Vector3 worldPosition)

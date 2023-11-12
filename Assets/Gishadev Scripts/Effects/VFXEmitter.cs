@@ -12,14 +12,10 @@ namespace gishadev.tools.Effects
             get
             {
                 if (_current)
-                {
-                    _current.Initialize();
                     return _current;
-                }
 
                 _current = new GameObject("[VFXEmitter]").AddComponent<VFXEmitter>();
                 DontDestroyOnLoad(_current.gameObject);
-                _current.Initialize();
                 
                 return _current;
             }
@@ -27,14 +23,8 @@ namespace gishadev.tools.Effects
 
         private static VFXEmitter _current;
 
-        protected override Transform Parent { get; set; }
+        protected override Transform Parent => transform;
         protected override List<VFXPoolObject> PoolObjectsCollection => PoolDataSO.VFXPoolObjects.ToList();
-
-        protected override void Awake()
-        {
-            base.Awake();
-            Parent = transform;
-        }
 
         public GameObject EmitAt(int index, Vector3 position, Quaternion rotation)
         {

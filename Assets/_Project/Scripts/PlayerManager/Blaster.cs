@@ -6,7 +6,6 @@ namespace gameoff.PlayerManager
 {
     public class Blaster : MonoBehaviour
     {
-        [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private Transform shootPoint;
 
         [SerializeField] private int damage = 1;

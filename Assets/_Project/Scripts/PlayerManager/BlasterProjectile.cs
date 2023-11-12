@@ -2,6 +2,7 @@
 using Cysharp.Threading.Tasks;
 using gameoff.Enemy;
 using gameoff.World;
+using gishadev.tools.Pooling;
 using UnityEngine;
 
 namespace gameoff.PlayerManager
@@ -14,20 +15,35 @@ namespace gameoff.PlayerManager
 
         private int _damageCount = 1;
         private Creep _creep;
-
-        private void Awake()
-        {
-            _creep = FindObjectOfType<Creep>();
-        }
+        private float _clearTriggerSqrDst;
+        private Vector2 _lastClearPos;
 
         private async void OnEnable()
         {
+            _creep = FindObjectOfType<Creep>();
+            _clearTriggerSqrDst = Mathf.Pow(clearRadiusInPixels, 2) * Time.deltaTime;
+
+            // TODO: Pooling should change position and than enable an object. This Yield is a workaround.
+            await UniTask.Yield();
+            _lastClearPos = transform.position;
             await UniTask.WaitForSeconds(lifeTime);
             Die();
         }
 
-        private void Update() => transform.Translate(transform.right * (flySpeed * Time.deltaTime), Space.World);
-        private void LateUpdate() => _creep.ClearCreep(transform.position, clearRadiusInPixels);
+        private void Update()
+        {
+            transform.Translate(transform.right * (flySpeed * Time.deltaTime), Space.World);
+        }
+
+        private void LateUpdate()
+        {
+            var clearSqrDst = ((Vector2) transform.position - _lastClearPos).sqrMagnitude;
+            if (clearSqrDst >= _clearTriggerSqrDst)
+            {
+                _creep.ClearCreep(transform.position, clearRadiusInPixels);
+                _lastClearPos = transform.position;
+            }
+        }
 
         public void SetDamage(int damageCount)
         {

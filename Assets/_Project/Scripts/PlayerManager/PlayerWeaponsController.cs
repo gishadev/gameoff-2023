@@ -9,6 +9,7 @@ namespace gameoff.PlayerManager
     {
         [SerializeField] private Blaster blaster;
         [SerializeField] private float specialAttackDelay = 1f;
+        [SerializeField] private int specialAttackProjectileDamage = 5;
 
         private IAbility _ability;
 
@@ -20,7 +21,7 @@ namespace gameoff.PlayerManager
 
         private void Awake()
         {
-            _ability = new ExplosionAbility(GetComponent<Player>());
+            _ability = new ExplosionAbility(GetComponent<Player>(), specialAttackProjectileDamage);
 
             _cam = Camera.main;
             _input = new CustomInput();
