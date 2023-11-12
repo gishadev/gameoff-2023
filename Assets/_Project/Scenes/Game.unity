@@ -6813,7 +6813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658526, guid: b70a26c7a562f27438760e2e16e5947c, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658526, guid: b70a26c7a562f27438760e2e16e5947c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10506,7 +10506,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2431296442014268782, guid: 93b85827bf41f314f93e9fbfc2c3dc2a, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2431296442014268782, guid: 93b85827bf41f314f93e9fbfc2c3dc2a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10552,14 +10552,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2431296443055072976, guid: 93b85827bf41f314f93e9fbfc2c3dc2a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2431296443055072981, guid: 93b85827bf41f314f93e9fbfc2c3dc2a, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 150
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93b85827bf41f314f93e9fbfc2c3dc2a, type: 3}
 --- !u!1001 &5100506216518856918
@@ -10571,7 +10563,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5100506215263105453, guid: b78243afa31c7b24fa83dd21f0ffe161, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5100506215263105453, guid: b78243afa31c7b24fa83dd21f0ffe161, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10632,7 +10624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658526, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658526, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: m_LocalPosition.x

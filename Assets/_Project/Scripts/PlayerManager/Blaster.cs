@@ -1,7 +1,5 @@
-﻿using System;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace gameoff.PlayerManager
 {
@@ -14,14 +12,16 @@ namespace gameoff.PlayerManager
         [SerializeField] private float shootingDelay = 0.1f;
 
         private ParticleSystem _shootingPS;
-        private readonly float _startEmission = 150f;
+        private float _startEmission;
         private bool _isShooting;
 
         private void Awake()
         {
             _shootingPS = GetComponentInChildren<ParticleSystem>(true);
 
+            
             var emission = _shootingPS.emission;
+            _startEmission = emission.rateOverTime.constant;
             emission.rateOverTime = new ParticleSystem.MinMaxCurve(0f);
         }
 

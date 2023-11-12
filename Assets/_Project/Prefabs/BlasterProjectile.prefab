@@ -170,4 +170,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flySpeed: 30
   lifeTime: 0.5
-  clearRadiusInPixels: 3
+  clearRadiusInPixels: 4
