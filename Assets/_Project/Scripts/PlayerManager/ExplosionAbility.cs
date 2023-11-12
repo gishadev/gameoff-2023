@@ -8,7 +8,7 @@ namespace gameoff.PlayerManager
         private readonly Player _player;
         private readonly int _projectileDamage;
 
-        private readonly int _projectileCount = 10;
+        private readonly int _projectileCount = 7;
 
         public ExplosionAbility(Player player, int projectileDamage)
         {
