@@ -24,11 +24,14 @@ namespace gameoff.PlayerManager
 
             if (CurrentHealth <= 0)
                 Die();
+            
+            Debug.Log("Damage taken");
         }
 
         private void Die()
         {
             Died?.Invoke();
+            gameObject.SetActive(false);
         }
     }
 }

@@ -10,16 +10,21 @@ namespace gameoff.Enemy
     public class Roach : MonoBehaviour, IDamageable
     {
         [field: SerializeField] public int StartHealth { private set; get; } = 2;
+
         [SerializeField] private float moveSpeed = 10f;
         [SerializeField] private float followRadius = 5f;
+        [Space] 
         [SerializeField] private float attackRadius = 1f;
+        [SerializeField] private float attackDelay = 0.7f;
+        [field: SerializeField] public int AttackDamage { private set; get; } = 1;
         
+
         public int CurrentHealth { get; private set; }
 
         public float MoveSpeed => moveSpeed;
 
         public EnemySpawnData SpawnData { private set; get; }
-        
+
         private EnemyMovement _enemyMovement;
         private StateMachine _stateMachine;
 
@@ -45,11 +50,16 @@ namespace gameoff.Enemy
 
             var idle = new Idle();
             var follow = new Follow(this, _enemyMovement);
-            var attack = new Attack();
+            var prepareToAttack = new PrepareMeleeAttack();
+            var attack = new Attack(this);
             var die = new Die(this);
 
             At(idle, follow, InSightWithPlayer);
-            At(follow, attack, InAttackReachWithPlayer);
+            At(follow, prepareToAttack, InAttackReachWithPlayer);
+            
+            At(prepareToAttack, follow, () => !InAttackReachWithPlayer());
+            At(prepareToAttack, attack, IsAttackDelayElapsed);
+            
             At(attack, idle, () => true);
 
             Aat(die, () => CurrentHealth <= 0);
@@ -62,6 +72,8 @@ namespace gameoff.Enemy
             bool InAttackReachWithPlayer() =>
                 Vector3.Distance(Player.Current.transform.position, transform.position) < attackRadius;
 
+            bool IsAttackDelayElapsed() => prepareToAttack.GetElapsedTime() > attackDelay;
+
             void At(IState from, IState to, Func<bool> cond) => _stateMachine.AddTransition(from, to, cond);
             void Aat(IState to, Func<bool> cond) => _stateMachine.AddAnyTransition(to, cond);
         }
@@ -72,7 +84,7 @@ namespace gameoff.Enemy
         }
 
         public void SetSpawnData(EnemySpawnData spawnData) => SpawnData = spawnData;
-        
+
 
         private void OnDrawGizmosSelected()
         {

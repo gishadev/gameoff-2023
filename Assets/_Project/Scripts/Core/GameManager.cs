@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using gameoff.Enemy;
+using gameoff.PlayerManager;
 using gameoff.World;
 using UnityEngine;
 
@@ -11,11 +12,13 @@ namespace gameoff.Core
         private void OnEnable()
         {
             Hive.Died += OnHiveDied;
+            Player.Current.Died += Lose;
         }
 
         private void OnDisable()
         {
             Hive.Died -= OnHiveDied;
+            Player.Current.Died -= Lose;
         }
         
         private void OnHiveDied(Hive hive)
