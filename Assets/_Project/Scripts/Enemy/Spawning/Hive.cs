@@ -6,6 +6,8 @@ namespace gameoff.Enemy
 {
     public class Hive : MonoBehaviour, IDamageable
     {
+        [field: SerializeField] public int StartHealth { get; private set; } = 100;
+
         [Header("Spawning Parameters")]
         [SerializeField] private float spawnDelayInSeconds = 3f;
         [SerializeField] private float spawnOuterRadius = 2f, spawnInnerRadius = 1f;
@@ -21,6 +23,7 @@ namespace gameoff.Enemy
 
         private void Awake()
         {
+            CurrentHealth = StartHealth;            
             _enemyFactory = new EnemyFactory(_diContainer, this, spawnOuterRadius, spawnInnerRadius,
                 spawnDelayInSeconds, enemySpawnSettings);
         }

@@ -1,8 +1,6 @@
 ﻿using System;
-using gameoff.Enemy;
 using gameoff.Enemy.States;
 using gameoff.PlayerManager;
-using gameoff.World;
 using gishadev.tools.StateMachine;
 using UnityEngine;
 
@@ -11,7 +9,7 @@ namespace gameoff.Enemy
     [RequireComponent(typeof(EnemyMovement))]
     public class Roach : MonoBehaviour, IDamageable
     {
-        [SerializeField] private int health = 2;
+        [field: SerializeField] public int StartHealth { private set; get; } = 2;
         [SerializeField] private float moveSpeed = 10f;
         [SerializeField] private float followRadius = 5f;
         [SerializeField] private float attackRadius = 1f;
@@ -27,7 +25,7 @@ namespace gameoff.Enemy
 
         private void Awake()
         {
-            CurrentHealth = health;
+            CurrentHealth = StartHealth;
             _enemyMovement = GetComponent<EnemyMovement>();
         }
 
