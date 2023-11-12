@@ -19,10 +19,17 @@ namespace gishadev.tools.Pooling
 
         protected PoolDataSO PoolDataSO { get; private set; }
 
+
         protected virtual void Awake()
         {
             PoolDataSO = Resources.Load<PoolDataSO>(POOL_ASSET);
+        }
 
+        /// <summary>
+        /// Trick to fix b-u-g with empty dictionaries on scene restart (object values are becoming null).
+        /// </summary>
+        protected void Initialize()
+        {
             _objectsByPoolObject = new Dictionary<IPoolObject, List<GameObject>>();
             _parentByPoolObject = new Dictionary<IPoolObject, Transform>();
 

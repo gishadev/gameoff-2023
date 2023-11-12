@@ -48,7 +48,7 @@ namespace gameoff.Enemy
 
         private async void SpawningAsync()
         {
-            while (_isSpawning)
+            while (_isSpawning && _hiveOrigin != null)
             {
                 var randomEnemySpawnSettings = GetRandomEnemySettings(GetAvailableEnemiesToSpawn());
                 if (randomEnemySpawnSettings != null)

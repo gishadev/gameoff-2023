@@ -12,10 +12,14 @@ namespace gishadev.tools.Effects
             get
             {
                 if (_current)
+                {
+                    _current.Initialize();
                     return _current;
+                }
 
                 _current = new GameObject("[OtherEmitter]").AddComponent<OtherEmitter>();
                 DontDestroyOnLoad(_current.gameObject);
+                _current.Initialize();
 
                 return _current;
             }

@@ -96,7 +96,8 @@ namespace gishadev.tools.UI
             var seq = DOTween.Sequence();
             seq.Append(_rectTransform
                 .DOAnchorPos(Vector3.right * endValue, duration)
-                .SetEase(ease));
+                .SetEase(ease))
+                .SetUpdate(true);
 
             return seq;
         }
@@ -109,7 +110,8 @@ namespace gishadev.tools.UI
             var seq = DOTween.Sequence();
             seq.Append(_rectTransform
                 .DOAnchorPos(Vector3.up * endValue, duration)
-                .SetEase(ease));
+                .SetEase(ease))
+                .SetUpdate(true);
 
             return seq;
         }
@@ -122,7 +124,8 @@ namespace gishadev.tools.UI
             var seq = DOTween.Sequence();
             seq.Append(_canvasGroup
                 .DOFade(endValue, duration)
-                .SetEase(ease));
+                .SetEase(ease))
+                .SetUpdate(true);
 
             return seq;
         }
@@ -135,7 +138,8 @@ namespace gishadev.tools.UI
             var seq = DOTween.Sequence();
             seq.Append(_rectTransform.transform
                 .DOScale(endValue, duration)
-                .SetEase(ease));
+                .SetEase(ease))
+                .SetUpdate(true);
 
             return seq;
         }
