@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Aoiti.Pathfinding;
 using DG.Tweening;
 using UnityEngine;
@@ -42,13 +43,13 @@ namespace gameoff.Enemy
 
         private void HandleMovementAnimation()
         {
-            if (_pathLeftToGo.Count > 0 && !DOTween.IsTweening(transform) && gameObject != null)
+            if (_pathLeftToGo.Count > 0 && !DOTween.IsTweening(transform))
                 transform.DOScaleY(.9f, .2f).SetEase(Ease.InSine).OnComplete(() =>
                 {
                     transform.DOScaleY(1f, .2f).SetEase(Ease.InSine);
                 });
         }
-        
+
         public void SetDestination(Vector2 target)
         {
             Vector2 closestNode = GetClosestNode(transform.position);

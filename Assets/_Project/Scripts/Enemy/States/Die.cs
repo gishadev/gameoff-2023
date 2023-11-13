@@ -18,7 +18,7 @@ namespace gameoff.Enemy.States
 
         public void OnEnter()
         {
-            Object.Destroy(_roach.gameObject);
+            _roach.gameObject.SetActive(false);
         }
 
         public void OnExit()

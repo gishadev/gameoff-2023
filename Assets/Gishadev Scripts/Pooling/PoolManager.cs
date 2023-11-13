@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Object = UnityEngine.Object;
 using Random = System.Random;
 
 namespace gishadev.tools.Pooling
@@ -24,6 +23,28 @@ namespace gishadev.tools.Pooling
         protected virtual void Awake()
         {
             PoolDataSO = Resources.Load<PoolDataSO>(POOL_ASSET);
+
+            _objectsByPoolObject = new Dictionary<IPoolObject, List<GameObject>>();
+            _parentByPoolObject = new Dictionary<IPoolObject, Transform>();
+
+            InitializePools(PoolObjectsCollection);
+        }
+
+        private void OnEnable()
+        {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+        
+        // Unload pools.
+        private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+        {
+            foreach (var parent in _parentByPoolObject.Values) 
+                Destroy(parent.gameObject);
 
             _objectsByPoolObject = new Dictionary<IPoolObject, List<GameObject>>();
             _parentByPoolObject = new Dictionary<IPoolObject, Transform>();

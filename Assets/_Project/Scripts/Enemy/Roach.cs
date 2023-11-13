@@ -13,11 +13,9 @@ namespace gameoff.Enemy
 
         [SerializeField] private float moveSpeed = 10f;
         [SerializeField] private float followRadius = 5f;
-        [Space] 
-        [SerializeField] private float attackRadius = 1f;
+        [Space] [SerializeField] private float attackRadius = 1f;
         [SerializeField] private float attackDelay = 0.7f;
         [field: SerializeField] public int AttackDamage { private set; get; } = 1;
-        
 
         public int CurrentHealth { get; private set; }
 
@@ -30,12 +28,12 @@ namespace gameoff.Enemy
 
         private void Awake()
         {
-            CurrentHealth = StartHealth;
             _enemyMovement = GetComponent<EnemyMovement>();
         }
 
-        private void Start()
+        private void OnEnable()
         {
+            CurrentHealth = StartHealth;
             InitStateMachine();
         }
 
@@ -56,10 +54,10 @@ namespace gameoff.Enemy
 
             At(idle, follow, InSightWithPlayer);
             At(follow, prepareToAttack, InAttackReachWithPlayer);
-            
+
             At(prepareToAttack, follow, () => !InAttackReachWithPlayer());
             At(prepareToAttack, attack, IsAttackDelayElapsed);
-            
+
             At(attack, idle, () => true);
 
             Aat(die, () => CurrentHealth <= 0);

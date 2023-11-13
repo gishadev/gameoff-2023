@@ -270,7 +270,7 @@ MonoBehaviour:
   specialAbilitySettings:
     <AbilityDelay>k__BackingField: 1
     <ProjectileDamage>k__BackingField: 5
-    <ProjectileCount>k__BackingField: 10
+    <ProjectileCount>k__BackingField: 15
     <ClearIterations>k__BackingField: 10
     <ClearMaxRadius>k__BackingField: 50
     <FullClearExpandingTime>k__BackingField: 0.4
@@ -4193,7 +4193,7 @@ ParticleSystem:
     radiusScale: 0.05
     collidesWith:
       serializedVersion: 2
-      m_Bits: 55
+      m_Bits: 183
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -5272,7 +5272,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 761b7740c9fa12e4c986f9f0c6930c0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Cysharp.Threading.Tasks;
+using gishadev.tools.Effects;
 using UnityEngine;
 using Zenject;
 
@@ -80,9 +81,9 @@ namespace gameoff.Enemy
         private void SpawnEnemy(EnemySpawnSettings randomEnemySpawnSettings, Vector2 position)
         {
             var spawnedEnemy =
-                _diContainer
-                    .InstantiatePrefab(randomEnemySpawnSettings.EnemyPrefab, position, Quaternion.identity, _parent)
+                OtherEmitter.I.EmitAt(OtherPoolEnum.ROACH, position, Quaternion.identity)
                     .GetComponent<Roach>();
+            spawnedEnemy.transform.SetParent(_parent);
 
             spawnedEnemy.SetSpawnData(new EnemySpawnData(_hiveOrigin,
                 randomEnemySpawnSettings.EnemyPrefab.GetInstanceID().ToString()));
