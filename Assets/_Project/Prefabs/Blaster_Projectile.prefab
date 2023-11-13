@@ -168,6 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ce957a44604e529c3890bea7045e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flySpeed: 30
-  lifeTime: 0.5
+  <FlySpeed>k__BackingField: 30
+  <LifeTime>k__BackingField: 0.4
   clearRadiusInPixels: 4

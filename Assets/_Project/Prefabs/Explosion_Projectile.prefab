@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3917482445967802632}
   - component: {fileID: 2295667171022773881}
   - component: {fileID: 4275899437867694599}
-  - component: {fileID: 7020852867043475922}
+  - component: {fileID: 157121038644914689}
   m_Layer: 8
   m_Name: Explosion_Projectile
   m_TagString: Untagged
@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 3917482445967802638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.6386471, y: -0.22505769, z: 0.07001131}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3917482444908288758}
@@ -156,7 +156,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &7020852867043475922
+--- !u!114 &157121038644914689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,9 +165,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3917482445967802638}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34ce957a44604e529c3890bea7045e32, type: 3}
+  m_Script: {fileID: 11500000, guid: 3878c59ece194364acb2663e43b65eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flySpeed: 13
-  lifeTime: 0.4
-  clearRadiusInPixels: 13
+  <FlySpeed>k__BackingField: 20
+  <LifeTime>k__BackingField: 0.4

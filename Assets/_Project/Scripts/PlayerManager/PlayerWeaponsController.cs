@@ -1,6 +1,8 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 namespace gameoff.PlayerManager
 {
@@ -8,8 +10,9 @@ namespace gameoff.PlayerManager
     public class PlayerWeaponsController : MonoBehaviour
     {
         [SerializeField] private Blaster blaster;
-        [SerializeField] private float specialAttackDelay = 1f;
-        [SerializeField] private int specialAttackProjectileDamage = 5;
+        [SerializeField] private SpecialAbilitySettings specialAbilitySettings;
+        
+        [Inject] private DiContainer _diContainer;
 
         private IAbility _ability;
 
@@ -21,7 +24,7 @@ namespace gameoff.PlayerManager
 
         private void Awake()
         {
-            _ability = new ExplosionAbility(GetComponent<Player>(), specialAttackProjectileDamage);
+            _ability = new ExplosionAbility(GetComponent<Player>(), _diContainer, specialAbilitySettings);
 
             _cam = Camera.main;
             _input = new CustomInput();
@@ -99,10 +102,22 @@ namespace gameoff.PlayerManager
 
             _ability.Trigger();
             _isSpecialAttackDelay = true;
-            await UniTask.WaitForSeconds(specialAttackDelay);
+            await UniTask.WaitForSeconds(specialAbilitySettings.AbilityDelay);
             _isSpecialAttackDelay = false;
         }
 
         #endregion
+    }
+
+    [Serializable]
+    public class SpecialAbilitySettings
+    {
+        [field: SerializeField] public float AbilityDelay { private set; get; } = 1f;
+        [field: SerializeField] public int ProjectileDamage { private set; get; } = 5;
+        [field: SerializeField] public int ProjectileCount { private set; get; } = 10;
+        
+        [field: SerializeField] public int ClearIterations { private set; get; } = 10;
+        [field: SerializeField] public float ClearMaxRadius { private set; get; } = 5f;
+        [field: SerializeField] public float FullClearExpandingTime { private set; get; } = 1f;
     }
 }

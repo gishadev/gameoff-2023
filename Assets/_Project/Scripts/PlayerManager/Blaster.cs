@@ -1,6 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using gishadev.tools.Effects;
 using UnityEngine;
+using Zenject;
 
 namespace gameoff.PlayerManager
 {
@@ -10,7 +11,8 @@ namespace gameoff.PlayerManager
 
         [SerializeField] private int damage = 1;
         [SerializeField] private float shootingDelay = 0.1f;
-
+        [Inject] private DiContainer _diContainer;
+        
         private ParticleSystem _shootingPS;
         private float _startEmission;
         private bool _isShooting;
@@ -64,6 +66,7 @@ namespace gameoff.PlayerManager
             var projectile = OtherEmitter.I.EmitAt(OtherPoolEnum.BLASTER_PROJECTILE, shootPoint.position, shootPoint.rotation)
                 .GetComponent<BlasterProjectile>();
             projectile.SetDamage(damage);
+            _diContainer.InjectGameObject(projectile.gameObject);
         }
     }
 }
