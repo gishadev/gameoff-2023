@@ -21,3 +21,6 @@ MonoBehaviour:
   - <Name>k__BackingField: Blaster_Projectile
     <Prefabs>k__BackingField:
     - {fileID: 3917482445967802638, guid: 2b13472e092077f4591005ed1df34143, type: 3}
+  - <Name>k__BackingField: Explosion_Projectile
+    <Prefabs>k__BackingField:
+    - {fileID: 3917482445967802638, guid: 8bf9ee9bc89677744a8c1d56b16a6e81, type: 3}

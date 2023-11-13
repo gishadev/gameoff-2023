@@ -52,6 +52,8 @@ namespace gishadev.tools.editor
                 var enumsGen = (ScriptableObjectEnumsGenerator) target;
                 enumsGen.OnCollectionChanged();
             }
+            
+            EditorUtility.SetDirty(_poolData);
         }
     }
 }
