@@ -21,7 +21,7 @@ namespace gameoff.Enemy
 
         public float MoveSpeed => moveSpeed;
 
-        public EnemySpawnData SpawnData { private set; get; }
+        public IEnemySpawnData SpawnData { private set; get; }
 
         private EnemyMovement _enemyMovement;
         private StateMachine _stateMachine;
@@ -81,7 +81,7 @@ namespace gameoff.Enemy
             CurrentHealth -= count;
         }
 
-        public void SetSpawnData(EnemySpawnData spawnData) => SpawnData = spawnData;
+        public void SetSpawnData(IEnemySpawnData spawnData) => SpawnData = spawnData;
 
 
         private void OnDrawGizmosSelected()
