@@ -5,16 +5,16 @@ namespace gameoff.World
     [RequireComponent(typeof(SpriteRenderer))]
     public class Creep : MonoBehaviour
     {
-        private SpriteRenderer _spriteRenderer;
+        private SpriteRenderer[] _spriteRenderers;
 
-        public SpriteRenderer SpriteRenderer
+        public SpriteRenderer[] SpriteRenderers
         {
             get
             {
-                if (_spriteRenderer == null)
-                    _spriteRenderer = GetComponent<SpriteRenderer>();
+                if (_spriteRenderers == null)
+                    _spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
                     
-                return _spriteRenderer;
+                return _spriteRenderers;
             }
         }
     }

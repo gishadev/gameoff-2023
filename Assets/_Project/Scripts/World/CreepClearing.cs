@@ -12,7 +12,7 @@ namespace gameoff.World
         public void Init()
         {
             _creep = Object.FindObjectOfType<Creep>();
-            _tmpTexture = CopyTexture2D(_creep.SpriteRenderer.material.GetTexture(AlphaTextureID) as Texture2D);
+            _tmpTexture = CopyTexture2D(_creep.SpriteRenderers[0].material.GetTexture(AlphaTextureID) as Texture2D);
         }
 
         public void ClearCreep(Vector2 worldPos, int brushSize)
@@ -61,16 +61,17 @@ namespace gameoff.World
             {
                 // Apply the changes to the texture
                 _tmpTexture.Apply();
-                _creep.SpriteRenderer.material.SetTexture(AlphaTextureID, _tmpTexture);
+                foreach (var sr in _creep.SpriteRenderers) 
+                    sr.material.SetTexture(AlphaTextureID, _tmpTexture);
             }
         }
 
         private Vector2 WorldToTextureCoordinates(Vector3 worldPosition)
         {
             Vector2 textureCoordinates = new Vector2(
-                Mathf.InverseLerp(_creep.SpriteRenderer.bounds.min.x, _creep.SpriteRenderer.bounds.max.x,
+                Mathf.InverseLerp(_creep.SpriteRenderers[0].bounds.min.x, _creep.SpriteRenderers[0].bounds.max.x,
                     worldPosition.x),
-                Mathf.InverseLerp(_creep.SpriteRenderer.bounds.min.y, _creep.SpriteRenderer.bounds.max.y,
+                Mathf.InverseLerp(_creep.SpriteRenderers[0].bounds.min.y, _creep.SpriteRenderers[0].bounds.max.y,
                     worldPosition.y)
             );
 
