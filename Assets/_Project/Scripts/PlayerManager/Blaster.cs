@@ -1,27 +1,29 @@
-﻿using System;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
+using gishadev.tools.Effects;
 using UnityEngine;
-using Object = UnityEngine.Object;
+using Zenject;
 
 namespace gameoff.PlayerManager
 {
     public class Blaster : MonoBehaviour
     {
-        [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private Transform shootPoint;
 
         [SerializeField] private int damage = 1;
         [SerializeField] private float shootingDelay = 0.1f;
-
+        [Inject] private DiContainer _diContainer;
+        
         private ParticleSystem _shootingPS;
-        private readonly float _startEmission = 150f;
+        private float _startEmission;
         private bool _isShooting;
 
         private void Awake()
         {
             _shootingPS = GetComponentInChildren<ParticleSystem>(true);
 
+            
             var emission = _shootingPS.emission;
+            _startEmission = emission.rateOverTime.constant;
             emission.rateOverTime = new ParticleSystem.MinMaxCurve(0f);
         }
 
@@ -59,12 +61,12 @@ namespace gameoff.PlayerManager
             }
         }
 
-        // TODO: pooling needed.
         private void ShootProjectile()
         {
-            var projectile = Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation)
+            var projectile = OtherEmitter.I.EmitAt(OtherPoolEnum.BLASTER_PROJECTILE, shootPoint.position, shootPoint.rotation)
                 .GetComponent<BlasterProjectile>();
             projectile.SetDamage(damage);
+            _diContainer.InjectGameObject(projectile.gameObject);
         }
     }
 }

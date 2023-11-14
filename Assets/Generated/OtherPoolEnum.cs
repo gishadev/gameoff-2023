@@ -1,0 +1,6 @@
+public enum OtherPoolEnum
+{
+	BLASTER_PROJECTILE,
+	EXPLOSION_PROJECTILE,
+	ROACH
+}
