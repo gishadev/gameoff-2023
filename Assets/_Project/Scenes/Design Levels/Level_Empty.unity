@@ -4853,10 +4853,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2431296443055072981, guid: 93b85827bf41f314f93e9fbfc2c3dc2a, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 150
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93b85827bf41f314f93e9fbfc2c3dc2a, type: 3}
 --- !u!1001 &5100506216518856918
