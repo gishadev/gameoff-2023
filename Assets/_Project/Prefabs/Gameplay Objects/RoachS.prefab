@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1695625193235556154}
   - component: {fileID: 335686433}
   m_Layer: 0
-  m_Name: Roach
+  m_Name: RoachS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
