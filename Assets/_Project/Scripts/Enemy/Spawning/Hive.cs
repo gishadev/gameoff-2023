@@ -19,18 +19,18 @@ namespace gameoff.Enemy
         public static event Action<Hive> Died;
         public int CurrentHealth { get; private set; } = 100;
 
-        private EnemyFactory _enemyFactory;
+        private HiveEnemyFactory _hiveEnemyFactory;
 
         private void Awake()
         {
             CurrentHealth = StartHealth;            
-            _enemyFactory = new EnemyFactory(_diContainer, this, spawnOuterRadius, spawnInnerRadius,
+            _hiveEnemyFactory = new HiveEnemyFactory(_diContainer, this, spawnOuterRadius, spawnInnerRadius,
                 spawnDelayInSeconds, enemySpawnSettings);
         }
 
         private void Start()
         {
-            _enemyFactory.StartSpawning();
+            _hiveEnemyFactory.StartSpawning();
         }
 
 

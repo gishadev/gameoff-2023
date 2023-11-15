@@ -6,7 +6,7 @@ using Zenject;
 
 namespace gameoff.Enemy
 {
-    public class EnemyFactory
+    public class HiveEnemyFactory
     {
         private readonly DiContainer _diContainer;
         private readonly Hive _hiveOrigin;
@@ -18,7 +18,7 @@ namespace gameoff.Enemy
 
         private readonly Transform _parent;
 
-        public EnemyFactory(DiContainer diContainer, Hive hiveOrigin, float spawnOuterRadius, float spawnInnerRadius,
+        public HiveEnemyFactory(DiContainer diContainer, Hive hiveOrigin, float spawnOuterRadius, float spawnInnerRadius,
             float spawnDelayInSeconds,
             EnemySpawnSettings[] enemySpawnSettings)
         {
@@ -29,7 +29,7 @@ namespace gameoff.Enemy
             _spawnDelayInSeconds = spawnDelayInSeconds;
             _enemySpawnSettings = enemySpawnSettings;
 
-            _parent = new GameObject("[Enemy Factory]").transform;
+            _parent = new GameObject("[Hive Enemy Factory]").transform;
         }
 
 
@@ -85,7 +85,7 @@ namespace gameoff.Enemy
                     .GetComponent<Roach>();
             spawnedEnemy.transform.SetParent(_parent);
 
-            spawnedEnemy.SetSpawnData(new EnemySpawnData(_hiveOrigin,
+            spawnedEnemy.SetSpawnData(new HiveEnemySpawnData(_hiveOrigin,
                 randomEnemySpawnSettings.EnemyPrefab.GetInstanceID().ToString()));
         }
 
@@ -140,9 +140,13 @@ namespace gameoff.Enemy
         private Roach[] GetSpawnedEnemies(EnemySpawnSettings enemySettings)
         {
             return Object.FindObjectsOfType<Roach>().Where(x =>
-                    x.SpawnData != null &&
-                    x.SpawnData.HiveOrigin == _hiveOrigin &&
-                    x.SpawnData.PrefabID == enemySettings.EnemyPrefab.GetInstanceID().ToString())
+                {
+                    if (x.SpawnData is not HiveEnemySpawnData hiveEnemySpawnData)
+                        return false;
+                        
+                    return hiveEnemySpawnData.HiveOrigin == _hiveOrigin &&
+                           hiveEnemySpawnData.PrefabID == enemySettings.EnemyPrefab.GetInstanceID().ToString();
+                })
                 .ToArray();
         }
     }

@@ -21,7 +21,6 @@ namespace gameoff.PlayerManager
         {
             _shootingPS = GetComponentInChildren<ParticleSystem>(true);
 
-            
             var emission = _shootingPS.emission;
             _startEmission = emission.rateOverTime.constant;
             emission.rateOverTime = new ParticleSystem.MinMaxCurve(0f);
