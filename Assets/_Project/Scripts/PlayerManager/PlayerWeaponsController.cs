@@ -43,6 +43,8 @@ namespace gameoff.PlayerManager
             _input.Player.PrimaryAttack.performed += OnPrimaryAttackPerformed;
             _input.Player.PrimaryAttack.canceled += OnPrimaryAttackCanceled;
             _input.Player.SpecialAttack.performed += OnSpecialAttackPerformed;
+            
+            _input.Player.Reload.performed += OnReloadPerformed;
         }
 
         private void OnDisable()
@@ -55,6 +57,8 @@ namespace gameoff.PlayerManager
             _input.Player.PrimaryAttack.performed -= OnPrimaryAttackPerformed;
             _input.Player.PrimaryAttack.canceled -= OnPrimaryAttackCanceled;
             _input.Player.SpecialAttack.performed -= OnSpecialAttackPerformed;
+            
+            _input.Player.Reload.performed -= OnReloadPerformed;
         }
 
         private void Update()
@@ -110,6 +114,11 @@ namespace gameoff.PlayerManager
             _isSpecialAttackDelay = true;
             await UniTask.WaitForSeconds(specialAbilitySettings.AbilityDelay);
             _isSpecialAttackDelay = false;
+        }
+        
+        private void OnReloadPerformed(InputAction.CallbackContext value)
+        {
+            blaster.StartReloading();
         }
 
         #endregion

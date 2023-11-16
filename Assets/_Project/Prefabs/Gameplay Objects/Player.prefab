@@ -494,6 +494,8 @@ MonoBehaviour:
   shootPoint: {fileID: 2955248729071630628}
   damage: 1
   shootingDelay: 0.15
+  reloadingDelay: 1
+  <MaxAmmo>k__BackingField: 50
 --- !u!1 &2431296443055072976
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,14 +5,10 @@ using UnityEngine.UI;
 
 namespace gameoff.UI.Game
 {
-    [RequireComponent(typeof(Image))]
-    public class HealthBar : MonoBehaviour
+    public class HealthBarGUI : MonoBehaviour
     {
+        [SerializeField] private Image image;
         [SerializeField] private float healthChangingAnimationTime = 0.5f;
-
-        private Image _image;
-
-        private void Awake() => _image = GetComponent<Image>();
 
         private void OnEnable() => Player.HealthChanged += OnHealthChanged;
         private void OnDisable() => Player.HealthChanged -= OnHealthChanged;
@@ -22,7 +18,7 @@ namespace gameoff.UI.Game
             var player = Player.Current;
             var newScale = (float)healthCount / player.StartHealth;
 
-            _image.transform
+            image.transform
                 .DOScaleX(newScale, healthChangingAnimationTime)
                 .SetEase(Ease.InSine);
         }

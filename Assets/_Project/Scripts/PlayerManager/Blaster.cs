@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System;
+using Cysharp.Threading.Tasks;
 using gishadev.tools.Effects;
 using UnityEngine;
 using Zenject;
@@ -11,14 +12,21 @@ namespace gameoff.PlayerManager
 
         [SerializeField] private int damage = 1;
         [SerializeField] private float shootingDelay = 0.1f;
+        [SerializeField] private float reloadingDelay = 1f;
+        [field: SerializeField] public int MaxAmmo { get; private set; } = 100;
+
         [Inject] private DiContainer _diContainer;
-        
+
+        public event Action<int> AmmoChanged;
+        public int CurrentAmmo { get; private set; }
+
         private ParticleSystem _shootingPS;
         private float _startEmission;
-        private bool _isShooting;
+        private bool _isShooting, _isReloading;
 
         private void Awake()
         {
+            CurrentAmmo = MaxAmmo;
             _shootingPS = GetComponentInChildren<ParticleSystem>(true);
 
             var emission = _shootingPS.emission;
@@ -36,6 +44,9 @@ namespace gameoff.PlayerManager
 
         public void StartShooting()
         {
+            if (CurrentAmmo <= 0)
+                return;
+
             _isShooting = true;
 
             ShootingAsync();
@@ -51,20 +62,46 @@ namespace gameoff.PlayerManager
             emission.rateOverTime = new ParticleSystem.MinMaxCurve(0f);
         }
 
+        public void StartReloading()
+        {
+            ReloadingAsync();
+        }
+
         private async void ShootingAsync()
         {
             while (_isShooting)
             {
+                if (CurrentAmmo <= 0)
+                {
+                    StopShooting();
+                    break;
+                }
+
                 ShootProjectile();
                 await UniTask.WaitForSeconds(shootingDelay);
             }
         }
 
+        private async void ReloadingAsync()
+        {
+            _isReloading = true;
+            await UniTask.WaitForSeconds(reloadingDelay);
+            CurrentAmmo = MaxAmmo;
+            _isReloading = false;
+            
+            AmmoChanged?.Invoke(CurrentAmmo);
+        }
+
         private void ShootProjectile()
         {
-            var projectile = OtherEmitter.I.EmitAt(OtherPoolEnum.BLASTER_PROJECTILE, shootPoint.position, shootPoint.rotation)
+            var projectile = OtherEmitter.I
+                .EmitAt(OtherPoolEnum.BLASTER_PROJECTILE, shootPoint.position, shootPoint.rotation)
                 .GetComponent<BlasterProjectile>();
             projectile.SetDamage(damage);
+
+            CurrentAmmo--;
+            AmmoChanged?.Invoke(CurrentAmmo);
+
             _diContainer.InjectGameObject(projectile.gameObject);
         }
     }
