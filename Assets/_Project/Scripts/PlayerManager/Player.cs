@@ -7,6 +7,7 @@ namespace gameoff.PlayerManager
     public class Player : MonoBehaviour, IDamageable
     {
         [field: SerializeField] public int StartHealth { private set; get; } = 20;
+        [field: SerializeField] public SpriteRenderer SpriteRenderer { private set; get; }
 
         public static Player Current { get; private set; }
         public static event Action Died;
@@ -35,7 +36,7 @@ namespace gameoff.PlayerManager
             }
 
             HealthChanged?.Invoke(CurrentHealth);
-            
+
             Debug.Log("Damage taken");
         }
 

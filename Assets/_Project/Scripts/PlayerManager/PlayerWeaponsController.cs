@@ -11,19 +11,21 @@ namespace gameoff.PlayerManager
     {
         [SerializeField] private Blaster blaster;
         [SerializeField] private SpecialAbilitySettings specialAbilitySettings;
-        
+
         [Inject] private DiContainer _diContainer;
 
         private IAbility _ability;
 
         private CustomInput _input;
         private Camera _cam;
+        private Player _player;
 
         private bool _isUsingMouse;
         private bool _isSpecialAttackDelay;
 
         private void Awake()
         {
+            _player = GetComponent<Player>();
             _ability = new ExplosionAbility(GetComponent<Player>(), _diContainer, specialAbilitySettings);
 
             _cam = Camera.main;
@@ -67,6 +69,8 @@ namespace gameoff.PlayerManager
         {
             Vector3 worldPos = _cam.ScreenToWorldPoint(position);
             var direction = worldPos - transform.position;
+
+            _player.SpriteRenderer.flipX = direction.x < 0;
             blaster.RotateBlaster(direction);
         }
 
@@ -82,6 +86,8 @@ namespace gameoff.PlayerManager
             Cursor.visible = false;
 
             var direction = value.ReadValue<Vector2>();
+            
+            _player.SpriteRenderer.flipX = direction.x < 0;
             blaster.RotateBlaster(direction);
         }
 
@@ -115,7 +121,7 @@ namespace gameoff.PlayerManager
         [field: SerializeField] public float AbilityDelay { private set; get; } = 1f;
         [field: SerializeField] public int ProjectileDamage { private set; get; } = 5;
         [field: SerializeField] public int ProjectileCount { private set; get; } = 10;
-        
+
         [field: SerializeField] public int ClearIterations { private set; get; } = 10;
         [field: SerializeField] public float ClearMaxRadius { private set; get; } = 5f;
         [field: SerializeField] public float FullClearExpandingTime { private set; get; } = 1f;
