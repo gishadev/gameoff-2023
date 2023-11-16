@@ -10,6 +10,7 @@ namespace gameoff.PlayerManager
 
         public static Player Current { get; private set; }
         public static event Action Died;
+        public static event Action<int> HealthChanged;
         public int CurrentHealth { get; private set; }
 
         private bool _isAlive = true;
@@ -28,8 +29,13 @@ namespace gameoff.PlayerManager
             CurrentHealth -= count;
 
             if (CurrentHealth <= 0)
+            {
+                CurrentHealth = 0;
                 Die();
+            }
 
+            HealthChanged?.Invoke(CurrentHealth);
+            
             Debug.Log("Damage taken");
         }
 
