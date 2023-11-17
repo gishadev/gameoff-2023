@@ -7,9 +7,10 @@ namespace gameoff.PlayerManager
     public class Player : MonoBehaviour, IDamageable
     {
         [field: SerializeField] public int StartHealth { private set; get; } = 20;
-        [field: SerializeField] public SpriteRenderer SpriteRenderer { private set; get; }
 
+        public SpriteRenderer SpriteRenderer { private set; get; }
         public static Player Current { get; private set; }
+        
         public static event Action Died;
         public static event Action<int> HealthChanged;
         public int CurrentHealth { get; private set; }
@@ -18,6 +19,7 @@ namespace gameoff.PlayerManager
 
         private void Awake()
         {
+            SpriteRenderer = GetComponent<SpriteRenderer>();
             Current = this;
             CurrentHealth = StartHealth;
         }

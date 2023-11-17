@@ -20,17 +20,20 @@ namespace gameoff.PlayerManager
 
         private Rigidbody2D _rb;
         private TrailRenderer _trailRenderer;
+        private Animator _animator;
 
         private CustomInput _input;
         private Vector2 _moveInputVector;
 
         private CancellationTokenSource _dashingCTS;
+        private static readonly int IsRunningID = Animator.StringToHash("IsRunning");
 
         private void Awake()
         {
             _input = new CustomInput();
             _rb = GetComponent<Rigidbody2D>();
-
+            _animator = GetComponent<Animator>();
+            
             _trailRenderer = GetComponent<TrailRenderer>();
             _trailRenderer.emitting = false;
         }
@@ -72,9 +75,17 @@ namespace gameoff.PlayerManager
                 });
         }
 
-        private void OnMovementPerformed(InputAction.CallbackContext value) =>
+        private void OnMovementPerformed(InputAction.CallbackContext value)
+        {
             _moveInputVector = value.ReadValue<Vector2>();
-        private void OnMovementCanceled(InputAction.CallbackContext value) => _moveInputVector = Vector2.zero;
+            _animator.SetBool(IsRunningID, true);
+        }
+
+        private void OnMovementCanceled(InputAction.CallbackContext value)
+        {
+            _moveInputVector = Vector2.zero;
+            _animator.SetBool(IsRunningID, false);
+        }
 
         private async void OnDashPerformed(InputAction.CallbackContext value)
         {
