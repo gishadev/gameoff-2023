@@ -4,7 +4,7 @@ using Zenject;
 
 namespace gameoff.PlayerManager
 {
-    public class BlasterProjectile : Projectile
+    public class BlasterProjectile : PlayerProjectile
     {
         [SerializeField] private int clearRadiusInPixels = 4;
         [Inject] private ICreepClearing _creepClearing;

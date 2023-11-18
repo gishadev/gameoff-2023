@@ -27,3 +27,6 @@ MonoBehaviour:
   - <Name>k__BackingField: Roach
     <Prefabs>k__BackingField:
     - {fileID: 7958972308095696765, guid: 8db0d0964172d6445a9f0d19f39240f6, type: 3}
+  - <Name>k__BackingField: Hive_Projectile
+    <Prefabs>k__BackingField:
+    - {fileID: 3917482445967802638, guid: 44468463b2845c54da4df6a4c96bcf3a, type: 3}

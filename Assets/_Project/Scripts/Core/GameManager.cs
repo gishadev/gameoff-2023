@@ -2,11 +2,9 @@
 using System.Linq;
 using gameoff.Enemy;
 using gameoff.PlayerManager;
-using gishadev.tools.Effects;
 using gishadev.tools.SceneLoading;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Zenject;
 
 namespace gameoff.Core
 {

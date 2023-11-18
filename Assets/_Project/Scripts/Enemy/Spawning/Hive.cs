@@ -1,5 +1,7 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using gameoff.World;
+using gishadev.tools.Effects;
 using UnityEngine;
 using Zenject;
 
@@ -16,7 +18,8 @@ namespace gameoff.Enemy
         [SerializeField] private EnemySpawnSettings[] enemySpawnSettings;
 
         [Header("Creep Parameters")]
-        [SerializeField] private int fillCreepRadius = 50;
+        [SerializeField] private int spawnFillCreepRadius = 150;
+        [SerializeField] private float creepGrowDelay = 5f;
 
         [Inject] private DiContainer _diContainer;
         [Inject] private ICreepClearing _creepClearing;
@@ -25,6 +28,7 @@ namespace gameoff.Enemy
         public int CurrentHealth { get; private set; } = 100;
 
         private HiveEnemyFactory _hiveEnemyFactory;
+        private HumanBase _humanBase;
 
         private void Awake()
         {
@@ -36,7 +40,10 @@ namespace gameoff.Enemy
         private void Start()
         {
             _hiveEnemyFactory.StartSpawning();
-            _creepClearing.AddCreep(transform.position, fillCreepRadius);
+
+            _creepClearing.AddCreep(transform.position, spawnFillCreepRadius);
+            _humanBase = FindObjectOfType<HumanBase>();
+            GrowCreepAsync();
         }
 
         public void TakeDamage(int count)
@@ -54,6 +61,20 @@ namespace gameoff.Enemy
             Died?.Invoke(this);
         }
 
+        private async void GrowCreepAsync()
+        {
+            while (gameObject != null && gameObject.activeInHierarchy)
+            {
+                var dirToHumanBase = (_humanBase.transform.position - transform.position).normalized;
+                float rotZ = Mathf.Atan2(dirToHumanBase.y, dirToHumanBase.x) * Mathf.Rad2Deg;
+                Quaternion rotation = Quaternion.AngleAxis(rotZ, Vector3.forward);
+                
+                var proj = OtherEmitter.I.EmitAt(OtherPoolEnum.HIVE_PROJECTILE, transform.position, rotation);
+                _diContainer.InjectGameObject(proj);
+                
+                await UniTask.WaitForSeconds(creepGrowDelay);
+            }
+        }
 
         private void OnDrawGizmosSelected()
         {

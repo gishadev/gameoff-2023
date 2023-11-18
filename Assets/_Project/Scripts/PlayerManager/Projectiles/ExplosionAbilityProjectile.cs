@@ -1,6 +1,8 @@
-﻿namespace gameoff.PlayerManager
+﻿using gameoff.Core;
+
+namespace gameoff.PlayerManager
 {
-    public class ExplosionAbilityProjectile : Projectile
+    public class ExplosionAbilityProjectile : PlayerProjectile
     {
     }
 }
