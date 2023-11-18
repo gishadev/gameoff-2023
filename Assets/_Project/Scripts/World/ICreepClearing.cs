@@ -6,6 +6,6 @@ namespace gameoff.World
     {
         void Init();
         void ClearCreep(Vector2 worldPos, int brushSize);
-        void AddCreep(Vector2 worldPos, int brushSize);
+        void AddCreep(Vector2 worldPos, int brushSize, out int pixelsChanged);
     }
 }

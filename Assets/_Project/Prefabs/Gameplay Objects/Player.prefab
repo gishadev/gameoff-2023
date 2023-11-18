@@ -396,7 +396,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <StartHealth>k__BackingField: 20
-  <SpriteRenderer>k__BackingField: {fileID: 0}
 --- !u!114 &2431296442014268784
 MonoBehaviour:
   m_ObjectHideFlags: 0

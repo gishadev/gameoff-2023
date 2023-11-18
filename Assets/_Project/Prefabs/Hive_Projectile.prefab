@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3917482444908288758
 Transform:
   m_ObjectHideFlags: 0
@@ -171,3 +171,4 @@ MonoBehaviour:
   <FlySpeed>k__BackingField: 10
   <LifeTime>k__BackingField: 100
   creepRadius: 25
+  creepPixelsChangedLimit: 100

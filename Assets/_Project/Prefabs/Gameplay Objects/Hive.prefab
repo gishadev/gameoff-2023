@@ -72,7 +72,8 @@ MonoBehaviour:
     <MinSpawnCount>k__BackingField: 1
     <MaxSpawnCount>k__BackingField: 3
     <SpawnChance>k__BackingField: 0.1
-  fillCreepRadius: 150
+  spawnFillCreepRadius: 50
+  creepGrowDelay: 3.5
 --- !u!1 &6063498413704622996
 GameObject:
   m_ObjectHideFlags: 0
