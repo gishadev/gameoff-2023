@@ -1,4 +1,5 @@
 ﻿using System;
+using gameoff.World;
 using UnityEngine;
 using Zenject;
 
@@ -14,8 +15,12 @@ namespace gameoff.Enemy
 
         [SerializeField] private EnemySpawnSettings[] enemySpawnSettings;
 
-        [Inject] private DiContainer _diContainer;
+        [Header("Creep Parameters")]
+        [SerializeField] private int fillCreepRadius = 50;
 
+        [Inject] private DiContainer _diContainer;
+        [Inject] private ICreepClearing _creepClearing;
+        
         public static event Action<Hive> Died;
         public int CurrentHealth { get; private set; } = 100;
 
@@ -31,8 +36,8 @@ namespace gameoff.Enemy
         private void Start()
         {
             _hiveEnemyFactory.StartSpawning();
+            _creepClearing.AddCreep(transform.position, fillCreepRadius);
         }
-
 
         public void TakeDamage(int count)
         {
