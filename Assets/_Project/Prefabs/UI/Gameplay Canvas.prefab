@@ -1762,7 +1762,7 @@ GameObject:
   - component: {fileID: 7651613469968108267}
   - component: {fileID: 4091221805104217966}
   - component: {fileID: 2541381353521595953}
-  - component: {fileID: 1089526394}
+  - component: {fileID: 1632818864501434461}
   m_Layer: 0
   m_Name: HP Bar
   m_TagString: Untagged
@@ -1829,7 +1829,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1089526394
+--- !u!114 &1632818864501434461
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1838,10 +1838,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8318137352297273833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcd300e8ea6f437c99fe3acdd2c22ee5, type: 3}
+  m_Script: {fileID: 11500000, guid: e704b01a5fb74b0db44ce384907e0d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 3830491396759537568}
+  fillImage: {fileID: 3830491396759537568}
   healthChangingAnimationTime: 0.5
 --- !u!1 &8400392554347512530
 GameObject:

@@ -33,6 +33,7 @@ namespace gameoff.Enemy
 
         public static event Action<Hive> Died;
         public int CurrentHealth { get; private set; } = 100;
+        public event Action<int> HealthChanged;
 
         private HiveEnemyFactory _hiveEnemyFactory;
         private HumanBase _humanBase;
@@ -63,6 +64,8 @@ namespace gameoff.Enemy
 
             if (CurrentHealth <= 0)
                 Die();
+            
+            HealthChanged?.Invoke(CurrentHealth);
         }
 
         private void Die()

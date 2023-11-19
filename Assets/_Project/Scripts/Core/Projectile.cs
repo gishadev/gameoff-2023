@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace gameoff.Core
@@ -8,12 +9,16 @@ namespace gameoff.Core
         [field: SerializeField] protected float FlySpeed { private set; get; } = 30f;
         [field: SerializeField] protected float LifeTime { private set; get; } = 0.5f;
 
+        private CancellationTokenSource _cts;
 
         protected virtual void OnEnable()
         {
+            _cts = new CancellationTokenSource();
+            _cts.RegisterRaiseCancelOnDestroy(this);
+
             LifetimeAsync();
         }
-        
+
         protected virtual void Update()
         {
             transform.Translate(transform.right * (FlySpeed * Time.deltaTime), Space.World);
@@ -27,7 +32,8 @@ namespace gameoff.Core
         private async void LifetimeAsync()
         {
             await UniTask.WaitForSeconds(LifeTime);
-            Die();
+            if (!_cts.IsCancellationRequested)
+                Die();
         }
     }
 }

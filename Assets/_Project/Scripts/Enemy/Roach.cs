@@ -18,6 +18,7 @@ namespace gameoff.Enemy
         [field: SerializeField] public int AttackDamage { private set; get; } = 1;
 
         public int CurrentHealth { get; private set; }
+        public event Action<int> HealthChanged;
 
         public float MoveSpeed => moveSpeed;
 
@@ -79,6 +80,7 @@ namespace gameoff.Enemy
         public void TakeDamage(int count)
         {
             CurrentHealth -= count;
+            HealthChanged?.Invoke(CurrentHealth);
         }
 
         public void SetSpawnData(IEnemySpawnData spawnData) => SpawnData = spawnData;

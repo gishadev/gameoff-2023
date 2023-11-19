@@ -12,7 +12,7 @@ namespace gameoff.PlayerManager
         public static Player Current { get; private set; }
         
         public static event Action Died;
-        public static event Action<int> HealthChanged;
+        public event Action<int> HealthChanged;
         public int CurrentHealth { get; private set; }
 
         private bool _isAlive = true;
