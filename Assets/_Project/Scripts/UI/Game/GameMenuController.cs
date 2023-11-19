@@ -1,8 +1,7 @@
-﻿using System;
-using gameoff.Core;
+﻿using gameoff.Core;
+using gishadev.tools.SceneLoading;
 using gishadev.tools.UI;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace gameoff.UI.Game
 {
@@ -34,6 +33,12 @@ namespace gameoff.UI.Game
         {
             PopPage();
             GameManager.ResumeGame();
+        }
+
+        public void OnMainMenuClicked()
+        {
+            GameManager.ResumeGame();
+            SceneLoader.I.AsyncSceneLoad(Constants.MAIN_MENU_SCENE_NAME);
         }
 
         private void OnLost()
