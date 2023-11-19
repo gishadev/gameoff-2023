@@ -73,6 +73,7 @@ MonoBehaviour:
     <MaxSpawnCount>k__BackingField: 3
     <SpawnChance>k__BackingField: 0.1
   spawnFillCreepRadius: 50
+  dieClearCreepRadius: 150
   creepGrowDelay: 3.5
 --- !u!1 &6063498413704622996
 GameObject:

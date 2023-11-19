@@ -22,7 +22,9 @@ namespace gameoff.Enemy
 
         [Header("Creep Parameters")]
         [SerializeField]
-        private int spawnFillCreepRadius = 150;
+        private int spawnFillCreepRadius = 50;
+
+        [SerializeField] private int dieClearCreepRadius = 150;
 
         [SerializeField] private float creepGrowDelay = 5f;
 
@@ -65,9 +67,26 @@ namespace gameoff.Enemy
 
         private void Die()
         {
+            ClearAreaInCircleAsync();
+            
             Destroy(gameObject);
-
             Died?.Invoke(this);
+        }
+
+        private async void ClearAreaInCircleAsync(int clearIterations = 25, float expandingTime = 5f)
+        {
+            var creepClearing = _creepClearing;
+            var position = transform.position;
+            
+            var rStep = dieClearCreepRadius / clearIterations;
+            var clearRadius = rStep;
+            var iterationTime = expandingTime / clearIterations;
+            for (int i = 0; i < clearIterations; i++)
+            {
+                creepClearing.ClearCreep(position, Mathf.RoundToInt(clearRadius));
+                await UniTask.WaitForSeconds(iterationTime);
+                clearRadius += rStep;
+            }
         }
 
         private async void GrowCreepAsync()
@@ -81,7 +100,8 @@ namespace gameoff.Enemy
                 var proj = OtherEmitter.I.EmitAt(OtherPoolEnum.HIVE_PROJECTILE, transform.position, rotation);
                 _diContainer.InjectGameObject(proj);
 
-                await UniTask.WaitForSeconds(creepGrowDelay, cancellationToken: _creepGrowCTS.Token).SuppressCancellationThrow();
+                await UniTask.WaitForSeconds(creepGrowDelay, cancellationToken: _creepGrowCTS.Token)
+                    .SuppressCancellationThrow();
             }
         }
 
