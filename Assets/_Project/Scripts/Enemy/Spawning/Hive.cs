@@ -3,6 +3,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using gameoff.World;
 using gishadev.tools.Effects;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
@@ -18,7 +19,7 @@ namespace gameoff.Enemy
 
         [SerializeField] private float spawnOuterRadius = 2f, spawnInnerRadius = 1f;
 
-        [SerializeField] private EnemySpawnSettings[] enemySpawnSettings;
+        [SerializeField, TableList] private EnemySpawnSettings[] enemySpawnSettings;
 
         [Header("Creep Parameters")]
         [SerializeField]

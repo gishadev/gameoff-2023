@@ -1,4 +1,5 @@
 ﻿using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace gameoff.Enemy
@@ -6,7 +7,8 @@ namespace gameoff.Enemy
     [Serializable]
     public class EnemySpawnSettings
     {
-        [field: SerializeField] public GameObject EnemyPrefab { private set; get; }
+        [field: SerializeField] public OtherPoolEnum EnemyEnumEntry { private set; get; }
+        [field: SerializeField, AssetsOnly] public GameObject Prefab { private set; get; }
         [field: SerializeField] public int MaxCount { private set; get; } = 10;
 
         [field: SerializeField] public int MinSpawnCount { private set; get; } = 1;

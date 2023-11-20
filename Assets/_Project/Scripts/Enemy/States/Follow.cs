@@ -22,7 +22,7 @@ namespace gameoff.Enemy.States
 
         public void OnEnter()
         {
-            _enemyMovement.ChangeMoveSpeed(_roach.MoveSpeed);
+            _enemyMovement.ChangeMoveSpeed(_roach.EnemyDataSO.MoveSpeed);
             _enemyMovement.StartCoroutine(FollowRoutine());
         }
 
