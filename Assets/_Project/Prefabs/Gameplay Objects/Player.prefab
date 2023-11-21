@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 2431296442014268788}
   - component: {fileID: 2431296442014268784}
   - component: {fileID: 2431296442014268789}
+  - component: {fileID: 959656898}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -409,9 +410,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 500
-  dashingPower: 10
-  dashingTime: 0.4
-  dashingCooldown: 0.5
 --- !u!114 &2431296442014268789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,13 +423,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blaster: {fileID: 5421872262145223096}
-  specialAbilitySettings:
-    <AbilityDelay>k__BackingField: 1
-    <ProjectileDamage>k__BackingField: 5
-    <ProjectileCount>k__BackingField: 15
-    <ClearIterations>k__BackingField: 10
-    <ClearMaxRadius>k__BackingField: 50
-    <FullClearExpandingTime>k__BackingField: 0.4
+--- !u!114 &959656898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2431296442014268783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5738909ac8d244d29ddd89e40395ce82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2431296442751661226
 GameObject:
   m_ObjectHideFlags: 0

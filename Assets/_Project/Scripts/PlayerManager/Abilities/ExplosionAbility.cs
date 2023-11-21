@@ -1,4 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
+using gameoff.Core;
+using gameoff.PlayerManager.SOs;
 using gameoff.World;
 using gishadev.tools.Effects;
 using UnityEngine;
@@ -8,35 +10,46 @@ namespace gameoff.PlayerManager
 {
     public class ExplosionAbility : IAbility
     {
+        public bool IsUsing { get; private set; }
+        public AbilityDataSO AbilityDataSO => _explosionData;
+        
+        private readonly ExplosionAbilityDataSO _explosionData;
         private readonly Player _player;
         private readonly DiContainer _diContainer;
-        private readonly SpecialAbilitySettings _settings;
         private readonly ICreepClearing _creepClearing;
+        
         private Vector3 _triggeredPosition;
         
-        public ExplosionAbility(Player player, DiContainer diContainer, SpecialAbilitySettings settings)
+        public ExplosionAbility(Player player, DiContainer diContainer)
         {
             _diContainer = diContainer;
-            _settings = settings;
             _creepClearing = _diContainer.Resolve<ICreepClearing>();
-
+            _explosionData = _diContainer.Resolve<GameDataSO>().ExplosionAbilityDataSO;
+            
             _player = player;
         }
 
+
         public void Trigger()
         {
+            IsUsing = true;
             _triggeredPosition = _player.transform.position;
             SpawnProjectilesInCircle();
             ClearAreaInCircleAsync();
             VFXEmitter.I.EmitAt(VisualEffectsEnum.EXPLOSION_ABILITY_VFX, _player.transform.position,
                 Quaternion.identity);
+            IsUsing = false;
+        }
+
+        public void Cancel()
+        {
         }
 
         private void SpawnProjectilesInCircle()
         {
-            for (int i = 0; i < _settings.ProjectileCount; i++)
+            for (int i = 0; i < _explosionData.ProjectileCount; i++)
             {
-                float angle = i * Mathf.PI * 2f / _settings.ProjectileCount;
+                float angle = i * Mathf.PI * 2f / _explosionData.ProjectileCount;
 
                 // Calculate the position in the circle using polar coordinates
                 float x = Mathf.Cos(angle) * .05f;
@@ -48,26 +61,21 @@ namespace gameoff.PlayerManager
                 var spawnedProjectile = OtherEmitter.I.EmitAt(OtherPoolEnum.EXPLOSION_PROJECTILE, position, rotation)
                     .GetComponent<ExplosionAbilityProjectile>();
                 _diContainer.InjectGameObject(spawnedProjectile.gameObject);
-                spawnedProjectile.SetDamage(_settings.ProjectileDamage);
+                spawnedProjectile.SetDamage(_explosionData.ProjectileDamage);
             }
         }
 
         private async void ClearAreaInCircleAsync()
         {
-            var rStep = _settings.ClearMaxRadius / _settings.ClearIterations;
+            var rStep = _explosionData.ClearMaxRadius / _explosionData.ClearIterations;
             var clearRadius = rStep;
-            var iterationTime = _settings.FullClearExpandingTime / _settings.ClearIterations;
-            for (int i = 0; i < _settings.ClearIterations; i++)
+            var iterationTime = _explosionData.FullClearExpandingTime / _explosionData.ClearIterations;
+            for (int i = 0; i < _explosionData.ClearIterations; i++)
             {
                 _creepClearing.ClearCreep(_triggeredPosition, Mathf.RoundToInt(clearRadius));
                 await UniTask.WaitForSeconds(iterationTime);
                 clearRadius += rStep;
             }
         }
-    }
-
-    public interface IAbility
-    {
-        void Trigger();
     }
 }
