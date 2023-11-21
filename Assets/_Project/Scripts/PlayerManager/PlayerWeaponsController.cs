@@ -1,5 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
@@ -9,7 +10,7 @@ namespace gameoff.PlayerManager
     [RequireComponent(typeof(Player))]
     public class PlayerWeaponsController : MonoBehaviour
     {
-        [SerializeField] private Blaster blaster;
+        [SerializeField, InlineEditor] private Blaster blaster;
         [SerializeField] private SpecialAbilitySettings specialAbilitySettings;
 
         [Inject] private DiContainer _diContainer;
