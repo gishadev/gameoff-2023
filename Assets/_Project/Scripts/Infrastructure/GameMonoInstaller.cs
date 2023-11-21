@@ -1,3 +1,4 @@
+using gameoff.PlayerManager;
 using gameoff.World;
 using Zenject;
 
@@ -10,6 +11,7 @@ namespace gameoff.Infrastructure
             SignalBusInstaller.Install(Container);
 
             Container.Bind<ICreepClearing>().To<CreepClearing>().AsSingle().NonLazy();
+            Container.Bind<IPlayerUpgradesController>().To<PlayerUpgradesController>().AsSingle().NonLazy();
         }
     }
 }

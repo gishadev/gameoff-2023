@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <AbilityCooldown>k__BackingField: 1
   <ProjectileDamage>k__BackingField: 5
-  <ProjectileCount>k__BackingField: 10
+  <ProjectileCount>k__BackingField: 15
   <ClearIterations>k__BackingField: 10
-  <ClearMaxRadius>k__BackingField: 5
-  <FullClearExpandingTime>k__BackingField: 1
+  <ClearMaxRadius>k__BackingField: 50
+  <FullClearExpandingTime>k__BackingField: 0.39

@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
@@ -12,19 +13,24 @@ namespace gameoff.PlayerManager
 
         [Inject] private DiContainer _diContainer;
 
+        [Inject] private IPlayerUpgradesController _playerUpgradesController;
+
         private CustomInput _input;
         private bool _isSpecialDelay, _isMovementDelay;
 
         private void Awake()
         {
             _input = new CustomInput();
-            _specialAbility = new ExplosionAbility(GetComponent<Player>(), _diContainer);
-            _movementAbility = new DashAbility(GetComponent<PlayerMovement>(), _diContainer);
+            _input.Enable();
         }
 
-        private void OnEnable()
+        private void Start()
         {
-            _input.Enable();
+            if (_playerUpgradesController.UnlockedAbilities.Contains(AbilityEnumType.ABILITY_EXPLOSION))
+                _specialAbility = new ExplosionAbility(GetComponent<Player>(), _diContainer);
+            if (_playerUpgradesController.UnlockedAbilities.Contains(AbilityEnumType.ABILITY_DASH))
+                _movementAbility = new DashAbility(GetComponent<PlayerMovement>(), _diContainer);
+
             if (_specialAbility != null)
             {
                 _input.Player.SpecialAttack.performed += OnSpecialAbilityPerformed;
@@ -38,7 +44,7 @@ namespace gameoff.PlayerManager
             }
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             _input.Disable();
             if (_specialAbility != null)
@@ -46,7 +52,7 @@ namespace gameoff.PlayerManager
                 _input.Player.SpecialAttack.performed -= OnSpecialAbilityPerformed;
                 _input.Player.SpecialAttack.canceled -= OnSpecialAbilityCanceled;
             }
-            
+
             if (_movementAbility != null)
             {
                 _input.Player.Dash.performed -= OnMovementAbilityPerformed;
