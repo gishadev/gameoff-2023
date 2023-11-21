@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1695625193235556154}
   - component: {fileID: 335686433}
   m_Layer: 0
-  m_Name: RoachN
+  m_Name: Roach Shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,12 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b71ef5b1164e9eb29f1a7a81291b64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <StartHealth>k__BackingField: 2
-  moveSpeed: 100
-  followRadius: 10
-  attackRadius: 2
-  attackDelay: 0.7
-  <AttackDamage>k__BackingField: 1
+  <RoachData>k__BackingField: {fileID: 11400000, guid: b357d9ec784bfe148ba10386e6d9cafd, type: 2}
 --- !u!50 &1695625193235556154
 Rigidbody2D:
   serializedVersion: 4
