@@ -25,6 +25,9 @@ namespace gameoff.PlayerManager
         
         public async void Trigger()
         {
+            if (_playerMovement.MoveInputVector.magnitude == 0)
+                return;
+            
             IsUsing = true;
             _playerMovement.SetDefaultMovement(false);
             
