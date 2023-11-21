@@ -6,9 +6,6 @@ namespace gameoff.Infrastructure
 {
     public class GameEnterPoint : MonoBehaviour
     {
-        private void Awake()
-        {
-            SceneLoader.I.AsyncSceneLoad(Constants.GAME_SCENE_NAME);
-        }
+        private void Awake() => SceneLoader.I.AsyncSceneLoad(Constants.MAIN_MENU_SCENE_NAME);
     }
 }

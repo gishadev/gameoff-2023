@@ -2,11 +2,10 @@
 using System.Linq;
 using gameoff.Enemy;
 using gameoff.PlayerManager;
-using gishadev.tools.Effects;
+using gameoff.World;
 using gishadev.tools.SceneLoading;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Zenject;
 
 namespace gameoff.Core
 {
@@ -34,6 +33,7 @@ namespace gameoff.Core
             _customInput.General.Pause.performed += OnPausePerformed;
             Hive.Died += OnHiveDied;
             Player.Died += OnPlayerDied;
+            HumanBase.CreepReachedBase += OnCreepReachedBase;
         }
 
         private void OnDisable()
@@ -41,10 +41,10 @@ namespace gameoff.Core
             _customInput.General.Pause.performed -= OnPausePerformed;
             Hive.Died -= OnHiveDied;
             Player.Died -= OnPlayerDied;
+            HumanBase.CreepReachedBase -= OnCreepReachedBase;
 
             _customInput.Disable();
         }
-
 
         public static void RestartGame()
         {
@@ -99,5 +99,6 @@ namespace gameoff.Core
         }
 
         private void OnPlayerDied() => Lose();
+        private void OnCreepReachedBase() => Lose();
     }
 }

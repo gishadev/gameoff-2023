@@ -1,53 +1,26 @@
 ﻿using System;
+using gameoff.Enemy.SOs;
 using gameoff.Enemy.States;
 using gameoff.PlayerManager;
 using gishadev.tools.StateMachine;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace gameoff.Enemy
 {
     [RequireComponent(typeof(EnemyMovement))]
-    public class Roach : MonoBehaviour, IDamageable
+    public class Roach : Enemy
     {
-        [field: SerializeField] public int StartHealth { private set; get; } = 2;
+        [field: SerializeField, InlineEditor] public DefaultRoachDataSO RoachData { get; private set; }
 
-        [SerializeField] private float moveSpeed = 10f;
-        [SerializeField] private float followRadius = 5f;
-        [Space] [SerializeField] private float attackRadius = 1f;
-        [SerializeField] private float attackDelay = 0.7f;
-        [field: SerializeField] public int AttackDamage { private set; get; } = 1;
+        public override EnemyDataSO EnemyDataSO => RoachData;
 
-        public int CurrentHealth { get; private set; }
-
-        public float MoveSpeed => moveSpeed;
-
-        public IEnemySpawnData SpawnData { private set; get; }
-
-        private EnemyMovement _enemyMovement;
-        private StateMachine _stateMachine;
-
-        private void Awake()
+        protected override void InitStateMachine()
         {
-            _enemyMovement = GetComponent<EnemyMovement>();
-        }
-
-        private void OnEnable()
-        {
-            CurrentHealth = StartHealth;
-            InitStateMachine();
-        }
-
-        private void Update()
-        {
-            _stateMachine.Tick();
-        }
-
-        private void InitStateMachine()
-        {
-            _stateMachine = new StateMachine();
+            StateMachine = new StateMachine();
 
             var idle = new Idle();
-            var follow = new Follow(this, _enemyMovement);
+            var follow = new Follow(this, EnemyMovement);
             var prepareToAttack = new PrepareMeleeAttack();
             var attack = new Attack(this);
             var die = new Die(this);
@@ -62,35 +35,28 @@ namespace gameoff.Enemy
 
             Aat(die, () => CurrentHealth <= 0);
 
-            _stateMachine.SetState(idle);
+            StateMachine.SetState(idle);
 
             bool InSightWithPlayer() =>
-                Vector3.Distance(Player.Current.transform.position, transform.position) < followRadius;
+                Vector3.Distance(Player.Current.transform.position, transform.position) < RoachData.FollowRadius;
 
             bool InAttackReachWithPlayer() =>
-                Vector3.Distance(Player.Current.transform.position, transform.position) < attackRadius;
+                Vector3.Distance(Player.Current.transform.position, transform.position) < RoachData.AttackRadius;
 
-            bool IsAttackDelayElapsed() => prepareToAttack.GetElapsedTime() > attackDelay;
+            bool IsAttackDelayElapsed() => prepareToAttack.GetElapsedTime() > RoachData.AttackDelay;
 
-            void At(IState from, IState to, Func<bool> cond) => _stateMachine.AddTransition(from, to, cond);
-            void Aat(IState to, Func<bool> cond) => _stateMachine.AddAnyTransition(to, cond);
+            void At(IState from, IState to, Func<bool> cond) => StateMachine.AddTransition(from, to, cond);
+            void Aat(IState to, Func<bool> cond) => StateMachine.AddAnyTransition(to, cond);
         }
-
-        public void TakeDamage(int count)
-        {
-            CurrentHealth -= count;
-        }
-
-        public void SetSpawnData(IEnemySpawnData spawnData) => SpawnData = spawnData;
 
 
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(transform.position, followRadius);
+            Gizmos.DrawWireSphere(transform.position, RoachData.FollowRadius);
 
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, attackRadius);
+            Gizmos.DrawWireSphere(transform.position, RoachData.AttackRadius);
         }
     }
 }

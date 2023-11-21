@@ -234,12 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b71ef5b1164e9eb29f1a7a81291b64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <StartHealth>k__BackingField: 2
-  moveSpeed: 100
-  followRadius: 10
-  attackRadius: 2
-  attackDelay: 0.7
-  <AttackDamage>k__BackingField: 1
+  <RoachData>k__BackingField: {fileID: 11400000, guid: 31c31bbcee7aed84c8d6b2830a3dda27, type: 2}
 --- !u!50 &1695625193235556154
 Rigidbody2D:
   serializedVersion: 4

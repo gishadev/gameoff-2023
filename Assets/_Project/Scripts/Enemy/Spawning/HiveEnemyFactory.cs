@@ -81,12 +81,12 @@ namespace gameoff.Enemy
         private void SpawnEnemy(EnemySpawnSettings randomEnemySpawnSettings, Vector2 position)
         {
             var spawnedEnemy =
-                OtherEmitter.I.EmitAt(OtherPoolEnum.ROACH, position, Quaternion.identity)
-                    .GetComponent<Roach>();
+                OtherEmitter.I.EmitAt(randomEnemySpawnSettings.EnemyEnumEntry, position, Quaternion.identity)
+                    .GetComponent<Enemy>();
             spawnedEnemy.transform.SetParent(_parent);
-
+            
             spawnedEnemy.SetSpawnData(new HiveEnemySpawnData(_hiveOrigin,
-                randomEnemySpawnSettings.EnemyPrefab.GetInstanceID().ToString()));
+                randomEnemySpawnSettings.Prefab.GetInstanceID().ToString()));
         }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace gameoff.Enemy
                         return false;
                         
                     return hiveEnemySpawnData.HiveOrigin == _hiveOrigin &&
-                           hiveEnemySpawnData.PrefabID == enemySettings.EnemyPrefab.GetInstanceID().ToString();
+                           hiveEnemySpawnData.PrefabID == enemySettings.Prefab.GetInstanceID().ToString();
                 })
                 .ToArray();
         }

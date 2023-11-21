@@ -19,7 +19,7 @@ namespace gameoff.Enemy.States
         public void OnEnter()
         {
             var player = Player.Current;
-            player.TakeDamage(_roach.AttackDamage);
+            player.TakeDamage(_roach.RoachData.AttackDamage);
         }
 
         public void OnExit()

@@ -21,11 +21,22 @@ namespace gameoff.World
                 return;
 
             Vector2 textureCoordinates = WorldToTextureCoordinates(worldPos);
-            UpdateTexturePixels(textureCoordinates, brushSize);
+            UpdateTexturePixels(textureCoordinates, brushSize, Color.clear, out var pixelsChanged);
+        }
+        
+        public void AddCreep(Vector2 worldPos, int brushSize, out int pixelsChanged)
+        {
+            pixelsChanged = 0;
+            if (_creep == null)
+                return;
+
+            Vector2 textureCoordinates = WorldToTextureCoordinates(worldPos);
+            UpdateTexturePixels(textureCoordinates, brushSize, Color.white, out pixelsChanged);
         }
 
-        private void UpdateTexturePixels(Vector2 centerCoordinates, int brushRadius)
+        private void UpdateTexturePixels(Vector2 centerCoordinates, int brushRadius, Color color, out int pixelsChangedCount)
         {
+            pixelsChangedCount = 0;
             // Ensure the texture coordinates are within the valid range (0 to 1)
             centerCoordinates = new Vector2(
                 Mathf.Clamp01(centerCoordinates.x),
@@ -48,9 +59,10 @@ namespace gameoff.World
                 {
                     if (Vector2.Distance(new Vector2(x, y), new Vector2(centerX, centerY)) <= brushRadius)
                     {
-                        if (_tmpTexture.GetPixel(x, y) != Color.clear)
+                        if (_tmpTexture.GetPixel(x, y) != color)
                         {
-                            _tmpTexture.SetPixel(x, y, Color.clear);
+                            _tmpTexture.SetPixel(x, y, color);
+                            pixelsChangedCount++;
                             pixelsChanged = true;
                         }
                     }

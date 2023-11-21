@@ -82,6 +82,15 @@ namespace gameoff
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reload"",
+                    ""type"": ""Button"",
+                    ""id"": ""e49c77f2-a3d0-4d7e-aa27-3073e8e2c138"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -392,6 +401,28 @@ namespace gameoff
                     ""action"": ""SpecialAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0a07aca4-a53a-425d-8a9d-a4e41860e256"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""78f4e95f-a038-4210-85aa-3aefe98a1e06"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -445,6 +476,7 @@ namespace gameoff
             m_Player_WeaponRotationGamepad = m_Player.FindAction("WeaponRotationGamepad", throwIfNotFound: true);
             m_Player_PrimaryAttack = m_Player.FindAction("PrimaryAttack", throwIfNotFound: true);
             m_Player_SpecialAttack = m_Player.FindAction("SpecialAttack", throwIfNotFound: true);
+            m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
             // General
             m_General = asset.FindActionMap("General", throwIfNotFound: true);
             m_General_Pause = m_General.FindAction("Pause", throwIfNotFound: true);
@@ -513,6 +545,7 @@ namespace gameoff
         private readonly InputAction m_Player_WeaponRotationGamepad;
         private readonly InputAction m_Player_PrimaryAttack;
         private readonly InputAction m_Player_SpecialAttack;
+        private readonly InputAction m_Player_Reload;
         public struct PlayerActions
         {
             private @CustomInput m_Wrapper;
@@ -523,6 +556,7 @@ namespace gameoff
             public InputAction @WeaponRotationGamepad => m_Wrapper.m_Player_WeaponRotationGamepad;
             public InputAction @PrimaryAttack => m_Wrapper.m_Player_PrimaryAttack;
             public InputAction @SpecialAttack => m_Wrapper.m_Player_SpecialAttack;
+            public InputAction @Reload => m_Wrapper.m_Player_Reload;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -550,6 +584,9 @@ namespace gameoff
                     @SpecialAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialAttack;
                     @SpecialAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialAttack;
                     @SpecialAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialAttack;
+                    @Reload.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReload;
+                    @Reload.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReload;
+                    @Reload.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReload;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -572,6 +609,9 @@ namespace gameoff
                     @SpecialAttack.started += instance.OnSpecialAttack;
                     @SpecialAttack.performed += instance.OnSpecialAttack;
                     @SpecialAttack.canceled += instance.OnSpecialAttack;
+                    @Reload.started += instance.OnReload;
+                    @Reload.performed += instance.OnReload;
+                    @Reload.canceled += instance.OnReload;
                 }
             }
         }
@@ -617,6 +657,7 @@ namespace gameoff
             void OnWeaponRotationGamepad(InputAction.CallbackContext context);
             void OnPrimaryAttack(InputAction.CallbackContext context);
             void OnSpecialAttack(InputAction.CallbackContext context);
+            void OnReload(InputAction.CallbackContext context);
         }
         public interface IGeneralActions
         {
