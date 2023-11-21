@@ -21,13 +21,27 @@ namespace gameoff.Enemy
 
         [SerializeField, TableList] private EnemySpawnSettings[] enemySpawnSettings;
 
-        [Header("Creep Parameters")]
+        [BoxGroup("Creep expanding")]
         [SerializeField]
         private int spawnFillCreepRadius = 50;
 
-        [SerializeField] private int dieClearCreepRadius = 150;
+        [BoxGroup("Creep expanding")]
+        [SerializeField]
+        private float creepGrowDelay = 5f;
 
-        [SerializeField] private float creepGrowDelay = 5f;
+        
+        [BoxGroup("Clearing on die")]
+        [SerializeField]
+        private int dieClearCreepRadius = 150;
+
+        [BoxGroup("Clearing on die")]
+        [SerializeField]
+        private float dieClearCreepExpandingTime = 5f;
+
+        [BoxGroup("Clearing on die")]
+        [SerializeField]
+        private int dieClearCreepIterationsCount = 25;
+
 
         [Inject] private DiContainer _diContainer;
         [Inject] private ICreepClearing _creepClearing;
@@ -65,23 +79,23 @@ namespace gameoff.Enemy
 
             if (CurrentHealth <= 0)
                 Die();
-            
+
             HealthChanged?.Invoke(CurrentHealth);
         }
 
         private void Die()
         {
-            ClearAreaInCircleAsync();
-            
+            ClearAreaInCircleAsync(dieClearCreepIterationsCount, dieClearCreepExpandingTime);
+
             Destroy(gameObject);
             Died?.Invoke(this);
         }
 
-        private async void ClearAreaInCircleAsync(int clearIterations = 25, float expandingTime = 5f)
+        private async void ClearAreaInCircleAsync(int clearIterations, float expandingTime)
         {
             var creepClearing = _creepClearing;
             var position = transform.position;
-            
+
             var rStep = dieClearCreepRadius / clearIterations;
             var clearRadius = rStep;
             var iterationTime = expandingTime / clearIterations;
