@@ -12,7 +12,7 @@ namespace gameoff.UI.Game
 
         [Inject] private IPlayerUpgradesController _playerUpgradesController;
         [Inject] private GameDataSO _gameDataSO;
-
+        
         private List<UpgradeCardGUI> _cards = new();
         private UpgradeCardGUI _selectedCard;
 

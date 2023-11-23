@@ -8,8 +8,6 @@ namespace gameoff.Infrastructure
     {
         public override void InstallBindings()
         {
-            SignalBusInstaller.Install(Container);
-
             Container.Bind<ICreepClearing>().To<CreepClearing>().AsSingle().NonLazy();
             Container.Bind<IPlayerUpgradesController>().To<PlayerUpgradesController>().AsSingle().NonLazy();
         }
