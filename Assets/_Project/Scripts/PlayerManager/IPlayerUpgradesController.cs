@@ -9,7 +9,9 @@ namespace gameoff.PlayerManager
         Func<bool> UpgradesCanBeShown { get; }
         void ShowUpgrades();
         
-        List<UpgradeEnumType> UnlockedAbilities { get; }
+         void Upgrade(UpgradeEnumType upgradeEnumType);
+         
+        List<UpgradeEnumType> UnlockedUpgrades { get; }
         void Init();
         void Dispose();
     }

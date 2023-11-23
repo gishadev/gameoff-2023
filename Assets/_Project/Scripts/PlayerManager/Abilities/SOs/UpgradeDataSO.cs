@@ -5,7 +5,7 @@ namespace gameoff.PlayerManager
 {
     public abstract class UpgradeDataSO : SerializedScriptableObject
     {
-        [ShowInInspector] public UpgradeEnumType UpgradeType { private set; get; }
+        [ShowInInspector] public UpgradeEnumType UpgradeEnumType { private set; get; }
 
         [BoxGroup("Card Settings")]
         [ShowInInspector]
