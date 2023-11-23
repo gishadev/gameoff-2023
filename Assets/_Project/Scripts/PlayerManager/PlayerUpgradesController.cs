@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using gameoff.Core;
 using gishadev.tools.Events;
 using UnityEngine;
@@ -11,14 +12,24 @@ namespace gameoff.PlayerManager
     {
         [Inject] private GameDataSO _gameDataSO;
 
-        public List<AbilityEnumType> UnlockedAbilities { get; } = new();
+        public event Action<UpgradeDataSO[]> UpgradesShowed;
+
+        public Func<bool> UpgradesCanBeShown => () => { return true; };
+
+
+        public List<UpgradeEnumType> UnlockedAbilities { get; } = new();
+
+        private UpgradeDataSO[] _allUpgrades;
 
         public void Init()
         {
             _gameDataSO.UnlockEventChannel.ChangedValue += OnUnlockChannel;
-            // TODO: Load abilities
-            UnlockAbility(AbilityEnumType.ABILITY_DASH);
-            UnlockAbility(AbilityEnumType.ABILITY_EXPLOSION);
+
+            _allUpgrades = Helpers.FindScriptableObjects<UpgradeDataSO>(Constants.RESOURCES_UPGRADES_PATH).ToArray();
+
+            // // TODO: Load abilities
+            // UnlockAbility(UpgradeEnumType.ABILITY_DASH);
+            // UnlockAbility(UpgradeEnumType.ABILITY_EXPLOSION);
         }
 
         public void Dispose()
@@ -26,15 +37,15 @@ namespace gameoff.PlayerManager
             _gameDataSO.UnlockEventChannel.ChangedValue -= OnUnlockChannel;
         }
 
-        private void UnlockAbility(AbilityEnumType abilityEnumType)
+        private void UnlockAbility(UpgradeEnumType upgradeEnumType)
         {
-            if (UnlockedAbilities.Contains(abilityEnumType))
+            if (UnlockedAbilities.Contains(upgradeEnumType))
             {
                 Debug.Log("Ability already exists.");
                 return;
             }
 
-            UnlockedAbilities.Add(abilityEnumType);
+            UnlockedAbilities.Add(upgradeEnumType);
         }
 
         private void Upgrade(IUpgradeable upgradeable)
@@ -44,9 +55,21 @@ namespace gameoff.PlayerManager
         private void OnUnlockChannel(StringWrapper wrapper)
         {
             if (wrapper.value == "Dash")
-                UnlockAbility(AbilityEnumType.ABILITY_DASH);
+                UnlockAbility(UpgradeEnumType.ABILITY_DASH);
             if (wrapper.value == "Explosion")
-                UnlockAbility(AbilityEnumType.ABILITY_EXPLOSION);
+                UnlockAbility(UpgradeEnumType.ABILITY_EXPLOSION);
+        }
+
+        public void ShowUpgrades()
+        {
+            var upgradeEnumsToShow = new[]
+                {UpgradeEnumType.ABILITY_DASH, UpgradeEnumType.ABILITY_EXPLOSION};
+
+            var upgradesToShow = _allUpgrades
+                .Where(x => upgradeEnumsToShow.Contains(x.UpgradeType))
+                .ToArray();
+
+            UpgradesShowed?.Invoke(upgradesToShow);
         }
     }
 
@@ -55,7 +78,7 @@ namespace gameoff.PlayerManager
         public void OnUpgrade();
     }
 
-    public enum AbilityEnumType
+    public enum UpgradeEnumType
     {
         ABILITY_DASH,
         ABILITY_EXPLOSION

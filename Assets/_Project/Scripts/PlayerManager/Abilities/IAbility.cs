@@ -1,4 +1,4 @@
-﻿using gameoff.PlayerManager.SOs;
+﻿using gameoff.PlayerManager;
 
 namespace gameoff.PlayerManager
 {

@@ -26,9 +26,9 @@ namespace gameoff.PlayerManager
 
         private void Start()
         {
-            if (_playerUpgradesController.UnlockedAbilities.Contains(AbilityEnumType.ABILITY_EXPLOSION))
+            if (_playerUpgradesController.UnlockedAbilities.Contains(UpgradeEnumType.ABILITY_EXPLOSION))
                 _specialAbility = new ExplosionAbility(GetComponent<Player>(), _diContainer);
-            if (_playerUpgradesController.UnlockedAbilities.Contains(AbilityEnumType.ABILITY_DASH))
+            if (_playerUpgradesController.UnlockedAbilities.Contains(UpgradeEnumType.ABILITY_DASH))
                 _movementAbility = new DashAbility(GetComponent<PlayerMovement>(), _diContainer);
 
             if (_specialAbility != null)

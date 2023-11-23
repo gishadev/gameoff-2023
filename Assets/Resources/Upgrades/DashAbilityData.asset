@@ -12,6 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1154b858cec74d09bdb6d2735eb6f77c, type: 3}
   m_Name: DashAbilityData
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   <AbilityCooldown>k__BackingField: 1
   <DashingPower>k__BackingField: 10
   <DashingTime>k__BackingField: 0.4

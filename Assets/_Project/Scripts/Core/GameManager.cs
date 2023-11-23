@@ -4,6 +4,7 @@ using gameoff.Enemy;
 using gameoff.PlayerManager;
 using gameoff.World;
 using gishadev.tools.SceneLoading;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -46,11 +47,13 @@ namespace gameoff.Core
             _customInput.Disable();
         }
 
+        [Button("Restart")]
         public static void RestartGame()
         {
             SceneLoader.I.AsyncSceneLoad(Constants.GAME_SCENE_NAME);
         }
 
+        [Button("Pause")]
         private static void PauseGame()
         {
             if (_pauseBlocked)
@@ -61,6 +64,7 @@ namespace gameoff.Core
             Time.timeScale = 0f;
         }
 
+        [Button("Resume")]
         public static void ResumeGame()
         {
             IsPaused = false;
@@ -68,6 +72,7 @@ namespace gameoff.Core
             Time.timeScale = 1f;
         }
 
+        [Button("Lose")]
         private void Lose()
         {
             Debug.Log("Lose");
@@ -75,6 +80,7 @@ namespace gameoff.Core
             Lost?.Invoke();
         }
 
+        [Button("Win")]
         private void Win()
         {
             Debug.Log("Win");

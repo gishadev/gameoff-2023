@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace gameoff.PlayerManager.SOs
+namespace gameoff.PlayerManager
 {
     [CreateAssetMenu(fileName = "ExplosionAbilityData", menuName = "ScriptableObjects/ExplosionAbilityDataSO")]
     public class ExplosionAbilityDataSO : AbilityDataSO

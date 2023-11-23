@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace gameoff.PlayerManager.SOs
+namespace gameoff.PlayerManager
 {
     [CreateAssetMenu(fileName = "DashAbilityData", menuName = "ScriptableObjects/DashAbilityDataSO")]
     public class DashAbilityDataSO : AbilityDataSO

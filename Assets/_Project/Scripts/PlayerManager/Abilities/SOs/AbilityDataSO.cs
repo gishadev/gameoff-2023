@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace gameoff.PlayerManager.SOs
+namespace gameoff.PlayerManager
 {
-    public abstract class AbilityDataSO : ScriptableObject
+    public abstract class AbilityDataSO : UpgradeDataSO
     {
         [field: SerializeField] public float AbilityCooldown { private set; get; } = 1f;
     }

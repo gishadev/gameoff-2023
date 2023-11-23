@@ -12,6 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf3a7b88c5144028b35789903c4288d, type: 3}
   m_Name: ExplosionAbilityData
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   <AbilityCooldown>k__BackingField: 1
   <ProjectileDamage>k__BackingField: 5
   <ProjectileCount>k__BackingField: 15

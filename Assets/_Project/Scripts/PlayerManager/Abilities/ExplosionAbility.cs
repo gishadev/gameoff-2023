@@ -1,6 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using gameoff.Core;
-using gameoff.PlayerManager.SOs;
+using gameoff.PlayerManager;
 using gameoff.World;
 using gishadev.tools.Effects;
 using UnityEngine;

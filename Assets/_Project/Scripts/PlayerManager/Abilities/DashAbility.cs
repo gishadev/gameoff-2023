@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 using gameoff.Core;
-using gameoff.PlayerManager.SOs;
+using gameoff.PlayerManager;
 using UnityEngine;
 using Zenject;
 

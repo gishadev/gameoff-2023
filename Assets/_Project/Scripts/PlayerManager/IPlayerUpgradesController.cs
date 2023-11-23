@@ -5,7 +5,11 @@ namespace gameoff.PlayerManager
 {
     public interface IPlayerUpgradesController
     {
-        List<AbilityEnumType> UnlockedAbilities { get; }
+        event Action<UpgradeDataSO[]> UpgradesShowed;
+        Func<bool> UpgradesCanBeShown { get; }
+        void ShowUpgrades();
+        
+        List<UpgradeEnumType> UnlockedAbilities { get; }
         void Init();
         void Dispose();
     }
