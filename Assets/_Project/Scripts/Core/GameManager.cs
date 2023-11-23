@@ -47,12 +47,7 @@ namespace gameoff.Core
             _customInput.Disable();
         }
 
-        [Button("Restart")]
-        public static void RestartGame()
-        {
-            SceneLoader.I.AsyncSceneLoad(Constants.GAME_SCENE_NAME);
-        }
-
+        [HorizontalGroup("Split1")]
         [Button("Pause")]
         private static void PauseGame()
         {
@@ -64,6 +59,7 @@ namespace gameoff.Core
             Time.timeScale = 0f;
         }
 
+        [HorizontalGroup("Split1")]
         [Button("Resume")]
         public static void ResumeGame()
         {
@@ -72,22 +68,30 @@ namespace gameoff.Core
             Time.timeScale = 1f;
         }
 
-        [Button("Lose")]
-        private void Lose()
+        [HorizontalGroup("Split1")]
+        [Button("Restart")]
+        public static void RestartGame()
         {
-            Debug.Log("Lose");
-            _pauseBlocked = true;
-            Lost?.Invoke();
+            SceneLoader.I.AsyncSceneLoad(Constants.GAME_SCENE_NAME);
         }
 
-        [Button("Win")]
+        [HorizontalGroup("Split2")]
+        [Button(ButtonSizes.Large), GUIColor("green")]
         private void Win()
         {
             Debug.Log("Win");
             _pauseBlocked = false;
             Won?.Invoke();
         }
-
+        
+        [HorizontalGroup("Split2")]
+        [Button(ButtonSizes.Large), GUIColor("red")]
+        private void Lose()
+        {
+            Debug.Log("Lose");
+            _pauseBlocked = true;
+            Lost?.Invoke();
+        }
 
         private void OnPausePerformed(InputAction.CallbackContext value)
         {
