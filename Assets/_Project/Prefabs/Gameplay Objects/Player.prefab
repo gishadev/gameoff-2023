@@ -564,10 +564,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 2955248729071630628}
-  damage: 1
-  shootingDelay: 0.15
-  reloadingDelay: 1
-  <MaxAmmo>k__BackingField: 50
+  damage: 5
+  shootingDelay: 0.05
+  reloadingDelay: 3
+  <MaxAmmo>k__BackingField: 30
 --- !u!1 &2431296443055072976
 GameObject:
   m_ObjectHideFlags: 0
