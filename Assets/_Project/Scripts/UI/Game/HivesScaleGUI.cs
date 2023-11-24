@@ -32,7 +32,7 @@ namespace gameoff.UI.Game
 
         private void UpdateGUI(Hive[] hives)
         {
-            hivesCountTMP.text = $"{hives.Length}/{_hivesMaxCount}";
+            hivesCountTMP.text = $"{hives.Length}/{_hivesMaxCount} HIVES";
             hivesScaleImage.transform.localScale = new Vector3(hives.Length / (float) _hivesMaxCount, 1f, 1f);
         }
     }
