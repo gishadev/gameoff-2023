@@ -11,10 +11,16 @@ namespace gameoff.PlayerManager
     public class PlayerUpgradesController : IPlayerUpgradesController
     {
         [Inject] private ISaveLoadController _saveLoadController;
+        [Inject] private GameDataSO _gameDataSO;
 
         public event Action<UpgradeDataSO[]> UpgradesShowed;
 
-        public Func<bool> UpgradesCanBeShown => () => { return true; };
+        public Func<bool> UpgradesCanBeShown => () =>
+        {
+            return _gameDataSO.UpgradesPack
+                .Any(x => x.TargetLevelNumber == GameManager.CurrentLevelNumber &&
+                          _saveLoadController.CurrentSaveData.CompletedLevelsCount < GameManager.CurrentLevelNumber);
+        };
 
         public List<UpgradeEnumType> UnlockedUpgrades { get; } = new();
 

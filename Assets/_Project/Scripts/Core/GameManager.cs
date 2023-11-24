@@ -2,17 +2,22 @@
 using System.Linq;
 using gameoff.Enemy;
 using gameoff.PlayerManager;
+using gameoff.SavingLoading;
 using gameoff.World;
 using gishadev.tools.SceneLoading;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 namespace gameoff.Core
 {
     public class GameManager : MonoBehaviour
     {
+        [Inject] private ISaveLoadController _saveLoadController;
+        
         public static bool IsPaused { private set; get; }
+        public static int CurrentLevelNumber { get; private set; } = 1;
         public static event Action<bool> PauseChanged;
         public static event Action Won;
         public static event Action Lost;
@@ -84,6 +89,12 @@ namespace gameoff.Core
             _pauseBlocked = true;
             Won?.Invoke();
             Time.timeScale = 0f;
+
+            if (CurrentLevelNumber > _saveLoadController.CurrentSaveData.CompletedLevelsCount)
+            {
+                _saveLoadController.CurrentSaveData.CompletedLevelsCount = CurrentLevelNumber;
+                _saveLoadController.SaveGame();
+            }
         }
         
         [HorizontalGroup("Split2")]
