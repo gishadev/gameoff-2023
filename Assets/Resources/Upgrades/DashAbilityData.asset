@@ -15,12 +15,25 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: UpgradeEnumType
+      Entry: 3
+      Data: 0
+    - Name: CardIconSprite
+      Entry: 10
+      Data: 0
+    - Name: CardTitle
+      Entry: 1
+      Data: Dash
+    - Name: CardDescription
+      Entry: 1
+      Data: Dash ability description
   <AbilityCooldown>k__BackingField: 1
   <DashingPower>k__BackingField: 10
   <DashingTime>k__BackingField: 0.4
