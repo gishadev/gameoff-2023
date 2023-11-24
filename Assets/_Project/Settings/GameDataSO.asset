@@ -24,6 +24,9 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
+    - Name: UpgradesStep
+      Entry: 3
+      Data: 3
     - Name: DashAbilityDataSO
       Entry: 10
       Data: 0
@@ -33,4 +36,9 @@ MonoBehaviour:
     - Name: UpgradeCardPrefab
       Entry: 10
       Data: 2
+  upgradesPack:
+  - targetLevelNumber: 1
+    upgrades:
+    - {fileID: 11400000, guid: 916b907a6ea04f548beb17df62a4a52f, type: 2}
+    - {fileID: 11400000, guid: 7f7a0acfaa34606479ed926c2a55aba0, type: 2}
   <UnlockEventChannel>k__BackingField: {fileID: 11400000, guid: 421c636a6305b4b40b3d0f531af8df80, type: 2}
