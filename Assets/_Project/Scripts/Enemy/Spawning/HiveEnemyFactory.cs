@@ -18,7 +18,8 @@ namespace gameoff.Enemy
 
         private readonly Transform _parent;
 
-        public HiveEnemyFactory(DiContainer diContainer, Hive hiveOrigin, float spawnOuterRadius, float spawnInnerRadius,
+        public HiveEnemyFactory(DiContainer diContainer, Hive hiveOrigin, float spawnOuterRadius,
+            float spawnInnerRadius,
             float spawnDelayInSeconds,
             EnemySpawnSettings[] enemySpawnSettings)
         {
@@ -81,12 +82,13 @@ namespace gameoff.Enemy
         private void SpawnEnemy(EnemySpawnSettings randomEnemySpawnSettings, Vector2 position)
         {
             var spawnedEnemy =
-                OtherEmitter.I.EmitAt(randomEnemySpawnSettings.EnemyEnumEntry, position, Quaternion.identity)
+                OtherEmitter.I.EmitAt(randomEnemySpawnSettings.EnemyDataSO.PoolEnumType, position, Quaternion.identity)
                     .GetComponent<Enemy>();
             spawnedEnemy.transform.SetParent(_parent);
-            
+
+            var prefab = OtherEmitter.I.GetPrefab(randomEnemySpawnSettings.EnemyDataSO.PoolEnumType);
             spawnedEnemy.SetSpawnData(new HiveEnemySpawnData(_hiveOrigin,
-                randomEnemySpawnSettings.Prefab.GetInstanceID().ToString()));
+                prefab.GetInstanceID().ToString()));
         }
 
         /// <summary>
@@ -143,9 +145,10 @@ namespace gameoff.Enemy
                 {
                     if (x.SpawnData is not HiveEnemySpawnData hiveEnemySpawnData)
                         return false;
-                        
+
+                    var prefab = OtherEmitter.I.GetPrefab(enemySettings.EnemyDataSO.PoolEnumType);
                     return hiveEnemySpawnData.HiveOrigin == _hiveOrigin &&
-                           hiveEnemySpawnData.PrefabID == enemySettings.Prefab.GetInstanceID().ToString();
+                           hiveEnemySpawnData.PrefabID == prefab.GetInstanceID().ToString();
                 })
                 .ToArray();
         }

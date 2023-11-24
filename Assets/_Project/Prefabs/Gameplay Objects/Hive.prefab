@@ -246,8 +246,7 @@ MonoBehaviour:
   spawnOuterRadius: 5
   spawnInnerRadius: 2.5
   enemySpawnSettings:
-  - <EnemyEnumEntry>k__BackingField: 2
-    <Prefab>k__BackingField: {fileID: 7958972308095696765, guid: 8db0d0964172d6445a9f0d19f39240f6, type: 3}
+  - <EnemyDataSO>k__BackingField: {fileID: 11400000, guid: 62b3462fa61802745b8de8e07d111ae6, type: 2}
     <MaxCount>k__BackingField: 5
     <MinSpawnCount>k__BackingField: 1
     <MaxSpawnCount>k__BackingField: 3

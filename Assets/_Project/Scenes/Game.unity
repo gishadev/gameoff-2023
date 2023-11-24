@@ -5884,6 +5884,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 595838712}
     m_Modifications:
+    - target: {fileID: 1957650143468732681, guid: 5ba9dbb3aee33a9458b364b7ff8f044c, type: 3}
+      propertyPath: enemyToSpawn
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b492c98fcc99ca41aa49e8241777acc, type: 2}
     - target: {fileID: 9042731849061026440, guid: 5ba9dbb3aee33a9458b364b7ff8f044c, type: 3}
       propertyPath: m_Name
       value: RoachSpawn

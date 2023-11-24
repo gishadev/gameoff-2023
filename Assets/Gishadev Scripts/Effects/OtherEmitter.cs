@@ -39,5 +39,7 @@ namespace gishadev.tools.Effects
 
         public GameObject EmitAt(OtherPoolEnum enumEntry, Vector3 position, Quaternion rotation) =>
             EmitAt((int) enumEntry, position, rotation);
+
+        public GameObject GetPrefab(OtherPoolEnum enumEntry) => PoolDataSO.OtherPoolObjects[(int)enumEntry].GetPrefab();
     }
 }
