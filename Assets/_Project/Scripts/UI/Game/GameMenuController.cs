@@ -27,10 +27,7 @@ namespace gameoff.UI.Game
             GameManager.Lost -= OnLost;
         }
 
-        public void OnRestartClicked()
-        {
-            GameManager.RestartGame();
-        }
+        public void OnRestartClicked() => GameManager.RestartGame();
 
         public void OnResumeClicked()
         {

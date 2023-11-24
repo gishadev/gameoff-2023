@@ -72,6 +72,7 @@ namespace gameoff.Core
         [Button("Restart")]
         public static void RestartGame()
         {
+            ResumeGame();
             SceneLoader.I.AsyncSceneLoad(Constants.GAME_SCENE_NAME);
         }
 
@@ -80,8 +81,9 @@ namespace gameoff.Core
         private void Win()
         {
             Debug.Log("Win");
-            _pauseBlocked = false;
+            _pauseBlocked = true;
             Won?.Invoke();
+            Time.timeScale = 0f;
         }
         
         [HorizontalGroup("Split2")]
@@ -91,6 +93,7 @@ namespace gameoff.Core
             Debug.Log("Lose");
             _pauseBlocked = true;
             Lost?.Invoke();
+            Time.timeScale = 0f;
         }
 
         private void OnPausePerformed(InputAction.CallbackContext value)
