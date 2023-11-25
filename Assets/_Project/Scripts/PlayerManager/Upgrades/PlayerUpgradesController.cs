@@ -54,16 +54,17 @@ namespace gameoff.PlayerManager
 
         public void ShowUpgrades()
         {
-            var upgradeEnumsToShow = new[]
-                {UpgradeEnumType.ABILITY_DASH, UpgradeEnumType.ABILITY_EXPLOSION};
+            var upgradeEnumsToShow =
+                _gameDataSO.UpgradesPack.FirstOrDefault(x => x.TargetLevelNumber == GameManager.CurrentLevelNumber)
+                    ?.Upgrades;
+
             upgradeEnumsToShow =
                 upgradeEnumsToShow
-                    .Where(x => !_saveLoadController.CurrentSaveData.Upgrades.Contains((int) x))
+                    .Where(x => !_saveLoadController.CurrentSaveData.Upgrades.Contains((int) x.UpgradeEnumType))
                     .ToArray();
 
-
             var upgradesToShow = _allUpgrades
-                .Where(x => upgradeEnumsToShow.Contains(x.UpgradeEnumType))
+                .Where(x => upgradeEnumsToShow.Contains(x))
                 .ToArray();
 
             UpgradesShowed?.Invoke(upgradesToShow);

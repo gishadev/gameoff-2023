@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cf3a7b88c5144028b35789903c4288d, type: 3}
-  m_Name: ExplosionAbilityData
+  m_Script: {fileID: 11500000, guid: 9e9a4c6fbe914734a9fe1b3f5b78b77a, type: 3}
+  m_Name: BlasterMultiRayUpgradeData
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 21300000, guid: 643503de2e4bfe54ab24b860f6f8d8f7, type: 3}
+    - {fileID: 21300000, guid: c9c547a3660635a48868fb698160c5ea, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -24,20 +24,13 @@ MonoBehaviour:
     SerializationNodes:
     - Name: UpgradeEnumType
       Entry: 3
-      Data: 1
+      Data: 3
     - Name: CardIconSprite
       Entry: 10
       Data: 0
     - Name: CardTitle
       Entry: 1
-      Data: Explosion Bubble
+      Data: Clearing multi shoot
     - Name: CardDescription
       Entry: 1
-      Data: "Clears everything around you. \n\nIdeal for parties you didn't want
-        to attend in the first place"
-  <AbilityCooldown>k__BackingField: 3
-  <ProjectileDamage>k__BackingField: 5
-  <ProjectileCount>k__BackingField: 15
-  <ClearIterations>k__BackingField: 10
-  <ClearMaxRadius>k__BackingField: 50
-  <FullClearExpandingTime>k__BackingField: 0.39
+      Data: One ray is good, but two is better

@@ -53,8 +53,7 @@ namespace gameoff.Core
             Debug.Log("Received callback AFTER CHANGE with the following info: " + info +
                       ", and the following collection instance: " + value);
 
-            var newPack = info.Value as UpgradesPack;
-            if (newPack == null)
+            if (info.Value is not UpgradesPack newPack)
                 return;
 
             if (upgradesPack.Length > 1)

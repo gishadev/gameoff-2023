@@ -17,6 +17,8 @@ namespace gameoff.Core
         [Inject] private ISaveLoadController _saveLoadController;
         
         public static bool IsPaused { private set; get; }
+        
+        [ShowInInspector]
         public static int CurrentLevelNumber { get; private set; } = 1;
         public static event Action<bool> PauseChanged;
         public static event Action Won;
