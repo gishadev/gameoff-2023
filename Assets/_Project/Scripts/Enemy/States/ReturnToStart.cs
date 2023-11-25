@@ -1,17 +1,15 @@
 ﻿using System.Collections;
-using gameoff.PlayerManager;
 using gishadev.tools.StateMachine;
 using UnityEngine;
 
 namespace gameoff.Enemy.States
 {
-    public class Follow : IState
+    public class ReturnToStart : IState
     {
         private readonly Enemy _enemy;
         private readonly EnemyMovement _enemyMovement;
-        private Player _player;
 
-        public Follow(Enemy enemy, EnemyMovement enemyMovement)
+        public ReturnToStart(Enemy enemy, EnemyMovement enemyMovement)
         {
             _enemy = enemy;
             _enemyMovement = enemyMovement;
@@ -23,9 +21,8 @@ namespace gameoff.Enemy.States
 
         public void OnEnter()
         {
-            _player = Player.Current;
             _enemyMovement.ChangeMoveSpeed(_enemy.EnemyDataSO.MoveSpeed);
-            _enemyMovement.StartCoroutine(FollowRoutine());
+            _enemyMovement.StartCoroutine(ReturnRoutine());
         }
 
         public void OnExit()
@@ -33,12 +30,12 @@ namespace gameoff.Enemy.States
             _enemyMovement.StopAllCoroutines();
         }
 
-        private IEnumerator FollowRoutine()
+        private IEnumerator ReturnRoutine()
         {
             while (true)
             {
-                _enemyMovement.SetDestination(_player.transform.position);
-                yield return new WaitForSeconds(0.6f);
+                _enemyMovement.SetDestination(_enemy.StartPosition);
+                yield return new WaitForSeconds(2f);
             }
         }
     }

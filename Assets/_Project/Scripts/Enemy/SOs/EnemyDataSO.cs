@@ -20,6 +20,10 @@ namespace gameoff.Enemy.SOs
         [OdinSerialize, ShowInInspector]
         public float MoveSpeed { private set; get; } = 100f;
         
+        [BoxGroup("Split/Left/General")]
+        [OdinSerialize, ShowInInspector]
+        public float StartAreaRadius { private set; get; } = 1.5f;
+        
         [BoxGroup("Split/Left/General"), GUIColor("red")]
         [OdinSerialize, ShowInInspector]
         public float MeleeAttackRadius { private set; get; } = 1f;
@@ -31,6 +35,10 @@ namespace gameoff.Enemy.SOs
         [BoxGroup("Split/Left/General"), GUIColor("red")]
         [OdinSerialize, ShowInInspector]
         public int MeleeAttackDamage { private set; get; } = 2;
+        
+        [BoxGroup("Split/Left/General"), GUIColor("red")]
+        [OdinSerialize, ShowInInspector]
+        public float FollowRadius { private set; get; } = 10f;
 
         private bool CanOnlyBeEnemyEnum(OtherPoolEnum poolEnum, ref string errorMessage)
         {

@@ -7,11 +7,6 @@ namespace gameoff.Enemy.SOs
     [CreateAssetMenu(fileName = "FastEnemyData", menuName = "ScriptableObjects/FastEnemyData")]
     public class FastEnemyDataSO : EnemyDataSO
     {
-        [VerticalGroup("Split/Right")]
-        [BoxGroup("Split/Right/Special"), GUIColor("red")]
-        [OdinSerialize, ShowInInspector]
-        public float FollowRadius { private set; get; } = 10f;
-
         [Title("Flee")]
         [VerticalGroup("Split/Right")]
         [BoxGroup("Split/Right/Special"), GUIColor("yellow")]

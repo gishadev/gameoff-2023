@@ -20,14 +20,23 @@ namespace gameoff.Enemy
         {
             StateMachine = new StateMachine();
 
-            var idle = new Idle();
-            var follow = new Follow(this, EnemyMovement);
             var prepareToAttack = new PrepareMeleeAttack();
             var attack = new MeleeAttack(this);
             var flee = new Flee(this, EnemyMovement);
             var die = new Die(this);
 
+            #region Idle/Follow/Return
+
+            var idle = new Idle(EnemyMovement);
+            var follow = new Follow(this, EnemyMovement);
+            var returnToStart = new ReturnToStart(this, EnemyMovement);
             At(idle, follow, InSightWithPlayer);
+            At(follow, returnToStart, () => !InSightWithPlayer());
+            At(returnToStart, idle, IsInStartArea);
+            At(returnToStart, follow, InSightWithPlayer);
+
+            #endregion
+
             At(follow, prepareToAttack, InAttackReachWithPlayer);
             At(flee, follow, IsFleeDelayElapsed);
 
@@ -40,9 +49,6 @@ namespace gameoff.Enemy
             Aat(flee, () => Damaged);
 
             StateMachine.SetState(idle);
-
-            bool InSightWithPlayer() =>
-                Vector3.Distance(Player.Current.transform.position, transform.position) < FastData.FollowRadius;
 
             bool InAttackReachWithPlayer() =>
                 Vector3.Distance(Player.Current.transform.position, transform.position) < FastData.MeleeAttackRadius;

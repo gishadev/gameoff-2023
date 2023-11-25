@@ -72,6 +72,7 @@ namespace gameoff.Enemy
         public void Stop()
         {
             _pathLeftToGo.Clear();
+            _rb.velocity = Vector2.zero;
         }
 
         public void ChangeMoveSpeed(float newSpeed)

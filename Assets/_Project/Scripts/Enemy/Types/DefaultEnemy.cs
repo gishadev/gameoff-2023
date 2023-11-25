@@ -18,13 +18,20 @@ namespace gameoff.Enemy
         {
             StateMachine = new StateMachine();
 
-            var idle = new Idle();
-            var follow = new Follow(this, EnemyMovement);
             var prepareToAttack = new PrepareMeleeAttack();
             var attack = new MeleeAttack(this);
             var die = new Die(this);
 
+            #region Idle/Follow/Return
+            var idle = new Idle(EnemyMovement);
+            var follow = new Follow(this, EnemyMovement);
+            var returnToStart = new ReturnToStart(this, EnemyMovement);
             At(idle, follow, InSightWithPlayer);
+            At(follow, returnToStart, () => !InSightWithPlayer());
+            At(returnToStart, idle, IsInStartArea);
+            At(returnToStart, follow, InSightWithPlayer);
+            #endregion
+            
             At(follow, prepareToAttack, InAttackReachWithPlayer);
 
             At(prepareToAttack, follow, () => !InAttackReachWithPlayer());
@@ -36,12 +43,8 @@ namespace gameoff.Enemy
 
             StateMachine.SetState(idle);
 
-            bool InSightWithPlayer() =>
-                Vector3.Distance(Player.Current.transform.position, transform.position) < RoachData.FollowRadius;
-
             bool InAttackReachWithPlayer() =>
                 Vector3.Distance(Player.Current.transform.position, transform.position) < RoachData.MeleeAttackRadius;
-
             bool IsAttackDelayElapsed() => prepareToAttack.GetElapsedTime() > RoachData.MeleeAttackDelay;
 
             void At(IState from, IState to, Func<bool> cond) => StateMachine.AddTransition(from, to, cond);

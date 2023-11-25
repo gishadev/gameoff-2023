@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 
 namespace gishadev.tools.StateMachine
 {
     public class StateMachine
     {
         private IState _state;
-        
+
         private readonly Dictionary<IState, List<Transition>> _transitionsDict = new();
         private readonly List<Transition> _anyTransitions = new();
         private readonly List<Transition> _emptyTransitions = new();
         private List<Transition> _currentTransitions = new();
 
         public event Action<IState> OnStateChanged;
+
 
         public void Tick()
         {
