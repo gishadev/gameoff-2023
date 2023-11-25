@@ -12,3 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4426edd2757d4defbec858e39228b94a, type: 3}
   m_Name: TankEnemyData 1
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: PoolEnumType
+      Entry: 3
+      Data: 5
+    - Name: StartHealth
+      Entry: 3
+      Data: 10
+    - Name: MoveSpeed
+      Entry: 4
+      Data: 100
+    - Name: FollowRadius
+      Entry: 4
+      Data: 10
+    - Name: AttackRadius
+      Entry: 4
+      Data: 1
+    - Name: AttackDelay
+      Entry: 4
+      Data: 0.5
+    - Name: AttackDamage
+      Entry: 3
+      Data: 2
