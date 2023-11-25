@@ -75,6 +75,7 @@ namespace gameoff.PlayerManager
                 if (CurrentAmmo <= 0)
                 {
                     StopShooting();
+                    StartReloading();
                     break;
                 }
 
