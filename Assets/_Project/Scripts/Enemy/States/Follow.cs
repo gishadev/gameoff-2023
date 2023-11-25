@@ -35,8 +35,9 @@ namespace gameoff.Enemy.States
         {
             while (true)
             {
-                _enemyMovement.SetDestination(Player.Current.transform.position);
-                yield return new WaitForSeconds(0.5f);
+                var playerPosition = Player.Current.transform.position;
+                _enemyMovement.SetDestination(playerPosition);
+                yield return new WaitForSeconds(0.6f);
             }
         }
     }

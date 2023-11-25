@@ -38,5 +38,6 @@ namespace gameoff.Enemy
        }
        
        public void SetSpawnData(IEnemySpawnData spawnData) => SpawnData = spawnData;
+
     }
 }

@@ -21,10 +21,12 @@ namespace gameoff.Enemy
         public float MoveSpeed { get; private set; }
 
         private Rigidbody2D _rb;
-
+        private SpriteRenderer _spriteRenderer;
+        
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             _pathfinder = new Pathfinder<Vector2>(GetDistance, GetNeighbourNodes, 1000);
         }
 
@@ -82,6 +84,7 @@ namespace gameoff.Enemy
             if (_pathLeftToGo.Count > 0) //if the target is not yet reached
             {
                 Vector3 dir = (Vector3) _pathLeftToGo[0] - transform.position;
+                _spriteRenderer.flipX = dir.x > 0;
                 _rb.velocity = dir.normalized * (MoveSpeed * Time.deltaTime);
                 if (((Vector2) transform.position - _pathLeftToGo[0]).sqrMagnitude <
                     MoveSpeed * MoveSpeed * Time.deltaTime * Time.deltaTime)
