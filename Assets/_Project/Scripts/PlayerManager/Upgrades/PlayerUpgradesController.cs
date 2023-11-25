@@ -24,12 +24,9 @@ namespace gameoff.PlayerManager
 
         public List<UpgradeEnumType> UnlockedUpgrades { get; } = new();
 
-        private UpgradeDataSO[] _allUpgrades;
 
         public void Init()
         {
-            _allUpgrades = Helpers.FindScriptableObjects<UpgradeDataSO>(Constants.RESOURCES_UPGRADES_PATH).ToArray();
-
             UnlockedUpgrades.AddRange(_saveLoadController.CurrentSaveData.Upgrades.Select(x => (UpgradeEnumType) x));
         }
 
@@ -54,20 +51,23 @@ namespace gameoff.PlayerManager
 
         public void ShowUpgrades()
         {
-            var upgradeEnumsToShow =
-                _gameDataSO.UpgradesPack.FirstOrDefault(x => x.TargetLevelNumber == GameManager.CurrentLevelNumber)
-                    ?.Upgrades;
-
-            upgradeEnumsToShow =
-                upgradeEnumsToShow
-                    .Where(x => !_saveLoadController.CurrentSaveData.Upgrades.Contains((int) x.UpgradeEnumType))
+            // Getting upgrades from current and previous upgrade packs.
+            var upgradePacks =
+                _gameDataSO.UpgradesPack
+                    .Where(x => x.TargetLevelNumber <= GameManager.CurrentLevelNumber)
                     .ToArray();
 
-            var upgradesToShow = _allUpgrades
-                .Where(x => upgradeEnumsToShow.Contains(x))
-                .ToArray();
+            var upgradesToShow = new List<UpgradeDataSO>();
+            foreach (var pack in upgradePacks)
+            foreach (var upgrade in pack.Upgrades)
+                if (!upgradesToShow.Contains(upgrade))
+                    upgradesToShow.Add(upgrade);
 
-            UpgradesShowed?.Invoke(upgradesToShow);
+            upgradesToShow = upgradesToShow
+                .Where(x => !_saveLoadController.CurrentSaveData.Upgrades.Contains((int) x.UpgradeEnumType))
+                .ToList();
+
+            UpgradesShowed?.Invoke(upgradesToShow.ToArray());
         }
     }
 }
