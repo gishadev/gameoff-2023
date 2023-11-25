@@ -1,9 +1,11 @@
 ﻿using gameoff.PlayerManager;
 using gishadev.tools.Events;
 using Sirenix.OdinInspector;
-using Sirenix.OdinInspector.Editor;
 using Sirenix.Serialization;
 using UnityEngine;
+#if UNITY_EDITOR
+using Sirenix.OdinInspector.Editor;
+#endif
 
 namespace gameoff.Core
 {
@@ -16,7 +18,10 @@ namespace gameoff.Core
         public int UpgradesStep { private set; get; }
 
         [TabGroup("Upgrades")]
-        [SerializeField, ShowInInspector, OnCollectionChanged(after: nameof(OnPackChanged))]
+        [SerializeField, ShowInInspector]
+#if UNITY_EDITOR
+        [OnCollectionChanged(after: nameof(OnPackChanged))]
+#endif
         private UpgradesPack[] upgradesPack;
 
         public UpgradesPack[] UpgradesPack => upgradesPack;
@@ -39,6 +44,7 @@ namespace gameoff.Core
         [field: SerializeField]
         public DefaultEventChannelSO UnlockEventChannel { private set; get; }
 
+#if UNITY_EDITOR
         public void OnPackChanged(CollectionChangeInfo info, object value)
         {
             if (info.ChangeType != CollectionChangeType.Add)
@@ -50,11 +56,12 @@ namespace gameoff.Core
             var newPack = info.Value as UpgradesPack;
             if (newPack == null)
                 return;
-            
+
             if (upgradesPack.Length > 1)
                 newPack.TargetLevelNumber = upgradesPack[^2].TargetLevelNumber + UpgradesStep;
             else
                 newPack.TargetLevelNumber = UpgradesStep;
         }
+#endif
     }
 }
