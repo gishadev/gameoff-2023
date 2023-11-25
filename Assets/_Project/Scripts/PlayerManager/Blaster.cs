@@ -44,7 +44,7 @@ namespace gameoff.PlayerManager
 
         public void StartShooting()
         {
-            if (CurrentAmmo <= 0)
+            if (CurrentAmmo <= 0 || _isReloading)
                 return;
 
             _isShooting = true;
@@ -69,7 +69,7 @@ namespace gameoff.PlayerManager
 
         private async void ShootingAsync()
         {
-            while (_isShooting)
+            while (_isShooting && !_isReloading)
             {
                 if (CurrentAmmo <= 0)
                 {
@@ -80,6 +80,8 @@ namespace gameoff.PlayerManager
                 ShootProjectile();
                 await UniTask.WaitForSeconds(shootingDelay);
             }
+
+            StopShooting();
         }
 
         private async void ReloadingAsync()
@@ -88,7 +90,7 @@ namespace gameoff.PlayerManager
             await UniTask.WaitForSeconds(reloadingDelay);
             CurrentAmmo = MaxAmmo;
             _isReloading = false;
-            
+
             AmmoChanged?.Invoke(CurrentAmmo);
         }
 

@@ -2,16 +2,22 @@
 using System.Linq;
 using gameoff.Enemy;
 using gameoff.PlayerManager;
+using gameoff.SavingLoading;
 using gameoff.World;
 using gishadev.tools.SceneLoading;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 namespace gameoff.Core
 {
     public class GameManager : MonoBehaviour
     {
+        [Inject] private ISaveLoadController _saveLoadController;
+        
         public static bool IsPaused { private set; get; }
+        public static int CurrentLevelNumber { get; private set; } = 1;
         public static event Action<bool> PauseChanged;
         public static event Action Won;
         public static event Action Lost;
@@ -46,11 +52,8 @@ namespace gameoff.Core
             _customInput.Disable();
         }
 
-        public static void RestartGame()
-        {
-            SceneLoader.I.AsyncSceneLoad(Constants.GAME_SCENE_NAME);
-        }
-
+        [HorizontalGroup("Split1")]
+        [Button("Pause")]
         private static void PauseGame()
         {
             if (_pauseBlocked)
@@ -61,6 +64,8 @@ namespace gameoff.Core
             Time.timeScale = 0f;
         }
 
+        [HorizontalGroup("Split1")]
+        [Button("Resume")]
         public static void ResumeGame()
         {
             IsPaused = false;
@@ -68,20 +73,39 @@ namespace gameoff.Core
             Time.timeScale = 1f;
         }
 
+        [HorizontalGroup("Split1")]
+        [Button("Restart")]
+        public static void RestartGame()
+        {
+            ResumeGame();
+            SceneLoader.I.AsyncSceneLoad(Constants.GAME_SCENE_NAME);
+        }
+
+        [HorizontalGroup("Split2")]
+        [Button(ButtonSizes.Large), GUIColor("green")]
+        private void Win()
+        {
+            Debug.Log("Win");
+            _pauseBlocked = true;
+            Won?.Invoke();
+            Time.timeScale = 0f;
+
+            if (CurrentLevelNumber > _saveLoadController.CurrentSaveData.CompletedLevelsCount)
+            {
+                _saveLoadController.CurrentSaveData.CompletedLevelsCount = CurrentLevelNumber;
+                _saveLoadController.SaveGame();
+            }
+        }
+        
+        [HorizontalGroup("Split2")]
+        [Button(ButtonSizes.Large), GUIColor("red")]
         private void Lose()
         {
             Debug.Log("Lose");
             _pauseBlocked = true;
             Lost?.Invoke();
+            Time.timeScale = 0f;
         }
-
-        private void Win()
-        {
-            Debug.Log("Win");
-            _pauseBlocked = false;
-            Won?.Invoke();
-        }
-
 
         private void OnPausePerformed(InputAction.CallbackContext value)
         {

@@ -1,19 +1,13 @@
-﻿using System;
-using Cysharp.Threading.Tasks;
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Zenject;
 
 namespace gameoff.PlayerManager
 {
     [RequireComponent(typeof(Player))]
-    public class PlayerWeaponsController : MonoBehaviour
+    public class PlayerBlasterController : MonoBehaviour
     {
         [SerializeField, InlineEditor] private Blaster blaster;
-        [SerializeField] private SpecialAbilitySettings specialAbilitySettings;
-
-        [Inject] private DiContainer _diContainer;
 
         private IAbility _ability;
 
@@ -27,7 +21,6 @@ namespace gameoff.PlayerManager
         private void Awake()
         {
             _player = GetComponent<Player>();
-            _ability = new ExplosionAbility(GetComponent<Player>(), _diContainer, specialAbilitySettings);
 
             _cam = Camera.main;
             _input = new CustomInput();
@@ -43,7 +36,6 @@ namespace gameoff.PlayerManager
 
             _input.Player.PrimaryAttack.performed += OnPrimaryAttackPerformed;
             _input.Player.PrimaryAttack.canceled += OnPrimaryAttackCanceled;
-            _input.Player.SpecialAttack.performed += OnSpecialAttackPerformed;
             
             _input.Player.Reload.performed += OnReloadPerformed;
         }
@@ -57,7 +49,6 @@ namespace gameoff.PlayerManager
 
             _input.Player.PrimaryAttack.performed -= OnPrimaryAttackPerformed;
             _input.Player.PrimaryAttack.canceled -= OnPrimaryAttackCanceled;
-            _input.Player.SpecialAttack.performed -= OnSpecialAttackPerformed;
             
             _input.Player.Reload.performed -= OnReloadPerformed;
         }
@@ -96,44 +87,10 @@ namespace gameoff.PlayerManager
             blaster.RotateBlaster(direction);
         }
 
-        private void OnPrimaryAttackPerformed(InputAction.CallbackContext value)
-        {
-            blaster.StartShooting();
-        }
-
-        private void OnPrimaryAttackCanceled(InputAction.CallbackContext value)
-        {
-            blaster.StopShooting();
-        }
-
-        private async void OnSpecialAttackPerformed(InputAction.CallbackContext value)
-        {
-            if (_isSpecialAttackDelay)
-                return;
-
-            _ability.Trigger();
-            _isSpecialAttackDelay = true;
-            await UniTask.WaitForSeconds(specialAbilitySettings.AbilityDelay);
-            _isSpecialAttackDelay = false;
-        }
-        
-        private void OnReloadPerformed(InputAction.CallbackContext value)
-        {
-            blaster.StartReloading();
-        }
+        private void OnPrimaryAttackPerformed(InputAction.CallbackContext value) => blaster.StartShooting();
+        private void OnPrimaryAttackCanceled(InputAction.CallbackContext value) => blaster.StopShooting();
+        private void OnReloadPerformed(InputAction.CallbackContext value) => blaster.StartReloading();
 
         #endregion
-    }
-
-    [Serializable]
-    public class SpecialAbilitySettings
-    {
-        [field: SerializeField] public float AbilityDelay { private set; get; } = 1f;
-        [field: SerializeField] public int ProjectileDamage { private set; get; } = 5;
-        [field: SerializeField] public int ProjectileCount { private set; get; } = 10;
-
-        [field: SerializeField] public int ClearIterations { private set; get; } = 10;
-        [field: SerializeField] public float ClearMaxRadius { private set; get; } = 5f;
-        [field: SerializeField] public float FullClearExpandingTime { private set; get; } = 1f;
     }
 }

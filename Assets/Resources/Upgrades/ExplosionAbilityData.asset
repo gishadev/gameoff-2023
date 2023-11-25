@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf3a7b88c5144028b35789903c4288d, type: 3}
+  m_Name: ExplosionAbilityData
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 21300000, guid: 65f0e363b74cf5845ab8c3fbc14f39ac, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: UpgradeEnumType
+      Entry: 3
+      Data: 1
+    - Name: CardIconSprite
+      Entry: 10
+      Data: 0
+    - Name: CardTitle
+      Entry: 1
+      Data: Explosion Bubble
+    - Name: CardDescription
+      Entry: 1
+      Data: "Clears everything around you. \n\nIdeal for parties you didn't want
+        to attend in the first place"
+  <AbilityCooldown>k__BackingField: 3
+  <ProjectileDamage>k__BackingField: 5
+  <ProjectileCount>k__BackingField: 15
+  <ClearIterations>k__BackingField: 10
+  <ClearMaxRadius>k__BackingField: 50
+  <FullClearExpandingTime>k__BackingField: 0.39

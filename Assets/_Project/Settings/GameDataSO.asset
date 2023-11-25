@@ -12,3 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2a309a441c46a08188d0dc64b9835a, type: 3}
   m_Name: GameDataSO
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 916b907a6ea04f548beb17df62a4a52f, type: 2}
+    - {fileID: 11400000, guid: 7f7a0acfaa34606479ed926c2a55aba0, type: 2}
+    - {fileID: 5246885601541338336, guid: c20359b6ee4149b409fdd37cd7c77cca, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: UpgradesStep
+      Entry: 3
+      Data: 3
+    - Name: DashAbilityDataSO
+      Entry: 10
+      Data: 0
+    - Name: ExplosionAbilityDataSO
+      Entry: 10
+      Data: 1
+    - Name: UpgradeCardPrefab
+      Entry: 10
+      Data: 2
+  upgradesPack:
+  - targetLevelNumber: 1
+    upgrades:
+    - {fileID: 11400000, guid: 916b907a6ea04f548beb17df62a4a52f, type: 2}
+    - {fileID: 11400000, guid: 7f7a0acfaa34606479ed926c2a55aba0, type: 2}
+  <UnlockEventChannel>k__BackingField: {fileID: 11400000, guid: 421c636a6305b4b40b3d0f531af8df80, type: 2}

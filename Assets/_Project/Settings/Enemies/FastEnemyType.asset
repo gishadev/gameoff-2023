@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4426edd2757d4defbec858e39228b94a, type: 3}
+  m_Name: FastEnemyType
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: PoolEnumType
+      Entry: 3
+      Data: 6
+    - Name: StartHealth
+      Entry: 3
+      Data: 2
+    - Name: MoveSpeed
+      Entry: 4
+      Data: 100
+    - Name: FollowRadius
+      Entry: 4
+      Data: 10
+    - Name: AttackRadius
+      Entry: 4
+      Data: 1
+    - Name: AttackDelay
+      Entry: 4
+      Data: 0.5
+    - Name: AttackDamage
+      Entry: 3
+      Data: 2

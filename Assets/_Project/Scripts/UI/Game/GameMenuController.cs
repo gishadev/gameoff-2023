@@ -1,13 +1,17 @@
 ﻿using gameoff.Core;
+using gameoff.PlayerManager;
 using gishadev.tools.SceneLoading;
 using gishadev.tools.UI;
 using UnityEngine;
+using Zenject;
 
 namespace gameoff.UI.Game
 {
     public class GameMenuController : MenuController
     {
-        [SerializeField] private Page pausePopup, winPopup, losePopup;
+        [SerializeField] private Page pausePopup, winPopup, losePopup, upgradesPopup;
+
+        [Inject] private IPlayerUpgradesController _playerUpgradesController;
 
         private void OnEnable()
         {
@@ -16,7 +20,6 @@ namespace gameoff.UI.Game
             GameManager.Lost += OnLost;
         }
 
-
         private void OnDisable()
         {
             GameManager.PauseChanged -= OnPauseChanged;
@@ -24,10 +27,7 @@ namespace gameoff.UI.Game
             GameManager.Lost -= OnLost;
         }
 
-        public void OnRestartClicked()
-        {
-            GameManager.RestartGame();
-        }
+        public void OnRestartClicked() => GameManager.RestartGame();
 
         public void OnResumeClicked()
         {
@@ -48,7 +48,13 @@ namespace gameoff.UI.Game
 
         private void OnWon()
         {
-            PushPage(winPopup);
+            if (_playerUpgradesController.UpgradesCanBeShown())
+            {
+                PushPage(upgradesPopup);
+                _playerUpgradesController.ShowUpgrades();
+            }
+            else
+                PushPage(winPopup);
         }
 
         private void OnPauseChanged(bool pauseValue)
