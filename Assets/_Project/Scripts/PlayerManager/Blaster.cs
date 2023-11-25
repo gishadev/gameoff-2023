@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using gishadev.tools.Effects;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace gameoff.PlayerManager
         [field: SerializeField] public int MaxAmmo { get; private set; } = 100;
 
         [Inject] private DiContainer _diContainer;
+        [Inject] private IPlayerUpgradesController _upgradesController;
 
         public event Action<int> AmmoChanged;
         public int CurrentAmmo { get; private set; }
@@ -23,9 +25,11 @@ namespace gameoff.PlayerManager
         private ParticleSystem _shootingPS;
         private float _startEmission;
         private bool _isShooting, _isReloading, _isShootingDelay;
+        private bool _isFullAuto;
 
         private void Awake()
         {
+            _isFullAuto = _upgradesController.UnlockedUpgrades.Contains(UpgradeEnumType.EXTENSION_BLASTER_AUTOMATIC);
             CurrentAmmo = MaxAmmo;
             _shootingPS = GetComponentInChildren<ParticleSystem>(true);
 
@@ -68,6 +72,34 @@ namespace gameoff.PlayerManager
         }
 
         private async void ShootingAsync()
+        {
+            if (_isFullAuto)
+                await FullAutoShoot();
+            else
+                await SemiAutoShoot();
+        }
+
+        private async Task SemiAutoShoot()
+        {
+            if (_isShooting && !_isReloading)
+            {
+                _isShootingDelay = true;
+                if (CurrentAmmo <= 0)
+                {
+                    StopShooting();
+                    StartReloading();
+                    return;
+                }
+
+                ShootProjectile();
+                await UniTask.WaitForSeconds(shootingDelay);
+            }
+            
+            _isShootingDelay = false;
+            StopShooting();
+        }
+
+        private async Task FullAutoShoot()
         {
             while (_isShooting && !_isReloading)
             {
