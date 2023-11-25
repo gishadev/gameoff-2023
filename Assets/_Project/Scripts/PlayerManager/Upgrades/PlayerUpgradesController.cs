@@ -34,6 +34,8 @@ namespace gameoff.PlayerManager
         {
         }
 
+        public bool IsUnlocked(UpgradeEnumType upgradeToCheck) => UnlockedUpgrades.Contains(upgradeToCheck);
+
         public void Upgrade(UpgradeEnumType upgradeEnumType)
         {
             if (UnlockedUpgrades.Contains(upgradeEnumType))

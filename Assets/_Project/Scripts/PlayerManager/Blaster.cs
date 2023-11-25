@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using gishadev.tools.Effects;
@@ -9,7 +10,9 @@ namespace gameoff.PlayerManager
 {
     public class Blaster : MonoBehaviour
     {
-        [SerializeField] private Transform shootPoint;
+        [SerializeField] private BlasterBarrel mainBarrel;
+        [SerializeField] private BlasterBarrel[] additionalBarrels;
+
 
         [SerializeField] private int damage = 1;
         [SerializeField] private float shootingDelay = 0.1f;
@@ -22,20 +25,18 @@ namespace gameoff.PlayerManager
         public event Action<int> AmmoChanged;
         public int CurrentAmmo { get; private set; }
 
-        private ParticleSystem _shootingPS;
-        private float _startEmission;
         private bool _isShooting, _isReloading, _isShootingDelay;
         private bool _isFullAuto;
+        private List<BlasterBarrel> _blasterBarrels = new();
 
         private void Awake()
         {
-            _isFullAuto = _upgradesController.UnlockedUpgrades.Contains(UpgradeEnumType.EXTENSION_BLASTER_AUTOMATIC);
+            _blasterBarrels.Add(mainBarrel);
             CurrentAmmo = MaxAmmo;
-            _shootingPS = GetComponentInChildren<ParticleSystem>(true);
-
-            var emission = _shootingPS.emission;
-            _startEmission = emission.rateOverTime.constant;
-            emission.rateOverTime = new ParticleSystem.MinMaxCurve(0f);
+            
+            _isFullAuto = _upgradesController.IsUnlocked(UpgradeEnumType.EXTENSION_BLASTER_AUTOMATIC);
+            if (_upgradesController.IsUnlocked(UpgradeEnumType.EXTENSION_BLASTER_MULTISHOOT))
+                _blasterBarrels.AddRange(additionalBarrels);
         }
 
         public void RotateBlaster(Vector2 direction)
@@ -54,16 +55,14 @@ namespace gameoff.PlayerManager
             _isShooting = true;
 
             ShootingAsync();
-            var emission = _shootingPS.emission;
-            emission.rateOverTime = new ParticleSystem.MinMaxCurve(_startEmission);
+
+            foreach (var barrel in _blasterBarrels) barrel.StartShooting();
         }
 
         public void StopShooting()
         {
             _isShooting = false;
-
-            var emission = _shootingPS.emission;
-            emission.rateOverTime = new ParticleSystem.MinMaxCurve(0f);
+            foreach (var barrel in _blasterBarrels) barrel.StopShooting();
         }
 
         public void StartReloading()
@@ -94,7 +93,7 @@ namespace gameoff.PlayerManager
                 ShootProjectile();
                 await UniTask.WaitForSeconds(shootingDelay);
             }
-            
+
             _isShootingDelay = false;
             StopShooting();
         }
@@ -133,15 +132,15 @@ namespace gameoff.PlayerManager
 
         private void ShootProjectile()
         {
-            var projectile = OtherEmitter.I
-                .EmitAt(OtherPoolEnum.BLASTER_PROJECTILE, shootPoint.position, shootPoint.rotation)
-                .GetComponent<BlasterProjectile>();
-            projectile.SetDamage(damage);
+            foreach (var barrel in _blasterBarrels)
+            {
+                var projectile = barrel.CreateProjectile();
+                projectile.SetDamage(damage);
+                _diContainer.InjectGameObject(projectile.gameObject);
+            }
 
             CurrentAmmo--;
             AmmoChanged?.Invoke(CurrentAmmo);
-
-            _diContainer.InjectGameObject(projectile.gameObject);
         }
     }
 }

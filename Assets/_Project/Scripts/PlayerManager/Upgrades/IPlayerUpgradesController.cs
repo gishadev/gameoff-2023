@@ -12,6 +12,7 @@ namespace gameoff.PlayerManager
          void Upgrade(UpgradeEnumType upgradeEnumType);
          
         List<UpgradeEnumType> UnlockedUpgrades { get; }
+        bool IsUnlocked(UpgradeEnumType upgradeToCheck);
         void Init();
         void Dispose();
     }
