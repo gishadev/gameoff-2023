@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4426edd2757d4defbec858e39228b94a, type: 3}
+  m_Script: {fileID: 11500000, guid: 09ae453d4073419891f6d4e5709eac12, type: 3}
   m_Name: FastEnemyType
   m_EditorClassIdentifier: 
   serializationData:
@@ -26,19 +26,28 @@ MonoBehaviour:
       Data: 6
     - Name: StartHealth
       Entry: 3
-      Data: 2
+      Data: 3
     - Name: MoveSpeed
       Entry: 4
-      Data: 100
+      Data: 150
+    - Name: MeleeAttackRadius
+      Entry: 4
+      Data: 1
+    - Name: MeleeAttackDelay
+      Entry: 4
+      Data: 0.5
+    - Name: MeleeAttackDamage
+      Entry: 3
+      Data: 2
     - Name: FollowRadius
       Entry: 4
       Data: 10
-    - Name: AttackRadius
-      Entry: 4
-      Data: 1
-    - Name: AttackDelay
-      Entry: 4
-      Data: 0.5
-    - Name: AttackDamage
+    - Name: MinDamageToFlee
       Entry: 3
+      Data: 1
+    - Name: FleeMoveSpeedMultiplier
+      Entry: 4
       Data: 2
+    - Name: FleeTime
+      Entry: 4
+      Data: 5

@@ -12,7 +12,7 @@ namespace gameoff.Enemy
         private void Start()
         {
             OtherEmitter.I.EmitAt(enemyToSpawn.PoolEnumType, transform.position, Quaternion.identity)
-                .GetComponent<Roach>();
+                .GetComponent<DefaultEnemy>();
         }
     }
 }

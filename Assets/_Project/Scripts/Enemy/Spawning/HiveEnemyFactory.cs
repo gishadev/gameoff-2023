@@ -139,9 +139,9 @@ namespace gameoff.Enemy
             return availableEnemies;
         }
 
-        private Roach[] GetSpawnedEnemies(EnemySpawnSettings enemySettings)
+        private DefaultEnemy[] GetSpawnedEnemies(EnemySpawnSettings enemySettings)
         {
-            return Object.FindObjectsOfType<Roach>().Where(x =>
+            return Object.FindObjectsOfType<DefaultEnemy>().Where(x =>
                 {
                     if (x.SpawnData is not HiveEnemySpawnData hiveEnemySpawnData)
                         return false;

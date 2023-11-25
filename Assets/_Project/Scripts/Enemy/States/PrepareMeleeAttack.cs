@@ -1,25 +1,18 @@
-﻿using gishadev.tools.StateMachine;
-using UnityEngine;
-
-namespace gameoff.Enemy.States
+﻿namespace gameoff.Enemy.States
 {
-    public class PrepareMeleeAttack : IState
+    public class PrepareMeleeAttack : StateWithElapsedTime
     {
-        private float _startTime;
-        
-        public void Tick()
+        public override void Tick()
         {
         }
 
-        public void OnEnter()
+        public override void OnEnter()
         {
-            _startTime = Time.time;
+            SetStartTime();
         }
 
-        public void OnExit()
+        public override void OnExit()
         {
         }
-
-        public float GetElapsedTime() => Time.time - _startTime;
     }
 }

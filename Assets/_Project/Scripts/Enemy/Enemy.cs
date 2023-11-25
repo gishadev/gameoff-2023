@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace gameoff.Enemy
 {
+    [RequireComponent(typeof(EnemyMovement))]
     public abstract class Enemy : MonoBehaviour, IDamageable
     {
        public abstract EnemyDataSO EnemyDataSO { get; }
@@ -31,7 +32,7 @@ namespace gameoff.Enemy
 
        protected abstract void InitStateMachine();
        
-       public void TakeDamage(int count)
+       public virtual void TakeDamage(int count)
        {
            CurrentHealth -= count;
            HealthChanged?.Invoke(CurrentHealth);
@@ -39,5 +40,10 @@ namespace gameoff.Enemy
        
        public void SetSpawnData(IEnemySpawnData spawnData) => SpawnData = spawnData;
 
+       protected virtual void OnDrawGizmosSelected()
+       {
+           Gizmos.color = Color.red;
+           Gizmos.DrawWireSphere(transform.position, EnemyDataSO.MeleeAttackRadius);
+       }
     }
 }

@@ -5,11 +5,11 @@ namespace gameoff.Enemy.States
 {
     public class Die : IState
     {
-        private readonly Roach _roach;
+        private readonly Enemy _enemy;
 
-        public Die(Roach roach)
+        public Die(Enemy enemy)
         {
-            _roach = roach;
+            _enemy = enemy;
         }
 
         public void Tick()
@@ -18,7 +18,7 @@ namespace gameoff.Enemy.States
 
         public void OnEnter()
         {
-            _roach.gameObject.SetActive(false);
+            _enemy.gameObject.SetActive(false);
         }
 
         public void OnExit()
