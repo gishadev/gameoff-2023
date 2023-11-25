@@ -22,7 +22,7 @@ namespace gameoff.PlayerManager
 
         private ParticleSystem _shootingPS;
         private float _startEmission;
-        private bool _isShooting, _isReloading;
+        private bool _isShooting, _isReloading, _isShootingDelay;
 
         private void Awake()
         {
@@ -44,7 +44,7 @@ namespace gameoff.PlayerManager
 
         public void StartShooting()
         {
-            if (CurrentAmmo <= 0 || _isReloading)
+            if (CurrentAmmo <= 0 || _isReloading || _isShootingDelay)
                 return;
 
             _isShooting = true;
@@ -71,6 +71,7 @@ namespace gameoff.PlayerManager
         {
             while (_isShooting && !_isReloading)
             {
+                _isShootingDelay = true;
                 if (CurrentAmmo <= 0)
                 {
                     StopShooting();
@@ -79,7 +80,10 @@ namespace gameoff.PlayerManager
 
                 ShootProjectile();
                 await UniTask.WaitForSeconds(shootingDelay);
+                _isShootingDelay = false;
             }
+
+            _isShootingDelay = false;
 
             StopShooting();
         }
