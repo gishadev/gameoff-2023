@@ -35,7 +35,7 @@ MonoBehaviour:
     - {fileID: 7958972308095696765, guid: 21c251588423400489e64d661de6db25, type: 3}
   - <Name>k__BackingField: Enemy_Tank
     <Prefabs>k__BackingField:
-    - {fileID: 7958972308095696765, guid: 6ebd4bcf0e44b85449a7739170d56c58, type: 3}
+    - {fileID: 7958972308095696765, guid: 889112a9c099d6a47afde3053273b8b5, type: 3}
   - <Name>k__BackingField: Enemy_Fast
     <Prefabs>k__BackingField:
-    - {fileID: 7958972308095696765, guid: 889112a9c099d6a47afde3053273b8b5, type: 3}
+    - {fileID: 7958972308095696765, guid: 6ebd4bcf0e44b85449a7739170d56c58, type: 3}

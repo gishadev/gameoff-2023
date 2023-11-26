@@ -8,11 +8,20 @@ using UnityEngine;
 
 namespace gameoff.Enemy
 {
-    public class DefaultEnemy : Enemy
+    public class TankEnemy : Enemy
     {
-        [field: SerializeField, InlineEditor] public DefaultRoachDataSO RoachData { get; private set; }
+        [field: SerializeField, InlineEditor] public TankEnemyDataSO TankData { get; private set; }
 
-        public override EnemyDataSO EnemyDataSO => RoachData;
+        public override EnemyDataSO EnemyDataSO => TankData;
+
+        private EnemyProjectileShield _projectileShield;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            _projectileShield = GetComponentInChildren<EnemyProjectileShield>();
+            _projectileShield.transform.localScale = Vector3.one * TankData.ProjectileShieldRadius * 2f;
+        }
 
         protected override void InitStateMachine()
         {
@@ -44,8 +53,8 @@ namespace gameoff.Enemy
             StateMachine.SetState(idle);
 
             bool InAttackReachWithPlayer() =>
-                Vector3.Distance(Player.Current.transform.position, transform.position) < RoachData.MeleeAttackRadius;
-            bool IsAttackDelayElapsed() => prepareToAttack.GetElapsedTime() > RoachData.MeleeAttackDelay;
+                Vector3.Distance(Player.Current.transform.position, transform.position) < TankData.MeleeAttackRadius;
+            bool IsAttackDelayElapsed() => prepareToAttack.GetElapsedTime() > TankData.MeleeAttackDelay;
 
             void At(IState from, IState to, Func<bool> cond) => StateMachine.AddTransition(from, to, cond);
             void Aat(IState to, Func<bool> cond) => StateMachine.AddAnyTransition(to, cond);
@@ -56,7 +65,7 @@ namespace gameoff.Enemy
         {
             base.OnDrawGizmosSelected();
             Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(transform.position, RoachData.FollowRadius);
+            Gizmos.DrawWireSphere(transform.position, TankData.FollowRadius);
         }
     }
 }

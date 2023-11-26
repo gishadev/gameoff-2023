@@ -21,7 +21,7 @@ namespace gameoff.Enemy
             StateMachine = new StateMachine();
 
             var prepareToAttack = new PrepareMeleeAttack();
-            var attack = new MeleeAttack(this);
+            var attack = new MeleeAttack(this, EnemyMovement);
             var flee = new Flee(this, EnemyMovement);
             var die = new Die(this);
 

@@ -139,9 +139,9 @@ namespace gameoff.Enemy
             return availableEnemies;
         }
 
-        private DefaultEnemy[] GetSpawnedEnemies(EnemySpawnSettings enemySettings)
+        private Enemy[] GetSpawnedEnemies(EnemySpawnSettings enemySettings)
         {
-            return Object.FindObjectsOfType<DefaultEnemy>().Where(x =>
+            return Object.FindObjectsOfType<Enemy>().Where(x =>
                 {
                     if (x.SpawnData is not HiveEnemySpawnData hiveEnemySpawnData)
                         return false;

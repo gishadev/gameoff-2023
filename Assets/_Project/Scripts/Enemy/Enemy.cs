@@ -1,8 +1,6 @@
 ﻿using System;
 using gameoff.Enemy.SOs;
 using gishadev.tools.StateMachine;
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using UnityEngine;
 using Player = gameoff.PlayerManager.Player;
 
@@ -22,7 +20,7 @@ namespace gameoff.Enemy
 
         public Vector2 StartPosition { get; private set; }
 
-        private void Awake()
+        protected virtual void Awake()
         {
             EnemyMovement = GetComponent<EnemyMovement>();
         }

@@ -532,10 +532,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7958972308095696765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41b71ef5b1164e9eb29f1a7a81291b64, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a9d021fc55643e1a56486590566a029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <RoachData>k__BackingField: {fileID: 11400000, guid: 3b492c98fcc99ca41aa49e8241777acc, type: 2}
+  <TankData>k__BackingField: {fileID: 11400000, guid: 3b492c98fcc99ca41aa49e8241777acc, type: 2}
 --- !u!50 &1695625193235556154
 Rigidbody2D:
   serializedVersion: 4
