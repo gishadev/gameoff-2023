@@ -1,20 +1,34 @@
-﻿using UnityEngine;
+﻿using gameoff.Core;
+using UnityEngine;
 
 namespace gameoff.World
 {
     public class CreepClearing : ICreepClearing
     {
         private Texture2D _tmpTexture;
-        private static readonly int AlphaTextureID = Shader.PropertyToID("_AlphaTexture");
-
+        
         private Creep _creep;
 
+        public CreepClearing()
+        {
+        }
+
+        public CreepClearing(Texture2D targetTexture)
+        {
+            _tmpTexture = targetTexture;
+        }
+        
         public void Init()
         {
             _creep = Object.FindObjectOfType<Creep>();
-            _tmpTexture = CopyTexture2D(_creep.SpriteRenderers[0].material.GetTexture(AlphaTextureID) as Texture2D);
+            _tmpTexture = CopyTexture2D(_creep.SpriteRenderers[0].material.GetTexture(Constants.AlphaTextureID) as Texture2D);
         }
 
+        public void SetCreep(Creep creep)
+        {
+            _creep = creep;
+        }
+        
         public void ClearCreep(Vector2 worldPos, int brushSize)
         {
             if (_creep == null)
@@ -74,7 +88,7 @@ namespace gameoff.World
                 // Apply the changes to the texture
                 _tmpTexture.Apply();
                 foreach (var sr in _creep.SpriteRenderers) 
-                    sr.material.SetTexture(AlphaTextureID, _tmpTexture);
+                    sr.material.SetTexture(Constants.AlphaTextureID, _tmpTexture);
             }
         }
 

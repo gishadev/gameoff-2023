@@ -1,4 +1,6 @@
-﻿namespace gameoff.Core
+﻿using UnityEngine;
+
+namespace gameoff.Core
 {
     public static class Constants
     {
@@ -7,5 +9,9 @@
         public const string RESOURCES_UPGRADES_PATH = "Upgrades";
         public const string SAVE_FILE_STRING = "savefile";
         
+        public const string CREEP_TEXTURES_FOLDER_PATH = "Assets/_Project/Textures/CreepMaps";
+        public const string CREEP_TEXTURE_ORIGINAL_NAME = "CreepMapOriginal";
+        
+        public static readonly int AlphaTextureID = Shader.PropertyToID("_AlphaTexture");
     }
 }
