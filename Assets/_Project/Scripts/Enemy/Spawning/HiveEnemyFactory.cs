@@ -85,6 +85,7 @@ namespace gameoff.Enemy
                 OtherEmitter.I.EmitAt(randomEnemySpawnSettings.EnemyDataSO.PoolEnumType, position, Quaternion.identity)
                     .GetComponent<Enemy>();
             spawnedEnemy.transform.SetParent(_parent);
+            _diContainer.Inject(spawnedEnemy);
 
             var prefab = OtherEmitter.I.GetPrefab(randomEnemySpawnSettings.EnemyDataSO.PoolEnumType);
             spawnedEnemy.SetSpawnData(new HiveEnemySpawnData(_hiveOrigin,

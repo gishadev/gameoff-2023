@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace gameoff.Enemy.SOs
 {
-    [CreateAssetMenu(fileName = "FastEnemyData", menuName = "ScriptableObjects/FastEnemyData")]
+    [CreateAssetMenu(fileName = "FastEnemyData", menuName = "ScriptableObjects/Enemies/FastEnemyData")]
     public class FastEnemyDataSO : EnemyDataSO
     {
         [Title("Flee")]

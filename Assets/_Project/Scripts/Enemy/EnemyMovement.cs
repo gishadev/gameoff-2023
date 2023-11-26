@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Aoiti.Pathfinding;
 using DG.Tweening;
 using UnityEngine;
@@ -83,10 +82,16 @@ namespace gameoff.Enemy
             MoveSpeed = newSpeed;
         }
 
+        public void FlipTowardsPosition(Vector2 position)
+        {
+            var dir = (Vector3)position - transform.position;
+            _spriteRenderer.flipX = dir.x > 0;
+        }
+
         private void HandleMovementToTarget()
         {
             var dir = (Vector3) _pathLeftToGo[0] - transform.position;
-            _spriteRenderer.flipX = dir.x > 0;
+            FlipTowardsPosition(_pathLeftToGo[0]);
             _rb.velocity = dir.normalized * (MoveSpeed * Time.deltaTime);
             if (((Vector2) transform.position - _pathLeftToGo[0]).sqrMagnitude <
                 MoveSpeed * MoveSpeed * Time.deltaTime * Time.deltaTime)

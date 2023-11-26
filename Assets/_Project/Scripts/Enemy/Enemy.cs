@@ -2,6 +2,7 @@
 using gameoff.Enemy.SOs;
 using gishadev.tools.StateMachine;
 using UnityEngine;
+using Zenject;
 using Player = gameoff.PlayerManager.Player;
 
 namespace gameoff.Enemy
@@ -9,6 +10,8 @@ namespace gameoff.Enemy
     [RequireComponent(typeof(EnemyMovement))]
     public abstract class Enemy : MonoBehaviour, IDamageable
     {
+        [Inject] protected DiContainer DiContainer;
+
         public abstract EnemyDataSO EnemyDataSO { get; }
 
         public event Action<int> HealthChanged;
@@ -49,7 +52,14 @@ namespace gameoff.Enemy
             Vector3.Distance(transform.position, StartPosition) < EnemyDataSO.StartAreaRadius;
 
         protected bool InSightWithPlayer() =>
-            Vector3.Distance(Player.Current.transform.position, transform.position) < EnemyDataSO.FollowRadius;
+            GetDistanceToPlayer() < EnemyDataSO.FollowRadius;
+
+        protected bool InMeleeAttackReachWithPlayer() =>
+            GetDistanceToPlayer() < EnemyDataSO.MeleeAttackRadius;
+
+        protected float GetDistanceToPlayer() =>
+            Vector3.Distance(Player.Current.transform.position, transform.position);
+
 
         protected virtual void OnDrawGizmosSelected()
         {
@@ -58,6 +68,9 @@ namespace gameoff.Enemy
 
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(StartPosition, EnemyDataSO.StartAreaRadius);
+
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position, EnemyDataSO.FollowRadius);
         }
     }
 }

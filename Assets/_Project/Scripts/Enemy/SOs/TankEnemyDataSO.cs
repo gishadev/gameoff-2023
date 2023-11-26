@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace gameoff.Enemy.SOs
 {
-    [CreateAssetMenu(fileName = "TankEnemyData", menuName = "ScriptableObjects/TankEnemyData")]
+    [CreateAssetMenu(fileName = "TankEnemyData", menuName = "ScriptableObjects/Enemies/TankEnemyData")]
     public class TankEnemyDataSO : EnemyDataSO
     {
         [VerticalGroup("Split/Right")]

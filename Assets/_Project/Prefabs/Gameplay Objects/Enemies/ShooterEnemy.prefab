@@ -84,6 +84,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6061485137825407887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 993971769744959176}
+  m_Layer: 13
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &993971769744959176
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061485137825407887}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7958972308095696763}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7958972307206112860
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7958972307206112861}
   - component: {fileID: 7958972307206112858}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +212,7 @@ GameObject:
   - component: {fileID: 7958972308095696760}
   - component: {fileID: 1695625193235556154}
   - component: {fileID: 335686433}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ShooterEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,6 +233,7 @@ Transform:
   m_Children:
   - {fileID: 7958972307206112861}
   - {fileID: 348957214}
+  - {fileID: 993971769744959176}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -231,10 +263,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7958972308095696765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41b71ef5b1164e9eb29f1a7a81291b64, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f3d137338cc4bb4b429152a22ca65a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <RoachData>k__BackingField: {fileID: 11400000, guid: 3c7949ff681910240a9de4f1795265da, type: 2}
+  <ShootData>k__BackingField: {fileID: 11400000, guid: 3c7949ff681910240a9de4f1795265da, type: 2}
+  <ShootPoint>k__BackingField: {fileID: 993971769744959176}
 --- !u!50 &1695625193235556154
 Rigidbody2D:
   serializedVersion: 4
@@ -254,7 +287,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &335686433
 CircleCollider2D:

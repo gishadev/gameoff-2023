@@ -36,7 +36,7 @@ namespace gameoff.Enemy.SOs
         [OdinSerialize, ShowInInspector]
         public int MeleeAttackDamage { private set; get; } = 2;
         
-        [BoxGroup("Split/Left/General"), GUIColor("red")]
+        [BoxGroup("Split/Left/General"), GUIColor("blue")]
         [OdinSerialize, ShowInInspector]
         public float FollowRadius { private set; get; } = 10f;
 

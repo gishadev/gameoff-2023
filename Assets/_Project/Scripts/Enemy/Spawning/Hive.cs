@@ -42,7 +42,6 @@ namespace gameoff.Enemy
         [SerializeField]
         private int dieClearCreepIterationsCount = 25;
 
-
         [Inject] private DiContainer _diContainer;
         [Inject] private ICreepClearing _creepClearing;
 

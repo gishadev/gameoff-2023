@@ -20,8 +20,7 @@ namespace gameoff.Enemy
         {
             StateMachine = new StateMachine();
 
-            var prepareToAttack = new PrepareMeleeAttack();
-            var attack = new MeleeAttack(this, EnemyMovement);
+            var meleeAttack = new MeleeAttack(this, EnemyMovement);
             var flee = new Flee(this, EnemyMovement);
             var die = new Die(this);
 
@@ -37,23 +36,16 @@ namespace gameoff.Enemy
 
             #endregion
 
-            At(follow, prepareToAttack, InAttackReachWithPlayer);
+            At(follow, meleeAttack, InMeleeAttackReachWithPlayer);
+            At(meleeAttack, follow, () => !InMeleeAttackReachWithPlayer());
+            
             At(flee, follow, IsFleeDelayElapsed);
-
-            At(prepareToAttack, follow, () => !InAttackReachWithPlayer());
-            At(prepareToAttack, attack, IsAttackDelayElapsed);
-
-            At(attack, idle, () => true);
 
             Aat(die, () => CurrentHealth <= 0);
             Aat(flee, () => Damaged);
 
             StateMachine.SetState(idle);
-
-            bool InAttackReachWithPlayer() =>
-                Vector3.Distance(Player.Current.transform.position, transform.position) < FastData.MeleeAttackRadius;
-
-            bool IsAttackDelayElapsed() => prepareToAttack.GetElapsedTime() > FastData.MeleeAttackDelay;
+            
             bool IsFleeDelayElapsed() => flee.GetElapsedTime() > FastData.FleeTime;
 
             void At(IState from, IState to, Func<bool> cond) => StateMachine.AddTransition(from, to, cond);
@@ -66,13 +58,6 @@ namespace gameoff.Enemy
 
             if (count >= FastData.MinDamageToFlee)
                 Damaged = true;
-        }
-
-        protected override void OnDrawGizmosSelected()
-        {
-            base.OnDrawGizmosSelected();
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(transform.position, FastData.FollowRadius);
         }
     }
 }

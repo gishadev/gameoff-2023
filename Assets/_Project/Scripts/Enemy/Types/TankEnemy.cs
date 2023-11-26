@@ -27,8 +27,7 @@ namespace gameoff.Enemy
         {
             StateMachine = new StateMachine();
 
-            var prepareToAttack = new PrepareMeleeAttack();
-            var attack = new MeleeAttack(this, EnemyMovement);
+            var meleeAttack = new MeleeAttack(this, EnemyMovement);
             var die = new Die(this);
 
             #region Idle/Follow/Return
@@ -41,31 +40,15 @@ namespace gameoff.Enemy
             At(returnToStart, follow, InSightWithPlayer);
             #endregion
             
-            At(follow, prepareToAttack, InAttackReachWithPlayer);
-
-            At(prepareToAttack, follow, () => !InAttackReachWithPlayer());
-            At(prepareToAttack, attack, IsAttackDelayElapsed);
-
-            At(attack, idle, () => true);
+            At(follow, meleeAttack, InMeleeAttackReachWithPlayer);
+            At(meleeAttack, follow, () => !InMeleeAttackReachWithPlayer());
 
             Aat(die, () => CurrentHealth <= 0);
 
             StateMachine.SetState(idle);
 
-            bool InAttackReachWithPlayer() =>
-                Vector3.Distance(Player.Current.transform.position, transform.position) < TankData.MeleeAttackRadius;
-            bool IsAttackDelayElapsed() => prepareToAttack.GetElapsedTime() > TankData.MeleeAttackDelay;
-
             void At(IState from, IState to, Func<bool> cond) => StateMachine.AddTransition(from, to, cond);
             void Aat(IState to, Func<bool> cond) => StateMachine.AddAnyTransition(to, cond);
-        }
-
-
-        protected override void OnDrawGizmosSelected()
-        {
-            base.OnDrawGizmosSelected();
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(transform.position, TankData.FollowRadius);
         }
     }
 }

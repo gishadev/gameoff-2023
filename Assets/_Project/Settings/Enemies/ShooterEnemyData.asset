@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4426edd2757d4defbec858e39228b94a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f24301afa684a7f8984421c49f28c95, type: 3}
   m_Name: ShooterEnemyData
   m_EditorClassIdentifier: 
   serializationData:
@@ -44,4 +44,19 @@ MonoBehaviour:
       Data: 2
     - Name: FollowRadius
       Entry: 4
+      Data: 10
+    - Name: ShootMinRadius
+      Entry: 4
+      Data: 3
+    - Name: ShootMaxRadius
+      Entry: 4
+      Data: 13
+    - Name: PreferableDistanceToPlayer
+      Entry: 4
+      Data: 7
+    - Name: ShootDelay
+      Entry: 4
+      Data: 1.5
+    - Name: ShootProjectileDamage
+      Entry: 3
       Data: 10

@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 806857100}
   - component: {fileID: 806857103}
   - component: {fileID: 806857104}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Projectile Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1059677964}
   - component: {fileID: 1059677965}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7958972307206112861}
   - component: {fileID: 7958972307206112858}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -481,7 +481,7 @@ GameObject:
   - component: {fileID: 7958972308095696760}
   - component: {fileID: 1695625193235556154}
   - component: {fileID: 335686433}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: TankEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -555,7 +555,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &335686433
 CircleCollider2D:

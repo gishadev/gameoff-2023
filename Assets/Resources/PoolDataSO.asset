@@ -39,3 +39,6 @@ MonoBehaviour:
   - <Name>k__BackingField: Enemy_Fast
     <Prefabs>k__BackingField:
     - {fileID: 7958972308095696765, guid: 6ebd4bcf0e44b85449a7739170d56c58, type: 3}
+  - <Name>k__BackingField: Enemy_Projectile
+    <Prefabs>k__BackingField:
+    - {fileID: 3917482445967802638, guid: ce08254f436805f429498a7ad6eeaf58, type: 3}
