@@ -35,7 +35,7 @@ MonoBehaviour:
       Data: 1.5
     - Name: MeleeAttackRadius
       Entry: 4
-      Data: 1
+      Data: 1.5
     - Name: MeleeAttackDelay
       Entry: 4
       Data: 0.5

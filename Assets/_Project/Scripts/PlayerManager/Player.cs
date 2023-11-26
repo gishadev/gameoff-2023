@@ -21,6 +21,10 @@ namespace gameoff.PlayerManager
         {
             SpriteRenderer = GetComponent<SpriteRenderer>();
             Current = this;
+        }
+
+        private void OnEnable()
+        {
             CurrentHealth = StartHealth;
         }
 

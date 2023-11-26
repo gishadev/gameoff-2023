@@ -168,5 +168,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac9884457c241a0b93026e8e883f280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <FlySpeed>k__BackingField: 30
+  <FlySpeed>k__BackingField: 20
   <LifeTime>k__BackingField: 0.5

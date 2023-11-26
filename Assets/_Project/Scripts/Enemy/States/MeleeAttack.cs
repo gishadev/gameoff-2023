@@ -1,7 +1,6 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 using gameoff.PlayerManager;
-using gishadev.tools.StateMachine;
 
 namespace gameoff.Enemy.States
 {
@@ -10,8 +9,7 @@ namespace gameoff.Enemy.States
         private readonly Enemy _enemy;
         private readonly EnemyMovement _enemyMovement;
         private CancellationTokenSource _cts;
-        private Player _player;
-        
+
         public MeleeAttack(Enemy enemy, EnemyMovement enemyMovement)
         {
             _enemy = enemy;
@@ -26,7 +24,6 @@ namespace gameoff.Enemy.States
         {
             _cts = new CancellationTokenSource();
             _enemyMovement.Stop();
-            _player = Player.Current;
 
             MeleeAttackAsync();
         }
@@ -42,7 +39,8 @@ namespace gameoff.Enemy.States
             {
                 await UniTask.WaitForSeconds(_enemy.EnemyDataSO.MeleeAttackDelay, cancellationToken: _cts.Token)
                     .SuppressCancellationThrow();
-                _player.TakeDamage(_enemy.EnemyDataSO.MeleeAttackDamage);
+                _enemy.AnimationsHandler.TriggerAttackAnimation(Player.Current.transform);
+                Player.Current.TakeDamage(_enemy.EnemyDataSO.MeleeAttackDamage);
             }
         }
     }

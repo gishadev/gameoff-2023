@@ -21,9 +21,11 @@ namespace gameoff.Enemy
 
         private Rigidbody2D _rb;
         private SpriteRenderer _spriteRenderer;
+        private EnemyAnimationsHandler _animationsHandler;
 
         private void Awake()
         {
+            _animationsHandler = GetComponent<EnemyAnimationsHandler>();
             _rb = GetComponent<Rigidbody2D>();
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             _pathfinder = new Pathfinder<Vector2>(GetDistance, GetNeighbourNodes, 1000);
@@ -42,16 +44,7 @@ namespace gameoff.Enemy
             if (drawDebugLines)
                 DrawDebugLines();
 
-            HandleMovementAnimation();
-        }
-
-        private void HandleMovementAnimation()
-        {
-            if (_pathLeftToGo.Count > 0 && !DOTween.IsTweening(transform))
-                transform.DOScaleY(.9f, .2f).SetEase(Ease.InSine).OnComplete(() =>
-                {
-                    transform.DOScaleY(1f, .2f).SetEase(Ease.InSine);
-                });
+            _animationsHandler.HandleMovementAnimation(() => _pathLeftToGo.Count > 0);
         }
 
         public void SetDestination(Vector2 target)
@@ -84,7 +77,7 @@ namespace gameoff.Enemy
 
         public void FlipTowardsPosition(Vector2 position)
         {
-            var dir = (Vector3)position - transform.position;
+            var dir = (Vector3) position - transform.position;
             _spriteRenderer.flipX = dir.x > 0;
         }
 

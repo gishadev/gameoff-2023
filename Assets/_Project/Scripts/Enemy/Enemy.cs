@@ -7,7 +7,7 @@ using Player = gameoff.PlayerManager.Player;
 
 namespace gameoff.Enemy
 {
-    [RequireComponent(typeof(EnemyMovement))]
+    [RequireComponent(typeof(EnemyMovement), typeof(EnemyAnimationsHandler))]
     public abstract class Enemy : MonoBehaviour, IDamageable
     {
         [Inject] protected DiContainer DiContainer;
@@ -19,6 +19,7 @@ namespace gameoff.Enemy
         public IEnemySpawnData SpawnData { private set; get; }
         protected StateMachine StateMachine;
         public int CurrentHealth { get; private set; }
+        public EnemyAnimationsHandler AnimationsHandler { get; private set; }
         protected EnemyMovement EnemyMovement { get; private set; }
 
         public Vector2 StartPosition { get; private set; }
@@ -26,6 +27,7 @@ namespace gameoff.Enemy
         protected virtual void Awake()
         {
             EnemyMovement = GetComponent<EnemyMovement>();
+            AnimationsHandler = GetComponentInChildren<EnemyAnimationsHandler>();
         }
 
         private void OnEnable()
@@ -33,6 +35,8 @@ namespace gameoff.Enemy
             CurrentHealth = EnemyDataSO.StartHealth;
             InitStateMachine();
         }
+
+        private void OnDisable() => StateMachine.CurrentState.OnExit();
 
         private void Start() => StartPosition = transform.position;
 

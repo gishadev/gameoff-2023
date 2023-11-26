@@ -6,6 +6,7 @@ namespace gishadev.tools.StateMachine
     public class StateMachine
     {
         private IState _state;
+        public IState CurrentState => _state;
 
         private readonly Dictionary<IState, List<Transition>> _transitionsDict = new();
         private readonly List<Transition> _anyTransitions = new();
@@ -15,28 +16,29 @@ namespace gishadev.tools.StateMachine
         public event Action<IState> OnStateChanged;
 
 
+
         public void Tick()
         {
             var transition = GetTransition();
             if (transition != null)
                 SetState(transition.To);
 
-            _state?.Tick();
+            CurrentState?.Tick();
         }
 
         public void SetState(IState state)
         {
-            if (state == _state) return;
-            _state?.OnExit();
+            if (state == CurrentState) return;
+            CurrentState?.OnExit();
             _state = state;
 
-            _transitionsDict.TryGetValue(_state, out _currentTransitions);
+            _transitionsDict.TryGetValue(CurrentState, out _currentTransitions);
 
             if (_currentTransitions == null)
                 _currentTransitions = _emptyTransitions;
 
-            _state?.OnEnter();
-            OnStateChanged?.Invoke(_state);
+            CurrentState?.OnEnter();
+            OnStateChanged?.Invoke(CurrentState);
         }
 
         private Transition GetTransition()
