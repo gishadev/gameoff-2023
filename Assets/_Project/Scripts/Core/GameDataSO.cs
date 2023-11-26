@@ -1,4 +1,6 @@
-﻿using gameoff.PlayerManager;
+﻿using System.Linq;
+using gameoff.PlayerManager;
+using gameoff.World;
 using gishadev.tools.Events;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
@@ -35,6 +37,19 @@ namespace gameoff.Core
         [OdinSerialize, ShowInInspector]
         public ExplosionAbilityDataSO ExplosionAbilityDataSO { private set; get; }
 
+        [TabGroup("Levels"), InfoBox("Make sure that every prefab is only level prefab."),
+         ValidateInput(nameof(MustContainLevel), "Only for levels!")]
+        [field: SerializeField, ShowInInspector, AssetsOnly]
+        private GameObject[] levelPrefabs;
+
+        public GameObject[] LevelPrefabs => levelPrefabs;
+
+        [TabGroup("Levels"), ValidateInput(nameof(MustContainPlayer), "Must be player prefab!")]
+        [field: SerializeField, ShowInInspector, AssetsOnly]
+        private GameObject playerPrefab;
+
+        public GameObject PlayerPrefab => playerPrefab;
+
 
         [TabGroup("UI")]
         [OdinSerialize, ShowInInspector, AssetsOnly]
@@ -43,6 +58,7 @@ namespace gameoff.Core
         [TabGroup("UI")]
         [field: SerializeField]
         public DefaultEventChannelSO UnlockEventChannel { private set; get; }
+
 
 #if UNITY_EDITOR
         public void OnPackChanged(CollectionChangeInfo info, object value)
@@ -62,5 +78,11 @@ namespace gameoff.Core
                 newPack.TargetLevelNumber = UpgradesStep;
         }
 #endif
+
+        private bool MustContainLevel(GameObject[] prefabs)
+            => prefabs.All(x => x.GetComponentInChildren<Level>() != null);
+
+        private bool MustContainPlayer(GameObject prefab)
+            => prefab.GetComponentInChildren<Player>() != null;
     }
 }

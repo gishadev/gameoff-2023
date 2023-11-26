@@ -45,4 +45,9 @@ MonoBehaviour:
   - targetLevelNumber: 2
     upgrades:
     - {fileID: 11400000, guid: dbbc4ab93b3e825489cc967c82f30ddf, type: 2}
+  levelPrefabs:
+  - {fileID: 7307985437159335587, guid: 9bff565824015bf499dfab63268eeb8c, type: 3}
+  - {fileID: 3572131395190726655, guid: 6b153962dad789c4facd89e6589051e7, type: 3}
+  - {fileID: 1985805879455979372, guid: dc9fb3ebda0aff347938f036eace2eb8, type: 3}
+  playerPrefab: {fileID: 238890459972768344, guid: 6f2f880611c801a41af2cd88d935802d, type: 3}
   <UnlockEventChannel>k__BackingField: {fileID: 11400000, guid: 421c636a6305b4b40b3d0f531af8df80, type: 2}

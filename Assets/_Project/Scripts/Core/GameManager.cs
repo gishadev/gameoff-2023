@@ -15,11 +15,10 @@ namespace gameoff.Core
     public class GameManager : MonoBehaviour
     {
         [Inject] private ISaveLoadController _saveLoadController;
-        
+        [Inject] private DiContainer _diContainer;
         public static bool IsPaused { private set; get; }
-        
-        [ShowInInspector]
-        public static int CurrentLevelNumber { get; private set; } = 1;
+
+        [ShowInInspector] public static int CurrentLevelNumber { get; private set; } = 1;
         public static event Action<bool> PauseChanged;
         public static event Action Won;
         public static event Action Lost;
@@ -28,9 +27,13 @@ namespace gameoff.Core
         private static bool _pauseBlocked;
 
         private CustomInput _customInput;
+        private LevelLoader _levelLoader;
 
         private void Awake()
         {
+            _levelLoader = new LevelLoader(_diContainer, null);
+            _levelLoader.LoadLevel(1);
+            
             _customInput = new CustomInput();
             _pauseBlocked = false;
         }
@@ -98,7 +101,7 @@ namespace gameoff.Core
                 _saveLoadController.SaveGame();
             }
         }
-        
+
         [HorizontalGroup("Split2")]
         [Button(ButtonSizes.Large), GUIColor("red")]
         private void Lose()

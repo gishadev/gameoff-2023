@@ -9,7 +9,10 @@ namespace gameoff.World
         [SerializeField] private HumanBase humanBase;
         [ValidateInput(nameof(CreepMustBeNotNull), "This field must not be null.")]
         [SerializeField] private Creep creep;
-        
+
+        public HumanBase HumanBase => humanBase;
+        public Creep Creep => creep;
+
         private bool BaseMustBeNotNull(HumanBase obj) => obj != null;
         private bool CreepMustBeNotNull(Creep obj) => obj != null;
     }

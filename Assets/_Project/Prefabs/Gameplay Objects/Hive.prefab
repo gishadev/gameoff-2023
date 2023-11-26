@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2d6ba1bc20408d9b9d562520194f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <StartHealth>k__BackingField: 100
+  <StartHealth>k__BackingField: 20
   spawnDelayInSeconds: 3
   spawnOuterRadius: 5
   spawnInnerRadius: 2.5
