@@ -22,7 +22,7 @@ namespace gameoff.Enemy
 
         private Rigidbody2D _rb;
         private SpriteRenderer _spriteRenderer;
-        
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -32,7 +32,10 @@ namespace gameoff.Enemy
 
         private void FixedUpdate()
         {
-            HandleMovementToTarget();
+            if (_pathLeftToGo.Count > 0)
+                HandleMovementToTarget();
+            else
+                Stop();
         }
 
         private void Update()
@@ -82,17 +85,14 @@ namespace gameoff.Enemy
 
         private void HandleMovementToTarget()
         {
-            if (_pathLeftToGo.Count > 0) //if the target is not yet reached
+            var dir = (Vector3) _pathLeftToGo[0] - transform.position;
+            _spriteRenderer.flipX = dir.x > 0;
+            _rb.velocity = dir.normalized * (MoveSpeed * Time.deltaTime);
+            if (((Vector2) transform.position - _pathLeftToGo[0]).sqrMagnitude <
+                MoveSpeed * MoveSpeed * Time.deltaTime * Time.deltaTime)
             {
-                Vector3 dir = (Vector3) _pathLeftToGo[0] - transform.position;
-                _spriteRenderer.flipX = dir.x > 0;
-                _rb.velocity = dir.normalized * (MoveSpeed * Time.deltaTime);
-                if (((Vector2) transform.position - _pathLeftToGo[0]).sqrMagnitude <
-                    MoveSpeed * MoveSpeed * Time.deltaTime * Time.deltaTime)
-                {
-                    //transform.position = _pathLeftToGo[0];
-                    _pathLeftToGo.RemoveAt(0);
-                }
+                //transform.position = _pathLeftToGo[0];
+                _pathLeftToGo.RemoveAt(0);
             }
         }
 
