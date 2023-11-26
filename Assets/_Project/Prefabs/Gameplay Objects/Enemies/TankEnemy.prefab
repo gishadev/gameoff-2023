@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 806857100}
   - component: {fileID: 806857103}
   - component: {fileID: 806857104}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Projectile Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -572,4 +572,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.76

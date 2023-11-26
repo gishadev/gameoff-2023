@@ -26,10 +26,13 @@ MonoBehaviour:
       Data: 6
     - Name: StartHealth
       Entry: 3
-      Data: 3
+      Data: 2
     - Name: MoveSpeed
       Entry: 4
       Data: 150
+    - Name: StartAreaRadius
+      Entry: 4
+      Data: 1.5
     - Name: MeleeAttackRadius
       Entry: 4
       Data: 1
@@ -41,7 +44,7 @@ MonoBehaviour:
       Data: 2
     - Name: FollowRadius
       Entry: 4
-      Data: 10
+      Data: 20
     - Name: MinDamageToFlee
       Entry: 3
       Data: 1

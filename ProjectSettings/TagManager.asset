@@ -16,7 +16,7 @@ TagManager:
   - PlayerProjectile
   - Minimap
   - ProjectileShield
-  - 
+  - IgnorePlayerProjectile
   - 
   - 
   - 
