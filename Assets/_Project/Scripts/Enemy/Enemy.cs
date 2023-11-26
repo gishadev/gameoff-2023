@@ -1,5 +1,6 @@
 ﻿using System;
 using gameoff.Enemy.SOs;
+using gameoff.UI.Game;
 using gishadev.tools.StateMachine;
 using UnityEngine;
 using Zenject;
@@ -12,7 +13,7 @@ namespace gameoff.Enemy
     {
         [Inject] protected DiContainer DiContainer;
 
-        public abstract EnemyDataSO EnemyDataSO { get; }
+        public abstract EnemyDataSO EnemyDataSO { get; protected set; }
 
         public event Action<int> HealthChanged;
         public int StartHealth => EnemyDataSO.StartHealth;
@@ -38,7 +39,17 @@ namespace gameoff.Enemy
 
         private void OnDisable() => StateMachine.CurrentState.OnExit();
 
-        private void Start() => StartPosition = transform.position;
+        private void Start()
+        {
+            CurrentHealth = EnemyDataSO.StartHealth;
+            StartPosition = transform.position;
+            if (EnemyDataSO.IsBoss)
+                transform.localScale = Vector3.one * 2f;
+            else
+                transform.localScale = Vector3.one;
+
+            GetComponentInChildren<HealthBarGUI>(true).gameObject.SetActive(EnemyDataSO.IsBoss);
+        }
 
         private void Update() => StateMachine.Tick();
 
@@ -48,6 +59,11 @@ namespace gameoff.Enemy
         {
             CurrentHealth -= count;
             HealthChanged?.Invoke(CurrentHealth);
+        }
+
+        public void SetData(EnemyDataSO enemyData)
+        {
+            EnemyDataSO = enemyData;
         }
 
         public void SetSpawnData(IEnemySpawnData spawnData) => SpawnData = spawnData;

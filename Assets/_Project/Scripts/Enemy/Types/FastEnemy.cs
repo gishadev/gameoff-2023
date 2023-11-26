@@ -12,9 +12,15 @@ namespace gameoff.Enemy
     {
         [field: SerializeField, InlineEditor] public FastEnemyDataSO FastData { get; private set; }
 
-        public override EnemyDataSO EnemyDataSO => FastData;
+        private int _damageSum;
+            
+        public override EnemyDataSO EnemyDataSO
+        {
+            get => FastData;
+            protected set => FastData = (FastEnemyDataSO) value;
+        }
 
-        public bool Damaged { get; set; }
+        public bool Damaged { get; private set; }
 
         protected override void InitStateMachine()
         {
@@ -38,14 +44,14 @@ namespace gameoff.Enemy
 
             At(follow, meleeAttack, InMeleeAttackReachWithPlayer);
             At(meleeAttack, follow, () => !InMeleeAttackReachWithPlayer());
-            
+
             At(flee, follow, IsFleeDelayElapsed);
 
             Aat(die, () => CurrentHealth <= 0);
             Aat(flee, () => Damaged);
 
             StateMachine.SetState(idle);
-            
+
             bool IsFleeDelayElapsed() => flee.GetElapsedTime() > FastData.FleeTime;
 
             void At(IState from, IState to, Func<bool> cond) => StateMachine.AddTransition(from, to, cond);
@@ -55,9 +61,15 @@ namespace gameoff.Enemy
         public override void TakeDamage(int count)
         {
             base.TakeDamage(count);
-
-            if (count >= FastData.MinDamageToFlee)
+            _damageSum += count;
+            if (_damageSum >= FastData.MinDamageToFlee)
                 Damaged = true;
+        }
+
+        public void ResetDamaged()
+        {
+            _damageSum = 0;
+            Damaged = false;
         }
     }
 }

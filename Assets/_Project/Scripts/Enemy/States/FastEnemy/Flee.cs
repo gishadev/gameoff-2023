@@ -23,9 +23,10 @@ namespace gameoff.Enemy.States
         public override void OnEnter()
         {
             SetStartTime();
-            _fastEnemy.Damaged = false;
+            _fastEnemy.ResetDamaged();
             _player = Player.Current;
-            _enemyMovement.ChangeMoveSpeed(_fastEnemy.EnemyDataSO.MoveSpeed * _fastEnemy.FastData.FleeMoveSpeedMultiplier);
+            _enemyMovement.ChangeMoveSpeed(_fastEnemy.EnemyDataSO.MoveSpeed *
+                                           _fastEnemy.FastData.FleeMoveSpeedMultiplier);
             _enemyMovement.StartCoroutine(FleeRoutine());
         }
 

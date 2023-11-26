@@ -24,6 +24,9 @@ MonoBehaviour:
     - Name: PoolEnumType
       Entry: 3
       Data: 4
+    - Name: IsBoss
+      Entry: 5
+      Data: false
     - Name: StartHealth
       Entry: 3
       Data: 4
@@ -59,4 +62,4 @@ MonoBehaviour:
       Data: 1.5
     - Name: ShootProjectileDamage
       Entry: 3
-      Data: 10
+      Data: 5

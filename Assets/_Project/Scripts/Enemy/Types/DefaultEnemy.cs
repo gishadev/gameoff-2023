@@ -12,7 +12,11 @@ namespace gameoff.Enemy
     {
         [field: SerializeField, InlineEditor] public DefaultRoachDataSO RoachData { get; private set; }
 
-        public override EnemyDataSO EnemyDataSO => RoachData;
+        public override EnemyDataSO EnemyDataSO
+        {
+            get => RoachData;
+            protected set => RoachData = (DefaultRoachDataSO) value;
+        }
 
         protected override void InitStateMachine()
         {
@@ -22,6 +26,7 @@ namespace gameoff.Enemy
             var die = new Die(this);
 
             #region Idle/Follow/Return
+
             var idle = new Idle(EnemyMovement);
             var follow = new Follow(this, EnemyMovement);
             var returnToStart = new ReturnToStart(this, EnemyMovement);
@@ -29,15 +34,16 @@ namespace gameoff.Enemy
             At(follow, returnToStart, () => !InSightWithPlayer());
             At(returnToStart, idle, IsInStartArea);
             At(returnToStart, follow, InSightWithPlayer);
+
             #endregion
-            
+
             At(follow, meleeAttack, InMeleeAttackReachWithPlayer);
             At(meleeAttack, follow, () => !InMeleeAttackReachWithPlayer());
 
             Aat(die, () => CurrentHealth <= 0);
 
             StateMachine.SetState(idle);
-            
+
             void At(IState from, IState to, Func<bool> cond) => StateMachine.AddTransition(from, to, cond);
             void Aat(IState to, Func<bool> cond) => StateMachine.AddAnyTransition(to, cond);
         }

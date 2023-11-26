@@ -1,5 +1,4 @@
 ﻿using gameoff.Enemy;
-using gameoff.PlayerManager;
 using UnityEngine;
 
 namespace gameoff.UI.Game

@@ -13,6 +13,10 @@ namespace gameoff.Enemy.SOs
         public OtherPoolEnum PoolEnumType { private set; get; }
 
         [BoxGroup("Split/Left/General")]
+        [OdinSerialize, ShowInInspector]
+        public bool IsBoss { private set; get; }
+        
+        [BoxGroup("Split/Left/General")]
         [OdinSerialize, ShowInInspector, GUIColor("green")]
         public int StartHealth { private set; get; } = 2;
 

@@ -14,6 +14,7 @@ namespace gameoff.Enemy
         {
             var enemy = OtherEmitter.I.EmitAt(enemyToSpawn.PoolEnumType, transform.position, Quaternion.identity)
                 .GetComponent<Enemy>();
+            enemy.SetData(enemyToSpawn);
             _diContainer.Inject(enemy);
         }
     }

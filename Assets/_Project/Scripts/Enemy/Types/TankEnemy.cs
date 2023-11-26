@@ -1,7 +1,6 @@
 ﻿using System;
 using gameoff.Enemy.SOs;
 using gameoff.Enemy.States;
-using gameoff.PlayerManager;
 using gishadev.tools.StateMachine;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -12,7 +11,11 @@ namespace gameoff.Enemy
     {
         [field: SerializeField, InlineEditor] public TankEnemyDataSO TankData { get; private set; }
 
-        public override EnemyDataSO EnemyDataSO => TankData;
+        public override EnemyDataSO EnemyDataSO
+        {
+            get => TankData;
+            protected set => TankData = (TankEnemyDataSO) value;
+        }
 
         private EnemyProjectileShield _projectileShield;
 
@@ -20,7 +23,8 @@ namespace gameoff.Enemy
         {
             base.Awake();
             _projectileShield = GetComponentInChildren<EnemyProjectileShield>();
-            _projectileShield.transform.localScale = Vector3.one * TankData.ProjectileShieldRadius * 2f;
+            _projectileShield.transform.localScale =
+                Vector3.one * TankData.ProjectileShieldRadius * 2f;
         }
 
         protected override void InitStateMachine()
@@ -31,6 +35,7 @@ namespace gameoff.Enemy
             var die = new Die(this);
 
             #region Idle/Follow/Return
+
             var idle = new Idle(EnemyMovement);
             var follow = new Follow(this, EnemyMovement);
             var returnToStart = new ReturnToStart(this, EnemyMovement);
@@ -38,8 +43,9 @@ namespace gameoff.Enemy
             At(follow, returnToStart, () => !InSightWithPlayer());
             At(returnToStart, idle, IsInStartArea);
             At(returnToStart, follow, InSightWithPlayer);
+
             #endregion
-            
+
             At(follow, meleeAttack, InMeleeAttackReachWithPlayer);
             At(meleeAttack, follow, () => !InMeleeAttackReachWithPlayer());
 

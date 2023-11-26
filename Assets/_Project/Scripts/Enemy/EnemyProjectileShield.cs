@@ -10,12 +10,7 @@ namespace gameoff.Enemy
         [SerializeField] private Collider2D projectileShieldCollider;
 
         private Player _player;
-        private float _radius;
-
-        private void Awake()
-        {
-            _radius = transform.localScale.x / 2f;
-        }
+        private float Radius => transform.localScale.x / 2f * transform.parent.localScale.x;
 
         private void OnEnable()
         {
@@ -29,9 +24,9 @@ namespace gameoff.Enemy
 
             foreach (var shield in shields)
             {
-                var distance = Vector3.Distance(shield.transform.position, transform.position) - _radius;
+                var distance = Vector3.Distance(shield.transform.position, transform.position) - Radius;
                 distance = Mathf.Max(0f, distance);
-                if (distance < _radius)
+                if (distance < Radius)
                     result.Add(shield);
             }
 
@@ -43,7 +38,7 @@ namespace gameoff.Enemy
             foreach (var shieldToCheck in shields)
             {
                 var distance = Vector3.Distance(shieldToCheck.transform.position, _player.transform.position);
-                if (distance < _radius)
+                if (distance < Radius)
                     return true;
             }
 
@@ -74,7 +69,7 @@ namespace gameoff.Enemy
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.magenta;
-            Gizmos.DrawWireSphere(transform.position, _radius);
+            Gizmos.DrawWireSphere(transform.position, Radius);
         }
     }
 }

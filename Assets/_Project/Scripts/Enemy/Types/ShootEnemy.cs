@@ -12,7 +12,11 @@ namespace gameoff.Enemy
         [field: SerializeField, InlineEditor] public ShootEnemyDataSO ShootData { get; private set; }
         [field: SerializeField] public Transform ShootPoint { private set; get; }
 
-        public override EnemyDataSO EnemyDataSO => ShootData;
+        public override EnemyDataSO EnemyDataSO
+        {
+            get => ShootData;
+            protected set => ShootData = (ShootEnemyDataSO) value;
+        }
 
         protected override void InitStateMachine()
         {
