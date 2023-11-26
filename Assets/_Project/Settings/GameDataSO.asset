@@ -46,6 +46,7 @@ MonoBehaviour:
     upgrades:
     - {fileID: 11400000, guid: dbbc4ab93b3e825489cc967c82f30ddf, type: 2}
   levelPrefabs:
+  - {fileID: 1985805879455979372, guid: 981c331720da23b46904511bc79e88dc, type: 3}
   - {fileID: 7307985437159335587, guid: 9bff565824015bf499dfab63268eeb8c, type: 3}
   - {fileID: 3572131395190726655, guid: 6b153962dad789c4facd89e6589051e7, type: 3}
   - {fileID: 1985805879455979372, guid: dc9fb3ebda0aff347938f036eace2eb8, type: 3}

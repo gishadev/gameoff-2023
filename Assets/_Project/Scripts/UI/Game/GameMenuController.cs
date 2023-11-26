@@ -35,6 +35,11 @@ namespace gameoff.UI.Game
             GameManager.ResumeGame();
         }
 
+        public void OnContinueClicked()
+        {
+            GameManager.NextLevel();
+        }
+        
         public void OnMainMenuClicked()
         {
             GameManager.ResumeGame();

@@ -18,7 +18,7 @@ namespace gameoff.Core
         [Inject] private DiContainer _diContainer;
         public static bool IsPaused { private set; get; }
 
-        [ShowInInspector] public static int CurrentLevelNumber { get; private set; } = 1;
+        [ShowInInspector] public static int CurrentLevelNumber { get; private set; }
         public static event Action<bool> PauseChanged;
         public static event Action Won;
         public static event Action Lost;
@@ -32,7 +32,7 @@ namespace gameoff.Core
         private void Awake()
         {
             _levelLoader = new LevelLoader(_diContainer, null);
-            _levelLoader.LoadLevel(1);
+            _levelLoader.LoadLevel(CurrentLevelNumber);
             
             _customInput = new CustomInput();
             _pauseBlocked = false;
@@ -82,6 +82,15 @@ namespace gameoff.Core
         [Button("Restart")]
         public static void RestartGame()
         {
+            ResumeGame();
+            SceneLoader.I.AsyncSceneLoad(Constants.GAME_SCENE_NAME);
+        }
+        
+        [HorizontalGroup("Split1")]
+        [Button("NextLevel")]
+        public static void NextLevel()
+        {
+            CurrentLevelNumber++;
             ResumeGame();
             SceneLoader.I.AsyncSceneLoad(Constants.GAME_SCENE_NAME);
         }

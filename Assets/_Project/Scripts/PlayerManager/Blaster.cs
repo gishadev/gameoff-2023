@@ -29,7 +29,7 @@ namespace gameoff.PlayerManager
         private bool _isFullAuto;
         private List<BlasterBarrel> _blasterBarrels = new();
 
-        private void Awake()
+        private void Start()
         {
             _blasterBarrels.Add(mainBarrel);
             CurrentAmmo = MaxAmmo;
