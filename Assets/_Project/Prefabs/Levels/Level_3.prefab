@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1985805879455979374}
   - component: {fileID: 1985805879455979373}
   - component: {fileID: 1985805879455979375}
+  - component: {fileID: 5304013122547422385}
   m_Layer: 0
   m_Name: Level_3
   m_TagString: Untagged
@@ -66,6 +67,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnSpotPrefab: {fileID: 9042731849061026440, guid: 5ba9dbb3aee33a9458b364b7ff8f044c, type: 3}
   spawnSpotsParent: {fileID: 1985805879753152750}
+--- !u!114 &5304013122547422385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985805879455979372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bffb653ed55c4ab6a1dca7a1459d57ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridMainObject: {fileID: 6866308217535156337}
 --- !u!1 &1985805879733886778
 GameObject:
   m_ObjectHideFlags: 0

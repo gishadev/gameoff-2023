@@ -13,5 +13,7 @@ namespace gameoff.Core
         public const string CREEP_TEXTURE_ORIGINAL_NAME = "CreepMapOriginal";
         
         public static readonly int AlphaTextureID = Shader.PropertyToID("_AlphaTexture");
+        
+        public const string MINIMAP_LAYER_NAME = "Minimap";
     }
 }

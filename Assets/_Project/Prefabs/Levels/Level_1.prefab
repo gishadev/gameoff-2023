@@ -468,6 +468,7 @@ GameObject:
   - component: {fileID: 7307985437159335585}
   - component: {fileID: 7307985437159335586}
   - component: {fileID: 7307985437159335584}
+  - component: {fileID: 5706538098851760649}
   m_Layer: 0
   m_Name: Level_1
   m_TagString: Untagged
@@ -523,6 +524,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnSpotPrefab: {fileID: 9042731849061026440, guid: 5ba9dbb3aee33a9458b364b7ff8f044c, type: 3}
   spawnSpotsParent: {fileID: 7307985436928289057}
+--- !u!114 &5706538098851760649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7307985437159335587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bffb653ed55c4ab6a1dca7a1459d57ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridMainObject: {fileID: 7307985438274873428}
 --- !u!1 &7307985437209630846
 GameObject:
   m_ObjectHideFlags: 0
@@ -33061,7 +33075,7 @@ GameObject:
   - component: {fileID: 7307985438274873434}
   - component: {fileID: 7307985438274873435}
   m_Layer: 0
-  m_Name: Grids (1)
+  m_Name: Grids
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
