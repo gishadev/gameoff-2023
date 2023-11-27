@@ -33,7 +33,7 @@ namespace gameoff.Core
         {
             _levelLoader = new LevelLoader(_diContainer, null);
             _levelLoader.LoadLevel(CurrentLevelNumber);
-            
+
             _customInput = new CustomInput();
             _pauseBlocked = false;
         }
@@ -56,6 +56,8 @@ namespace gameoff.Core
 
             _customInput.Disable();
         }
+
+        public static void SetCurrentLevel(int levelNumber) => CurrentLevelNumber = levelNumber;
 
         [HorizontalGroup("Split1")]
         [Button("Pause")]
@@ -85,7 +87,7 @@ namespace gameoff.Core
             ResumeGame();
             SceneLoader.I.AsyncSceneLoad(Constants.GAME_SCENE_NAME);
         }
-        
+
         [HorizontalGroup("Split1")]
         [Button("NextLevel")]
         public static void NextLevel()

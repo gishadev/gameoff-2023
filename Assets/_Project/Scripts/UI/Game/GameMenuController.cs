@@ -1,5 +1,6 @@
 ﻿using gameoff.Core;
 using gameoff.PlayerManager;
+using gameoff.SavingLoading;
 using gishadev.tools.SceneLoading;
 using gishadev.tools.UI;
 using UnityEngine;
@@ -12,7 +13,8 @@ namespace gameoff.UI.Game
         [SerializeField] private Page pausePopup, winPopup, losePopup, upgradesPopup;
 
         [Inject] private IPlayerUpgradesController _playerUpgradesController;
-
+        [Inject] private ISaveLoadController _saveLoadController;
+        
         private void OnEnable()
         {
             GameManager.PauseChanged += OnPauseChanged;
@@ -38,12 +40,14 @@ namespace gameoff.UI.Game
         public void OnContinueClicked()
         {
             GameManager.NextLevel();
+            _saveLoadController.SaveGame();
         }
         
         public void OnMainMenuClicked()
         {
             GameManager.ResumeGame();
             SceneLoader.I.AsyncSceneLoad(Constants.MAIN_MENU_SCENE_NAME);
+            _saveLoadController.SaveGame();
         }
 
         private void OnLost()
