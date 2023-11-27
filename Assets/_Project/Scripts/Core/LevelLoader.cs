@@ -21,13 +21,13 @@ namespace gameoff.Core
         public void LoadLevel(int index)
         {
             var levelIndex = index;
-            if (levelIndex > _gameDataSO.LevelPrefabs.Length - 1)
+            if (levelIndex > _gameDataSO.Levels.Length - 1)
             {
-                levelIndex = _gameDataSO.LevelPrefabs.Length - 1;
+                levelIndex = _gameDataSO.Levels.Length - 1;
                 Debug.Log("Out of levels. Loading last one.");
             }
 
-            var levelPrefab = _gameDataSO.LevelPrefabs[levelIndex];
+            var levelPrefab = _gameDataSO.Levels[levelIndex].LevelPrefab;
             var level = _diContainer.InstantiatePrefab(levelPrefab, _sceneParent).GetComponentInChildren<Level>();
 
             SpawnPlayer(level);
