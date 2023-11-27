@@ -55034,13 +55034,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 3572131395190726653}
     m_Modifications:
     - target: {fileID: 5100506215263105450, guid: b78243afa31c7b24fa83dd21f0ffe161, type: 3}
-      propertyPath: startCreepTexture
+      propertyPath: <CreepAlphaTexture>k__BackingField
       value: 
-      objectReference: {fileID: 2800000, guid: 38b9275665ac7b34f8a30e5a08342ef2, type: 3}
-    - target: {fileID: 5100506215263105452, guid: b78243afa31c7b24fa83dd21f0ffe161, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2800000, guid: 27068bc80be2bf741946391df175e133, type: 3}
     - target: {fileID: 5100506215263105453, guid: b78243afa31c7b24fa83dd21f0ffe161, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -55088,10 +55084,6 @@ PrefabInstance:
     - target: {fileID: 5100506215263105455, guid: b78243afa31c7b24fa83dd21f0ffe161, type: 3}
       propertyPath: m_Name
       value: Creep
-      objectReference: {fileID: 0}
-    - target: {fileID: 5100506216179924283, guid: b78243afa31c7b24fa83dd21f0ffe161, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b78243afa31c7b24fa83dd21f0ffe161, type: 3}

@@ -65,7 +65,7 @@ namespace gameoff.World
                 Debug.LogWarning($"Failed to copy {originalPath}");
 
             textureToEdit = AssetDatabase.LoadAssetAtPath(copyPath, typeof(Texture2D)) as Texture2D;
-            _creep.SpriteRenderers[0].material.SetTexture(Constants.AlphaTextureID, textureToEdit);
+            _creep.SpriteRenderers[0].sharedMaterial.SetTexture(Constants.AlphaTextureID, textureToEdit);
         }
 #endif
     }

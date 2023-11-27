@@ -21,7 +21,7 @@ namespace gameoff.World
         public void Init()
         {
             _creep = Object.FindObjectOfType<Creep>();
-            _tmpTexture = CopyTexture2D(_creep.SpriteRenderers[0].material.GetTexture(Constants.AlphaTextureID) as Texture2D);
+            _tmpTexture = CopyTexture2D(_creep.CreepAlphaTexture);
         }
 
         public void SetCreep(Creep creep)
