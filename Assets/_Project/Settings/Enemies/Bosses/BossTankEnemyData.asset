@@ -29,10 +29,10 @@ MonoBehaviour:
       Data: true
     - Name: StartHealth
       Entry: 3
-      Data: 50
+      Data: 500
     - Name: MoveSpeed
       Entry: 4
-      Data: 50
+      Data: 100
     - Name: StartAreaRadius
       Entry: 4
       Data: 3
@@ -41,13 +41,13 @@ MonoBehaviour:
       Data: 4
     - Name: MeleeAttackDelay
       Entry: 4
-      Data: 0.5
+      Data: 0.4
     - Name: MeleeAttackDamage
       Entry: 3
-      Data: 20
+      Data: 25
     - Name: FollowRadius
       Entry: 4
       Data: 20
     - Name: ProjectileShieldRadius
       Entry: 4
-      Data: 6
+      Data: 7

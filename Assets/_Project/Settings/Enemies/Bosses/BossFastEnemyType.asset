@@ -29,31 +29,31 @@ MonoBehaviour:
       Data: true
     - Name: StartHealth
       Entry: 3
-      Data: 20
+      Data: 101
     - Name: MoveSpeed
       Entry: 4
-      Data: 250
+      Data: 600
     - Name: StartAreaRadius
       Entry: 4
       Data: 3
     - Name: MeleeAttackRadius
       Entry: 4
-      Data: 3
+      Data: 4
     - Name: MeleeAttackDelay
       Entry: 4
-      Data: 0.5
+      Data: 0.4
     - Name: MeleeAttackDamage
       Entry: 3
-      Data: 10
+      Data: 25
     - Name: FollowRadius
       Entry: 4
-      Data: 40
+      Data: 20
     - Name: MinDamageToFlee
       Entry: 3
-      Data: 5
+      Data: 30
     - Name: FleeMoveSpeedMultiplier
       Entry: 4
-      Data: 2
+      Data: 1
     - Name: FleeTime
       Entry: 4
-      Data: 1
+      Data: 2

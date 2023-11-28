@@ -29,7 +29,7 @@ MonoBehaviour:
       Data: true
     - Name: StartHealth
       Entry: 3
-      Data: 40
+      Data: 100
     - Name: MoveSpeed
       Entry: 4
       Data: 100
@@ -50,16 +50,16 @@ MonoBehaviour:
       Data: 20
     - Name: ShootMinRadius
       Entry: 4
-      Data: 3
+      Data: 2
     - Name: ShootMaxRadius
       Entry: 4
-      Data: 13
+      Data: 14
     - Name: PreferableDistanceToPlayer
       Entry: 4
-      Data: 7
+      Data: 4
     - Name: ShootDelay
       Entry: 4
-      Data: 1.5
+      Data: 0.4
     - Name: ShootProjectileDamage
       Entry: 3
-      Data: 20
+      Data: 25

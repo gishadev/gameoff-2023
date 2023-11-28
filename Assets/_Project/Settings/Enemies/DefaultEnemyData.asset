@@ -24,9 +24,12 @@ MonoBehaviour:
     - Name: PoolEnumType
       Entry: 3
       Data: 3
+    - Name: IsBoss
+      Entry: 5
+      Data: false
     - Name: StartHealth
       Entry: 3
-      Data: 3
+      Data: 10
     - Name: MoveSpeed
       Entry: 4
       Data: 100
@@ -35,13 +38,13 @@ MonoBehaviour:
       Data: 1.5
     - Name: MeleeAttackRadius
       Entry: 4
-      Data: 1.5
+      Data: 2
     - Name: MeleeAttackDelay
       Entry: 4
       Data: 0.5
     - Name: MeleeAttackDamage
       Entry: 3
-      Data: 2
+      Data: 5
     - Name: FollowRadius
       Entry: 4
-      Data: 15
+      Data: 10

@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f843331c7ed45239b484b207ff8ad96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <StartHealth>k__BackingField: 100
+  <StartHealth>k__BackingField: 20
 --- !u!114 &2431296442014268784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,10 +540,10 @@ MonoBehaviour:
   additionalBarrels:
   - {fileID: 7011468030718278466}
   - {fileID: 280248059966757754}
-  damage: 1
-  shootingDelay: 0.15
-  reloadingDelay: 1
-  <MaxAmmo>k__BackingField: 50
+  damage: 5
+  shootingDelay: 0.1
+  reloadingDelay: 3
+  <MaxAmmo>k__BackingField: 30
 --- !u!1001 &160759542537367086
 PrefabInstance:
   m_ObjectHideFlags: 0
