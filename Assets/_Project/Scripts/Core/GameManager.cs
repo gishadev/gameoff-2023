@@ -18,7 +18,7 @@ namespace gameoff.Core
         [Inject] private DiContainer _diContainer;
         public static bool IsPaused { private set; get; }
 
-        [ShowInInspector] public static int CurrentLevelNumber { get; private set; }
+        [ShowInInspector] public static int CurrentLevelNumber { get; private set; } = 1;
         public static event Action<bool> PauseChanged;
         public static event Action Won;
         public static event Action Lost;

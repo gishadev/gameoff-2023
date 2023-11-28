@@ -1,5 +1,6 @@
 ﻿using gameoff.Core;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace gameoff.World
 {
@@ -33,6 +34,9 @@ namespace gameoff.World
 
                 if (go.TryGetComponent(out Collider2D coll))
                     coll.enabled = false;
+                
+                if (go.TryGetComponent(out TilemapRenderer tilemapRenderer))
+                    tilemapRenderer.sortingOrder = -1;
             }
         }
     }
