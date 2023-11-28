@@ -225,10 +225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2d6ba1bc20408d9b9d562520194f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <StartHealth>k__BackingField: 20
-  spawnDelayInSeconds: 3
+  <StartHealth>k__BackingField: 100
+  spawnDelayInSeconds: 1
   spawnOuterRadius: 5
-  spawnInnerRadius: 2.5
+  spawnInnerRadius: 3
   enemySpawnSettings:
   - <EnemyDataSO>k__BackingField: {fileID: 11400000, guid: 62b3462fa61802745b8de8e07d111ae6, type: 2}
     <MaxCount>k__BackingField: 5
@@ -236,7 +236,7 @@ MonoBehaviour:
     <MaxSpawnCount>k__BackingField: 3
     <SpawnChance>k__BackingField: 0.1
   spawnFillCreepRadius: 60
-  creepGrowDelay: 3
+  creepGrowDelay: 2
   dieClearCreepRadius: 80
   dieClearCreepExpandingTime: 4
   dieClearCreepIterationsCount: 60

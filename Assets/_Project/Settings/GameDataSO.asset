@@ -37,17 +37,35 @@ MonoBehaviour:
       Entry: 10
       Data: 2
   upgradesPack:
-  - targetLevelNumber: 1
+  - targetLevelNumber: 4
     upgrades:
-    - {fileID: 11400000, guid: 916b907a6ea04f548beb17df62a4a52f, type: 2}
     - {fileID: 11400000, guid: 7f7a0acfaa34606479ed926c2a55aba0, type: 2}
     - {fileID: 11400000, guid: 965f1de1f617c2842a481f2d1709926d, type: 2}
-  - targetLevelNumber: 2
+  - targetLevelNumber: 7
     upgrades:
+    - {fileID: 11400000, guid: 965f1de1f617c2842a481f2d1709926d, type: 2}
+    - {fileID: 11400000, guid: 7f7a0acfaa34606479ed926c2a55aba0, type: 2}
+    - {fileID: 11400000, guid: 916b907a6ea04f548beb17df62a4a52f, type: 2}
+  - targetLevelNumber: 10
+    upgrades:
+    - {fileID: 11400000, guid: 965f1de1f617c2842a481f2d1709926d, type: 2}
     - {fileID: 11400000, guid: dbbc4ab93b3e825489cc967c82f30ddf, type: 2}
-  levels:
-  - {fileID: 11400000, guid: d1404ac71563dc342b0853424b32b630, type: 2}
-  - {fileID: 11400000, guid: 82b1dda9747db90499a5995fd907be80, type: 2}
-  - {fileID: 11400000, guid: 78d4f4e409f46d84f86fbab0567b1641, type: 2}
+    - {fileID: 11400000, guid: 916b907a6ea04f548beb17df62a4a52f, type: 2}
+    - {fileID: 11400000, guid: 7f7a0acfaa34606479ed926c2a55aba0, type: 2}
+  - targetLevelNumber: 13
+    upgrades: []
+  levelPrefabs:
+  - {fileID: 7307985437159335587, guid: 9bff565824015bf499dfab63268eeb8c, type: 3}
+  - {fileID: 3572131395190726655, guid: 6b153962dad789c4facd89e6589051e7, type: 3}
+  - {fileID: 1985805879455979372, guid: a68c66ba6977f4c45952c489856573b5, type: 3}
+  - {fileID: 1985805879455979372, guid: 25328f2f09b6c434dad0646d268b7a9c, type: 3}
+  - {fileID: 1985805879455979372, guid: 21dafeb237f2faa4bbcb4b167dcd32fe, type: 3}
+  - {fileID: 1985805879455979372, guid: 6237994f2c04c394f8b1cf117eb00303, type: 3}
+  - {fileID: 1985805879455979372, guid: 94d8fd916a9dbf34086bb6bc44dcbf7f, type: 3}
+  - {fileID: 1985805879455979372, guid: 1c8b516eee325b34792fe91ed0fc72ec, type: 3}
+  - {fileID: 1985805879455979372, guid: a96401f500db9c3418383d46ba78e349, type: 3}
+  - {fileID: 1985805879455979372, guid: f4b9465f33c61f44e98315e3facb5550, type: 3}
+  - {fileID: 1985805879455979372, guid: fa101a6a5f1d01b4c8e2e47054322081, type: 3}
+  - {fileID: 1985805879455979372, guid: 6e68e136fb5132b4d80efd3ef497e565, type: 3}
   playerPrefab: {fileID: 238890459972768344, guid: 6f2f880611c801a41af2cd88d935802d, type: 3}
   <UnlockEventChannel>k__BackingField: {fileID: 11400000, guid: 421c636a6305b4b40b3d0f531af8df80, type: 2}

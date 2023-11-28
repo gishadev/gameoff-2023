@@ -29,7 +29,7 @@ MonoBehaviour:
       Data: false
     - Name: StartHealth
       Entry: 3
-      Data: 4
+      Data: 10
     - Name: MoveSpeed
       Entry: 4
       Data: 100
@@ -38,13 +38,13 @@ MonoBehaviour:
       Data: 1.5
     - Name: MeleeAttackRadius
       Entry: 4
-      Data: 1.5
+      Data: 2
     - Name: MeleeAttackDelay
       Entry: 4
       Data: 0.5
     - Name: MeleeAttackDamage
       Entry: 3
-      Data: 2
+      Data: 5
     - Name: FollowRadius
       Entry: 4
       Data: 10
@@ -53,13 +53,13 @@ MonoBehaviour:
       Data: 3
     - Name: ShootMaxRadius
       Entry: 4
-      Data: 13
+      Data: 7
     - Name: PreferableDistanceToPlayer
       Entry: 4
-      Data: 7
+      Data: 4
     - Name: ShootDelay
       Entry: 4
-      Data: 1.5
+      Data: 0.5
     - Name: ShootProjectileDamage
       Entry: 3
       Data: 5
