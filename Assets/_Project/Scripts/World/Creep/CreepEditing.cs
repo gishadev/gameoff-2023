@@ -38,6 +38,9 @@ namespace gameoff.World
                 Ray ray = HandleUtility.GUIPointToWorldRay(mousePositionGUI);
                 _creepClearing.ClearCreep(ray.origin, brushSize);
                 Debug.Log("clear");
+                
+                EditorUtility.SetDirty(textureToEdit);
+                AssetDatabase.SaveAssets();
             }
             
             if (Keyboard.current.fKey.isPressed)
@@ -49,6 +52,9 @@ namespace gameoff.World
                 Ray ray = HandleUtility.GUIPointToWorldRay(mousePositionGUI);
                 _creepClearing.AddCreep(ray.origin, brushSize, out var pixelsChanged);
                 Debug.Log("fill");
+
+                EditorUtility.SetDirty(textureToEdit);
+                AssetDatabase.SaveAssets();
             }
         }
         

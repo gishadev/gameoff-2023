@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7a6d5ef9f0547c584db4241e146bc90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <CreepAlphaTexture>k__BackingField: {fileID: 2800000, guid: e43922cfdec3c5141891f713bf26b94a, type: 3}
   spriteRenderers:
   - {fileID: 5100506215263105452}
   - {fileID: 5100506216179924283}

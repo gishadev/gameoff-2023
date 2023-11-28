@@ -39,7 +39,9 @@ namespace gameoff.Core
 
         [TabGroup("Levels")]
         [field: SerializeField, ShowInInspector, AssetsOnly, InlineEditor]
+        #if UNITY_EDITOR
         [OnCollectionChanged(nameof(OnLevelsChanged))]
+        #endif
         private LevelDataSO[] levels;
 
         public LevelDataSO[] Levels => levels;

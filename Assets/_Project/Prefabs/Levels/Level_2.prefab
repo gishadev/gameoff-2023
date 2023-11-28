@@ -55210,10 +55210,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3572131395190726653}
     m_Modifications:
-    - target: {fileID: 5100506215263105450, guid: b78243afa31c7b24fa83dd21f0ffe161, type: 3}
-      propertyPath: <CreepAlphaTexture>k__BackingField
-      value: 
-      objectReference: {fileID: 2800000, guid: 27068bc80be2bf741946391df175e133, type: 3}
     - target: {fileID: 5100506215263105453, guid: b78243afa31c7b24fa83dd21f0ffe161, type: 3}
       propertyPath: m_RootOrder
       value: 5
