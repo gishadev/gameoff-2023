@@ -32,7 +32,7 @@ namespace gameoff.Core
         private void Awake()
         {
             _levelLoader = new LevelLoader(_diContainer, null);
-            _levelLoader.LoadLevel(CurrentLevelNumber);
+            _levelLoader.LoadLevel(CurrentLevelNumber - 1);
 
             _customInput = new CustomInput();
             _pauseBlocked = false;

@@ -71,7 +71,7 @@ namespace gameoff.Core
             Debug.Log("Received callback AFTER CHANGE with the following info: " + info +
                       ", and the following collection instance: " + value);
             
-            for (int i = 0; i < levels.Length; i++) levels[i].SetLevelIndex(i);
+            for (int i = 0; i < levels.Length; i++) levels[i].SetLevelIndex(i + 1);
         }
 
         public void OnPackChanged(CollectionChangeInfo info, object value)

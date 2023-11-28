@@ -30,7 +30,7 @@ namespace gameoff.UI.MainMenu
         private void Awake()
         {
             _button = GetComponent<Button>();
-            numberLabel.text = (LevelData.LevelIndex + 1).ToString();
+            numberLabel.text = (LevelData.LevelOrder).ToString();
         }
 
         private void OnEnable() => _button.onClick.AddListener(OnClick);
@@ -38,7 +38,7 @@ namespace gameoff.UI.MainMenu
 
         private void OnClick()
         {
-            GameManager.SetCurrentLevel(LevelData.LevelIndex);
+            GameManager.SetCurrentLevel(LevelData.LevelOrder);
             MainMenuController.OnPlayClicked();
         }
 

@@ -8,9 +8,9 @@ namespace gameoff.World
     {
         [TabGroup("Main")]
         [field: SerializeField, ShowInInspector]
-        private int levelIndex;
+        private int levelOrder;
 
-        public int LevelIndex => levelIndex;
+        public int LevelOrder => levelOrder;
 
         [TabGroup("Main"),
          ValidateInput(nameof(MustContainLevel), "Only for level prefab!")]
@@ -45,6 +45,6 @@ namespace gameoff.World
 
         private bool MustContainLevel(GameObject prefab) => prefab.TryGetComponent(out Level _);
 
-        public void SetLevelIndex(int index) => levelIndex = index;
+        public void SetLevelIndex(int index) => levelOrder = index;
     }
 }

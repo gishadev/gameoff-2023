@@ -38,18 +38,18 @@ namespace gameoff.UI.MainMenu
                 _saveLoadController.LoadGame();
 
             _levelGUIs = levelGUIParent.GetComponentsInChildren<LevelGUI>()
-                .OrderBy(x => x.LevelData.LevelIndex)
+                .OrderBy(x => x.LevelData.LevelOrder)
                 .ToArray();
 
             foreach (var level in _levelGUIs)
                 level.SetClosed();
 
             var completedLevels = _saveLoadController.CurrentSaveData.CompletedLevelsCount;
-            for (int i = 0; i < completedLevels + 1; i++)
+            for (int i = 0; i < _levelGUIs.Length && i < completedLevels + 1; i++)
             {
-                if (IsCleared(i))
+                if (IsCleared(_levelGUIs[i].LevelData))
                     _levelGUIs[i].SetCompleted();
-                else
+                else if (IsInfected(_levelGUIs[i].LevelData))
                     _levelGUIs[i].SetInfected();
             }
         }
@@ -71,13 +71,11 @@ namespace gameoff.UI.MainMenu
 
         private void OnLevelPointerEnter(LevelDataSO levelData)
         {
-            var completedLevels = _saveLoadController.CurrentSaveData.CompletedLevelsCount;
+            levelTitle.text = $"Sector {levelData.LevelOrder}: {levelData.LevelName}";
 
-            levelTitle.text = $"Sector {levelData.LevelIndex + 1}: {levelData.LevelName}";
-
-            if (IsCleared(levelData.LevelIndex + 1))
+            if (IsCleared(levelData))
                 levelStatusLabel.text = $"Status: Cleared";
-            else if (levelData.LevelIndex + 1 == completedLevels + 1)
+            else if (IsInfected(levelData))
                 levelStatusLabel.text = $"Status: Infected";
             else
                 levelStatusLabel.text = $"Status: Closed";
@@ -93,10 +91,16 @@ namespace gameoff.UI.MainMenu
             levelInfoBox.SetActive(false);
         }
 
-        public bool IsCleared(int index)
+        public bool IsCleared(LevelDataSO levelData)
         {
             var completedLevels = _saveLoadController.CurrentSaveData.CompletedLevelsCount;
-            return index <= completedLevels;
+            return levelData.LevelOrder <= completedLevels;
+        }
+
+        public bool IsInfected(LevelDataSO levelData)
+        {
+            var completedLevels = _saveLoadController.CurrentSaveData.CompletedLevelsCount;
+            return levelData.LevelOrder == completedLevels + 1;
         }
     }
 }
