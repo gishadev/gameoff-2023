@@ -35,7 +35,7 @@ namespace gameoff.World
                 return;
 
             Vector2 textureCoordinates = WorldToTextureCoordinates(worldPos);
-            UpdateTexturePixels(textureCoordinates, brushSize, Color.clear, out var pixelsChanged);
+            UpdateTexturePixels(textureCoordinates, brushSize, Color.black, out var pixelsChanged);
         }
         
         public void AddCreep(Vector2 worldPos, int brushSize, out int pixelsChanged)
