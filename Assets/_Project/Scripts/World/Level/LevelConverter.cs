@@ -8,7 +8,8 @@ namespace gameoff.World
     {
         [SerializeField] private GameObject spawnSpotPrefab;
         [SerializeField] private Transform spawnSpotsParent;
-        
+
+#if UNITY_EDITOR
         [Button("Enemies into spawn spots")]
         public void ConvertEnemiesIntoSpawnSpots()
         {
@@ -21,5 +22,7 @@ namespace gameoff.World
                 enemy.gameObject.SetActive(false);
             }
         }
+#endif
+
     }
 }
