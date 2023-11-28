@@ -24,12 +24,15 @@ MonoBehaviour:
     - Name: PoolEnumType
       Entry: 3
       Data: 6
+    - Name: IsBoss
+      Entry: 5
+      Data: false
     - Name: StartHealth
       Entry: 3
       Data: 2
     - Name: MoveSpeed
       Entry: 4
-      Data: 150
+      Data: 500
     - Name: StartAreaRadius
       Entry: 4
       Data: 1.5
