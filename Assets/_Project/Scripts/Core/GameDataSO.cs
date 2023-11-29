@@ -37,12 +37,14 @@ namespace gameoff.Core
         [OdinSerialize, ShowInInspector]
         public ExplosionAbilityDataSO ExplosionAbilityDataSO { private set; get; }
 
-        [TabGroup("Levels"), InfoBox("Make sure that every prefab is only level prefab."),
-         ValidateInput(nameof(MustContainLevel), "Only for levels!")]
-        [field: SerializeField, ShowInInspector, AssetsOnly]
-        private GameObject[] levelPrefabs;
+        [TabGroup("Levels")]
+        [field: SerializeField, ShowInInspector, AssetsOnly, InlineEditor]
+        #if UNITY_EDITOR
+        [OnCollectionChanged(nameof(OnLevelsChanged))]
+        #endif
+        private LevelDataSO[] levels;
 
-        public GameObject[] LevelPrefabs => levelPrefabs;
+        public LevelDataSO[] Levels => levels;
 
         [TabGroup("Levels"), ValidateInput(nameof(MustContainPlayer), "Must be player prefab!")]
         [field: SerializeField, ShowInInspector, AssetsOnly]
@@ -61,6 +63,17 @@ namespace gameoff.Core
 
 
 #if UNITY_EDITOR
+        public void OnLevelsChanged(CollectionChangeInfo info, object value)
+        {
+            if (info.Value is not LevelDataSO levelData)
+                return;
+            
+            Debug.Log("Received callback AFTER CHANGE with the following info: " + info +
+                      ", and the following collection instance: " + value);
+            
+            for (int i = 0; i < levels.Length; i++) levels[i].SetLevelIndex(i + 1);
+        }
+
         public void OnPackChanged(CollectionChangeInfo info, object value)
         {
             if (info.ChangeType != CollectionChangeType.Add)
@@ -79,8 +92,6 @@ namespace gameoff.Core
         }
 #endif
 
-        private bool MustContainLevel(GameObject[] prefabs)
-            => prefabs.All(x => x.GetComponentInChildren<Level>() != null);
 
         private bool MustContainPlayer(GameObject prefab)
             => prefab.GetComponentInChildren<Player>() != null;

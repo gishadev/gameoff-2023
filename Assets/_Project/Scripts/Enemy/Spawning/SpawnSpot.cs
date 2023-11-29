@@ -17,5 +17,10 @@ namespace gameoff.Enemy
             enemy.SetData(enemyToSpawn);
             _diContainer.Inject(enemy);
         }
+
+        public void SetData(EnemyDataSO newData)
+        {
+            enemyToSpawn = newData;
+        }
     }
 }

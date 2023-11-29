@@ -39,6 +39,9 @@ namespace gameoff.Enemy.States
             {
                 await UniTask.WaitForSeconds(_enemy.EnemyDataSO.MeleeAttackDelay, cancellationToken: _cts.Token)
                     .SuppressCancellationThrow();
+                if (_cts.IsCancellationRequested)
+                    return;
+                
                 _enemy.AnimationsHandler.TriggerAttackAnimation(Player.Current.transform);
                 Player.Current.TakeDamage(_enemy.EnemyDataSO.MeleeAttackDamage);
             }

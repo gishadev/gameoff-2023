@@ -1,0 +1,2110 @@
+fileFormatVersion: 2
+guid: 31354b5db921cd74eb0143580cafdd96
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMasterTextureLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: lock
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 367
+      y: 909
+      width: 8
+      height: 11
+    spriteID: 7fd3fdf7eb9109c49884ca333f7911c7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 367, y: 909}
+    spritePosition: {x: 204, y: 138}
+  - name: Skyes
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 384
+      height: 216
+    spriteID: c6f507b4924e6634eb96bab3d5433bed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 0, y: 0}
+  - name: Layer 90 copy
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 343
+      y: 909
+      width: 16
+      height: 15
+    spriteID: a84aa362916d3bd4fa5dbb8fc524526f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 343, y: 909}
+    spritePosition: {x: 188, y: 89}
+  - name: Layer 89
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 140
+      y: 937
+      width: 16
+      height: 15
+    spriteID: c1a5ae52f856652419941b313ee2002e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 140, y: 937}
+    spritePosition: {x: 188, y: 89}
+  - name: slime
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 676
+      width: 182
+      height: 188
+    spriteID: c6433a4f30c3fcc4c91716b396b6122f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 676}
+    spritePosition: {x: 62, y: 6}
+  - name: sektor24
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 459
+      y: 4
+      width: 44
+      height: 31
+    spriteID: 64211cde58a4c524ca3dd3a31dd1dd9d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 459, y: 4}
+    spritePosition: {x: 72, y: 156}
+  - name: sektor23
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 396
+      y: 644
+      width: 19
+      height: 19
+    spriteID: 02cda0c944b94c7489c958127423ec63
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 396, y: 644}
+    spritePosition: {x: 111, y: 142}
+  - name: sektor22
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 361
+      y: 998
+      width: 10
+      height: 18
+    spriteID: e8e5da95e5787494fb24df349ce37f45
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 361, y: 998}
+    spritePosition: {x: 117, y: 160}
+  - name: sektor21
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 396
+      y: 228
+      width: 60
+      height: 27
+    spriteID: bff5c173bbe579e4494adcd18cb51bb8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 396, y: 228}
+    spritePosition: {x: 65, y: 126}
+  - name: sektor20
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 396
+      y: 396
+      width: 41
+      height: 31
+    spriteID: 3df3402d0e0832b44a2635451a08f625
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 396, y: 396}
+    spritePosition: {x: 70, y: 133}
+  - name: sektor19
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 343
+      y: 871
+      width: 29
+      height: 30
+    spriteID: 2673ab19e52e1e547afbc78d7af6e530
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 343, y: 871}
+    spritePosition: {x: 95, y: 151}
+  - name: sektor18
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 396
+      y: 4
+      width: 55
+      height: 38
+    spriteID: 8db41f26abfc13c4b9d080173e78b188
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 396, y: 4}
+    spritePosition: {x: 74, y: 8}
+  - name: sektor17
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 443
+      y: 298
+      width: 12
+      height: 36
+    spriteID: cf479ec2e9f9cd64a8053593b3d75bc4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 443, y: 298}
+    spritePosition: {x: 73, y: 42}
+  - name: sektor16
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 455
+      y: 96
+      width: 39
+      height: 42
+    spriteID: ccefe5493f965284a88a65627c6b0aa2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 455, y: 96}
+    spritePosition: {x: 79, y: 24}
+  - name: sektor15
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 334
+      y: 998
+      width: 19
+      height: 20
+    spriteID: e82bd2c54d7454f4a8b69af9a45f1f5f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 334, y: 998}
+    spritePosition: {x: 119, y: 43}
+  - name: sektor14
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 396
+      y: 538
+      width: 13
+      height: 31
+    spriteID: 67f270afab1486d42989994d617eade8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 396, y: 538}
+    spritePosition: {x: 71, y: 84}
+  - name: sektor13
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 455
+      y: 196
+      width: 22
+      height: 24
+    spriteID: 00609421b72a63e4b9ea771fa8e2a709
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 455, y: 196}
+    spritePosition: {x: 77, y: 75}
+  - name: sektor12
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 464
+      y: 228
+      width: 31
+      height: 23
+    spriteID: 7a27383d07fd9dc49b64d44aeb392ab7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 464, y: 228}
+    spritePosition: {x: 83, y: 60}
+  - name: sektor11
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 396
+      y: 190
+      width: 34
+      height: 30
+    spriteID: a41abcb678a3fe842a46c9696707fbb5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 396, y: 190}
+    spritePosition: {x: 97, y: 78}
+  - name: sektor10
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 464
+      y: 378
+      width: 28
+      height: 30
+    spriteID: 6a4f61cdb01177e4a9ae31a42e13626d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 464, y: 378}
+    spritePosition: {x: 112, y: 58}
+  - name: sektor9
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 432
+      y: 479
+      width: 15
+      height: 23
+    spriteID: dcbd6084d76e07243ba8749b4376269d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 432, y: 479}
+    spritePosition: {x: 133, y: 57}
+  - name: sektor8
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 872
+      width: 60
+      height: 80
+    spriteID: 27d53fbeeecbbfc43a10bd3d7e3a912c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 872}
+    spritePosition: {x: 97, y: 38}
+  - name: sektor7
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 140
+      y: 872
+      width: 32
+      height: 57
+    spriteID: 891829e84027f6a4990277f59a41b19e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 140, y: 872}
+    spritePosition: {x: 146, y: 118}
+  - name: sektor6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 960
+      width: 50
+      height: 48
+    spriteID: c6699fba766f04949859dcf40624015d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 960}
+    spritePosition: {x: 161, y: 127}
+  - name: sektor5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 194
+      y: 996
+      width: 60
+      height: 23
+    spriteID: 2a382f3f1b6d1dc4da965ea09f94c8c5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 194, y: 996}
+    spritePosition: {x: 160, y: 158}
+  - name: sektor4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 72
+      y: 960
+      width: 83
+      height: 54
+    spriteID: 15de34913e21453488eca7ede9163747
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 72, y: 960}
+    spritePosition: {x: 157, y: 138}
+  - name: sektor3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 960
+      width: 16
+      height: 40
+    spriteID: b255050219542704a8e71a21ad87569d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 163, y: 960}
+    spritePosition: {x: 218, y: 103}
+  - name: sektor3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 396
+      y: 298
+      width: 39
+      height: 41
+    spriteID: 2483b0eee8276054cb0024d4c766c8a8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 396, y: 298}
+    spritePosition: {x: 188, y: 126}
+  - name: sektor2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 396
+      y: 96
+      width: 51
+      height: 39
+    spriteID: 4458f4fc913a9224495ea41b43eaf5eb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 396, y: 96}
+    spritePosition: {x: 173, y: 103}
+  - name: sektor1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 194
+      y: 933
+      width: 62
+      height: 55
+    spriteID: ce20126284cce994d93b68a9c3b17fb2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 194, y: 933}
+    spritePosition: {x: 166, y: 66}
+  - name: sektor25
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 459
+      y: 50
+      width: 44
+      height: 31
+    spriteID: 017beadfbefa92749b0de9742ab18480
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 459, y: 50}
+    spritePosition: {x: 72, y: 156}
+  - name: sektor24
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 432
+      y: 452
+      width: 19
+      height: 19
+    spriteID: 5213cc532d7004c4da95a74ddf04ac70
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 432, y: 452}
+    spritePosition: {x: 111, y: 142}
+  - name: sektor23
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 445
+      y: 396
+      width: 10
+      height: 18
+    spriteID: cb66a778fdb43a8438ab5c0697e2231c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 445, y: 396}
+    spritePosition: {x: 117, y: 160}
+  - name: sektor22
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 396
+      y: 263
+      width: 60
+      height: 27
+    spriteID: 4a3c58618d5f76b44a593d771da22970
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 396, y: 263}
+    spritePosition: {x: 65, y: 126}
+  - name: sektor21
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 464
+      y: 263
+      width: 41
+      height: 31
+    spriteID: cafa5af008f8fc84abe9a17fb37ed8a6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 464, y: 263}
+    spritePosition: {x: 70, y: 133}
+  - name: sektor20
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 464
+      y: 340
+      width: 29
+      height: 30
+    spriteID: d606039ad213c0b479a6909dd447f94c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 464, y: 340}
+    spritePosition: {x: 95, y: 151}
+  - name: sektor19
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 396
+      y: 50
+      width: 55
+      height: 38
+    spriteID: f7b0afd19ca23ba4f8ed690adc58a956
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 396, y: 50}
+    spritePosition: {x: 74, y: 8}
+  - name: sektor18
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 443
+      y: 347
+      width: 12
+      height: 36
+    spriteID: 23e38fba14fd6d14792e2077e3f65923
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 443, y: 347}
+    spritePosition: {x: 73, y: 42}
+  - name: sektor17
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 455
+      y: 146
+      width: 39
+      height: 42
+    spriteID: 8ac8c1d2bd76eab4ab2a4a27541d92f5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 455, y: 146}
+    spritePosition: {x: 79, y: 24}
+  - name: sektor16
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 396
+      y: 616
+      width: 19
+      height: 20
+    spriteID: 67332efe80e201946950f301b466c8df
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 396, y: 616}
+    spritePosition: {x: 119, y: 43}
+  - name: sektor15
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 396
+      y: 577
+      width: 13
+      height: 31
+    spriteID: 5b4b0586c57bbe44983cc8b847e67c7f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 396, y: 577}
+    spritePosition: {x: 71, y: 84}
+  - name: sektor14
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 485
+      y: 196
+      width: 22
+      height: 24
+    spriteID: 663ca513b16af174285e5966bc5927af
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 485, y: 196}
+    spritePosition: {x: 77, y: 75}
+  - name: sektor13
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 464
+      y: 416
+      width: 31
+      height: 23
+    spriteID: 94540980b2eed2444b57b1e9e12eb1b6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 464, y: 416}
+    spritePosition: {x: 83, y: 60}
+  - name: sektor12
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 464
+      y: 302
+      width: 34
+      height: 30
+    spriteID: e3ff0781554cf1e4da3bd24eee5bc4d8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 464, y: 302}
+    spritePosition: {x: 97, y: 78}
+  - name: sektor11
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 396
+      y: 452
+      width: 28
+      height: 30
+    spriteID: e5e97b7dbcf54f640935a15aa7fd0667
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 396, y: 452}
+    spritePosition: {x: 112, y: 58}
+  - name: sektor10
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 432
+      y: 510
+      width: 15
+      height: 23
+    spriteID: 326a7b93ecba85045a6329526c9fb265
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 432, y: 510}
+    spritePosition: {x: 133, y: 57}
+  - name: sektor9
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 72
+      y: 872
+      width: 60
+      height: 80
+    spriteID: a87d1c8da77eaf7459ae8807885eb50d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 72, y: 872}
+    spritePosition: {x: 97, y: 38}
+  - name: sektor8
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 334
+      y: 933
+      width: 32
+      height: 57
+    spriteID: 1add2dea1b26f3b45b1cea4de8dceb6f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 334, y: 933}
+    spritePosition: {x: 146, y: 118}
+  - name: sektor7
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 285
+      y: 871
+      width: 50
+      height: 48
+    spriteID: ffaf6b1a3b8869944b3e4993dabf417b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 285, y: 871}
+    spritePosition: {x: 161, y: 127}
+  - name: sektor6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 264
+      y: 996
+      width: 60
+      height: 23
+    spriteID: f1d3a7e07032a0c41bda8aa08a1bade3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 264, y: 996}
+    spritePosition: {x: 160, y: 158}
+  - name: sektor5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 194
+      y: 871
+      width: 83
+      height: 54
+    spriteID: 6e40aa1e3033a1e46ac1acfb0afea0c1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 194, y: 871}
+    spritePosition: {x: 157, y: 138}
+  - name: sektor4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 396
+      y: 490
+      width: 16
+      height: 40
+    spriteID: 4e7b1949cbd1b714f91e37d20049739c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 396, y: 490}
+    spritePosition: {x: 218, y: 103}
+  - name: sektor3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 396
+      y: 347
+      width: 39
+      height: 41
+    spriteID: 5f6d532058705d6408337081348cf984
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 396, y: 347}
+    spritePosition: {x: 188, y: 126}
+  - name: sektor2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 396
+      y: 143
+      width: 51
+      height: 39
+    spriteID: 5d77283a4dcbb1244b7b1a3a991fcce7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 396, y: 143}
+    spritePosition: {x: 173, y: 103}
+  - name: sektor1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 264
+      y: 933
+      width: 62
+      height: 55
+    spriteID: 9fcb1b87d8f57b84091ae0bfcf2f3a1b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 264, y: 933}
+    spritePosition: {x: 166, y: 66}
+  - name: islnds
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 194
+      y: 676
+      width: 182
+      height: 187
+    spriteID: 0e2fb0d0de375ae4f852484db3f8fa50
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 194, y: 676}
+    spritePosition: {x: 62, y: 7}
+  - name: islandsBack
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 228
+      width: 384
+      height: 216
+    spriteID: 097b2ee992133d949b0041072aa1f73b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 228}
+    spritePosition: {x: 0, y: 0}
+  - name: Sea
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 452
+      width: 384
+      height: 216
+    spriteID: 5bf51f8e51415834f809842dff9fb532
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 452}
+    spritePosition: {x: 0, y: 0}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Android
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: iPhone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 1
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  skeletonAssetReferenceID: 
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: lock
+    spriteName: lock
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7fd3fdf7eb9109c49884ca333f7911c7
+    layerID: 905
+    mosaicPosition: {x: 367, y: 909}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Skyes
+    spriteName: Skyes
+    isGroup: 0
+    parentIndex: -1
+    spriteID: c6f507b4924e6634eb96bab3d5433bed
+    layerID: 598
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Group 13
+    spriteName: Group 13
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 5a6d5ee8452cb214bbe705f169705d45
+    layerID: 343
+    mosaicPosition: {x: 4, y: 676}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: cityIcon
+    spriteName: 
+    isGroup: 1
+    parentIndex: 2
+    spriteID: 95b326bebb0addf45840507ae88fa0ce
+    layerID: 321
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Layer 90 copy
+    spriteName: Layer 90 copy
+    isGroup: 0
+    parentIndex: 3
+    spriteID: a84aa362916d3bd4fa5dbb8fc524526f
+    layerID: 596
+    mosaicPosition: {x: 343, y: 909}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Layer 89
+    spriteName: Layer 89
+    isGroup: 0
+    parentIndex: 3
+    spriteID: c1a5ae52f856652419941b313ee2002e
+    layerID: 319
+    mosaicPosition: {x: 140, y: 937}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: slime
+    spriteName: slime
+    isGroup: 0
+    parentIndex: 2
+    spriteID: c6433a4f30c3fcc4c91716b396b6122f
+    layerID: 316
+    mosaicPosition: {x: 4, y: 676}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lockSectors
+    spriteName: 
+    isGroup: 1
+    parentIndex: 2
+    spriteID: d7399fdf3c7e39142a1924c3c5ed988b
+    layerID: 875
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: sektor24
+    spriteName: sektor24
+    isGroup: 0
+    parentIndex: 7
+    spriteID: 64211cde58a4c524ca3dd3a31dd1dd9d
+    layerID: 878
+    mosaicPosition: {x: 459, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor23
+    spriteName: sektor23
+    isGroup: 0
+    parentIndex: 7
+    spriteID: 02cda0c944b94c7489c958127423ec63
+    layerID: 902
+    mosaicPosition: {x: 396, y: 644}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor22
+    spriteName: sektor22
+    isGroup: 0
+    parentIndex: 7
+    spriteID: e8e5da95e5787494fb24df349ce37f45
+    layerID: 901
+    mosaicPosition: {x: 361, y: 998}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor21
+    spriteName: sektor21
+    isGroup: 0
+    parentIndex: 7
+    spriteID: bff5c173bbe579e4494adcd18cb51bb8
+    layerID: 900
+    mosaicPosition: {x: 396, y: 228}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor20
+    spriteName: sektor20
+    isGroup: 0
+    parentIndex: 7
+    spriteID: 3df3402d0e0832b44a2635451a08f625
+    layerID: 899
+    mosaicPosition: {x: 396, y: 396}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor19
+    spriteName: sektor19
+    isGroup: 0
+    parentIndex: 7
+    spriteID: 2673ab19e52e1e547afbc78d7af6e530
+    layerID: 898
+    mosaicPosition: {x: 343, y: 871}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor18
+    spriteName: sektor18
+    isGroup: 0
+    parentIndex: 7
+    spriteID: 8db41f26abfc13c4b9d080173e78b188
+    layerID: 897
+    mosaicPosition: {x: 396, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor17
+    spriteName: sektor17
+    isGroup: 0
+    parentIndex: 7
+    spriteID: cf479ec2e9f9cd64a8053593b3d75bc4
+    layerID: 896
+    mosaicPosition: {x: 443, y: 298}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor16
+    spriteName: sektor16
+    isGroup: 0
+    parentIndex: 7
+    spriteID: ccefe5493f965284a88a65627c6b0aa2
+    layerID: 895
+    mosaicPosition: {x: 455, y: 96}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor15
+    spriteName: sektor15
+    isGroup: 0
+    parentIndex: 7
+    spriteID: e82bd2c54d7454f4a8b69af9a45f1f5f
+    layerID: 894
+    mosaicPosition: {x: 334, y: 998}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor14
+    spriteName: sektor14
+    isGroup: 0
+    parentIndex: 7
+    spriteID: 67f270afab1486d42989994d617eade8
+    layerID: 893
+    mosaicPosition: {x: 396, y: 538}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor13
+    spriteName: sektor13
+    isGroup: 0
+    parentIndex: 7
+    spriteID: 00609421b72a63e4b9ea771fa8e2a709
+    layerID: 892
+    mosaicPosition: {x: 455, y: 196}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor12
+    spriteName: sektor12
+    isGroup: 0
+    parentIndex: 7
+    spriteID: 7a27383d07fd9dc49b64d44aeb392ab7
+    layerID: 891
+    mosaicPosition: {x: 464, y: 228}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor11
+    spriteName: sektor11
+    isGroup: 0
+    parentIndex: 7
+    spriteID: a41abcb678a3fe842a46c9696707fbb5
+    layerID: 890
+    mosaicPosition: {x: 396, y: 190}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor10
+    spriteName: sektor10
+    isGroup: 0
+    parentIndex: 7
+    spriteID: 6a4f61cdb01177e4a9ae31a42e13626d
+    layerID: 889
+    mosaicPosition: {x: 464, y: 378}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor9
+    spriteName: sektor9
+    isGroup: 0
+    parentIndex: 7
+    spriteID: dcbd6084d76e07243ba8749b4376269d
+    layerID: 888
+    mosaicPosition: {x: 432, y: 479}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor8
+    spriteName: sektor8
+    isGroup: 0
+    parentIndex: 7
+    spriteID: 27d53fbeeecbbfc43a10bd3d7e3a912c
+    layerID: 887
+    mosaicPosition: {x: 4, y: 872}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor7
+    spriteName: sektor7
+    isGroup: 0
+    parentIndex: 7
+    spriteID: 891829e84027f6a4990277f59a41b19e
+    layerID: 886
+    mosaicPosition: {x: 140, y: 872}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor6
+    spriteName: sektor6
+    isGroup: 0
+    parentIndex: 7
+    spriteID: c6699fba766f04949859dcf40624015d
+    layerID: 885
+    mosaicPosition: {x: 4, y: 960}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor5
+    spriteName: sektor5
+    isGroup: 0
+    parentIndex: 7
+    spriteID: 2a382f3f1b6d1dc4da965ea09f94c8c5
+    layerID: 884
+    mosaicPosition: {x: 194, y: 996}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor4
+    spriteName: sektor4
+    isGroup: 0
+    parentIndex: 7
+    spriteID: 15de34913e21453488eca7ede9163747
+    layerID: 883
+    mosaicPosition: {x: 72, y: 960}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor3
+    spriteName: sektor3
+    isGroup: 0
+    parentIndex: 7
+    spriteID: b255050219542704a8e71a21ad87569d
+    layerID: 882
+    mosaicPosition: {x: 163, y: 960}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor3
+    spriteName: sektor3
+    isGroup: 0
+    parentIndex: 7
+    spriteID: 2483b0eee8276054cb0024d4c766c8a8
+    layerID: 881
+    mosaicPosition: {x: 396, y: 298}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor2
+    spriteName: sektor2
+    isGroup: 0
+    parentIndex: 7
+    spriteID: 4458f4fc913a9224495ea41b43eaf5eb
+    layerID: 880
+    mosaicPosition: {x: 396, y: 96}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor1
+    spriteName: sektor1
+    isGroup: 0
+    parentIndex: 7
+    spriteID: ce20126284cce994d93b68a9c3b17fb2
+    layerID: 879
+    mosaicPosition: {x: 194, y: 933}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: dirtySectors
+    spriteName: 
+    isGroup: 1
+    parentIndex: 2
+    spriteID: 4fb15d8ce64c5e24583fda25bbe9df8b
+    layerID: 759
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: sektor25
+    spriteName: sektor25
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 017beadfbefa92749b0de9742ab18480
+    layerID: 732
+    mosaicPosition: {x: 459, y: 50}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor24
+    spriteName: sektor24
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 5213cc532d7004c4da95a74ddf04ac70
+    layerID: 764
+    mosaicPosition: {x: 432, y: 452}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor23
+    spriteName: sektor23
+    isGroup: 0
+    parentIndex: 33
+    spriteID: cb66a778fdb43a8438ab5c0697e2231c
+    layerID: 765
+    mosaicPosition: {x: 445, y: 396}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor22
+    spriteName: sektor22
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 4a3c58618d5f76b44a593d771da22970
+    layerID: 766
+    mosaicPosition: {x: 396, y: 263}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor21
+    spriteName: sektor21
+    isGroup: 0
+    parentIndex: 33
+    spriteID: cafa5af008f8fc84abe9a17fb37ed8a6
+    layerID: 767
+    mosaicPosition: {x: 464, y: 263}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor20
+    spriteName: sektor20
+    isGroup: 0
+    parentIndex: 33
+    spriteID: d606039ad213c0b479a6909dd447f94c
+    layerID: 768
+    mosaicPosition: {x: 464, y: 340}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor19
+    spriteName: sektor19
+    isGroup: 0
+    parentIndex: 33
+    spriteID: f7b0afd19ca23ba4f8ed690adc58a956
+    layerID: 769
+    mosaicPosition: {x: 396, y: 50}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor18
+    spriteName: sektor18
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 23e38fba14fd6d14792e2077e3f65923
+    layerID: 770
+    mosaicPosition: {x: 443, y: 347}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor17
+    spriteName: sektor17
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 8ac8c1d2bd76eab4ab2a4a27541d92f5
+    layerID: 772
+    mosaicPosition: {x: 455, y: 146}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor16
+    spriteName: sektor16
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 67332efe80e201946950f301b466c8df
+    layerID: 773
+    mosaicPosition: {x: 396, y: 616}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor15
+    spriteName: sektor15
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 5b4b0586c57bbe44983cc8b847e67c7f
+    layerID: 774
+    mosaicPosition: {x: 396, y: 577}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor14
+    spriteName: sektor14
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 663ca513b16af174285e5966bc5927af
+    layerID: 775
+    mosaicPosition: {x: 485, y: 196}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor13
+    spriteName: sektor13
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 94540980b2eed2444b57b1e9e12eb1b6
+    layerID: 778
+    mosaicPosition: {x: 464, y: 416}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor12
+    spriteName: sektor12
+    isGroup: 0
+    parentIndex: 33
+    spriteID: e3ff0781554cf1e4da3bd24eee5bc4d8
+    layerID: 779
+    mosaicPosition: {x: 464, y: 302}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor11
+    spriteName: sektor11
+    isGroup: 0
+    parentIndex: 33
+    spriteID: e5e97b7dbcf54f640935a15aa7fd0667
+    layerID: 780
+    mosaicPosition: {x: 396, y: 452}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor10
+    spriteName: sektor10
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 326a7b93ecba85045a6329526c9fb265
+    layerID: 781
+    mosaicPosition: {x: 432, y: 510}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor9
+    spriteName: sektor9
+    isGroup: 0
+    parentIndex: 33
+    spriteID: a87d1c8da77eaf7459ae8807885eb50d
+    layerID: 782
+    mosaicPosition: {x: 72, y: 872}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor8
+    spriteName: sektor8
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 1add2dea1b26f3b45b1cea4de8dceb6f
+    layerID: 783
+    mosaicPosition: {x: 334, y: 933}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor7
+    spriteName: sektor7
+    isGroup: 0
+    parentIndex: 33
+    spriteID: ffaf6b1a3b8869944b3e4993dabf417b
+    layerID: 784
+    mosaicPosition: {x: 285, y: 871}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor6
+    spriteName: sektor6
+    isGroup: 0
+    parentIndex: 33
+    spriteID: f1d3a7e07032a0c41bda8aa08a1bade3
+    layerID: 785
+    mosaicPosition: {x: 264, y: 996}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor5
+    spriteName: sektor5
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 6e40aa1e3033a1e46ac1acfb0afea0c1
+    layerID: 786
+    mosaicPosition: {x: 194, y: 871}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor4
+    spriteName: sektor4
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 4e7b1949cbd1b714f91e37d20049739c
+    layerID: 787
+    mosaicPosition: {x: 396, y: 490}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor3
+    spriteName: sektor3
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 5f6d532058705d6408337081348cf984
+    layerID: 788
+    mosaicPosition: {x: 396, y: 347}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor2
+    spriteName: sektor2
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 5d77283a4dcbb1244b7b1a3a991fcce7
+    layerID: 789
+    mosaicPosition: {x: 396, y: 143}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: sektor1
+    spriteName: sektor1
+    isGroup: 0
+    parentIndex: 33
+    spriteID: 9fcb1b87d8f57b84091ae0bfcf2f3a1b
+    layerID: 790
+    mosaicPosition: {x: 264, y: 933}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: islnds
+    spriteName: islnds
+    isGroup: 0
+    parentIndex: 2
+    spriteID: 0e2fb0d0de375ae4f852484db3f8fa50
+    layerID: 334
+    mosaicPosition: {x: 194, y: 676}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: islandsBack
+    spriteName: islandsBack
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 097b2ee992133d949b0041072aa1f73b
+    layerID: 369
+    mosaicPosition: {x: 4, y: 228}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Sea
+    spriteName: Sea
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5bf51f8e51415834f809842dff9fb532
+    layerID: 591
+    mosaicPosition: {x: 4, y: 452}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting:
+  - spriteId: 5a6d5ee8452cb214bbe705f169705d45
+    name: Group 13
+    layerId: 343
+    flatten: 0
+    isGroup: 1
+  - spriteId: d7399fdf3c7e39142a1924c3c5ed988b
+    name: lockSectors
+    layerId: 875
+    flatten: 0
+    isGroup: 1
+  - spriteId: 4fb15d8ce64c5e24583fda25bbe9df8b
+    name: dirtySectors
+    layerId: 759
+    flatten: 0
+    isGroup: 1
+  generateGOHierarchy: 1
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []

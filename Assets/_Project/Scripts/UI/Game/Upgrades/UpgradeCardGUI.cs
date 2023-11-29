@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace gameoff.UI.Game
 {
-    [RequireComponent(typeof(Outline), typeof(Button))]
+    [RequireComponent(typeof(Button))]
     public class UpgradeCardGUI : MonoBehaviour
     {
         [SerializeField] private Image iconImage;
@@ -15,13 +15,13 @@ namespace gameoff.UI.Game
 
         public UpgradeEnumType UpgradeEnumType { get; private set; }
         public event Action<UpgradeCardGUI> OnClicked;
-        public Outline Outline { get; private set; }
+        public UIOutline Outline { get; private set; }
 
         private Button _button;
 
         private void Awake()
         {
-            Outline = GetComponent<Outline>();
+            Outline = GetComponentInChildren<UIOutline>();
             _button = GetComponent<Button>();
         }
 
