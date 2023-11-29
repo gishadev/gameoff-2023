@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3917482444908288758}
   - component: {fileID: 3917482444908288759}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2295667171022773881}
   - component: {fileID: 4275899437867694599}
   - component: {fileID: 5732070767187732588}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Hive_Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
