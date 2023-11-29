@@ -19,6 +19,7 @@ TagManager:
   - IgnorePlayerProjectile
   - EnemyProjectile
   - Enemy
+  - HiveProjectile
   - 
   - 
   - 
@@ -34,8 +35,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - CityBounds
   - LevelBounds
   m_SortingLayers:
   - name: Default
