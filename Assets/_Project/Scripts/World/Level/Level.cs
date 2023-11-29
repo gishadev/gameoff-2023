@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace gameoff.World
 {
+    [RequireComponent(typeof(GridMinimapRedrawer))]
     public class Level : MonoBehaviour
     {
         [ValidateInput(nameof(BaseMustBeNotNull), "This field must not be null.")]

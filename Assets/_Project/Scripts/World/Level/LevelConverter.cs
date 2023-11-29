@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using gameoff.Enemy;
+using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 
@@ -19,6 +20,10 @@ namespace gameoff.World
             {
                 var prefabObject = PrefabUtility.InstantiatePrefab(this.spawnSpotPrefab, spawnSpotsParent) as GameObject;
                 prefabObject.transform.position = enemy.transform.position;
+                
+                var spawnSpot = prefabObject.GetComponent<SpawnSpot>();
+                spawnSpot.SetData(enemy.EnemyDataSO);
+                
                 enemy.gameObject.SetActive(false);
             }
         }
