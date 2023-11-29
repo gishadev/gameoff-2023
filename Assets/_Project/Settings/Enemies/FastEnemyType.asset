@@ -42,6 +42,9 @@ MonoBehaviour:
     - Name: MeleeAttackDelay
       Entry: 4
       Data: 0.5
+    - Name: MeleeAttackKnockBack
+      Entry: 4
+      Data: 50
     - Name: MeleeAttackDamage
       Entry: 3
       Data: 2

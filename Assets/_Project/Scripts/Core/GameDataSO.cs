@@ -37,6 +37,14 @@ namespace gameoff.Core
         [OdinSerialize, ShowInInspector]
         public ExplosionAbilityDataSO ExplosionAbilityDataSO { private set; get; }
 
+        [TabGroup("Upgrades"), InlineEditor]
+        [OdinSerialize, ShowInInspector]
+        public ExtensionUpgradeDataSO MultirayUpgradeDataSO { private set; get; }
+        
+        [TabGroup("Upgrades"), InlineEditor]
+        [OdinSerialize, ShowInInspector]
+        public ExtensionUpgradeDataSO AutoBlasterUpgradeDataSO { private set; get; }
+        
         [TabGroup("Levels")]
         [field: SerializeField, ShowInInspector, AssetsOnly, InlineEditor]
         #if UNITY_EDITOR

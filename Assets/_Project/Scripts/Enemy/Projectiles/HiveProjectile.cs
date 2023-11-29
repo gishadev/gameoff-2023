@@ -28,11 +28,11 @@ namespace gameoff.Enemy.Projectiles
                 Die();
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.TryGetComponent(out HumanBase humanBase)) 
-                Die();
-        }
+        // protected override void OnTriggerEnter2D(Collider2D other)
+        // {
+        //     if (other.TryGetComponent(out HumanBase humanBase)) 
+        //         Die();
+        // }
 
         private void OnDrawGizmos()
         {

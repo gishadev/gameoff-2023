@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using Cysharp.Threading.Tasks;
+using gameoff.Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
@@ -102,6 +104,23 @@ namespace gameoff.PlayerManager
             _isMovementDelay = true;
             await UniTask.WaitForSeconds(_movementAbility.AbilityDataSO.AbilityCooldown);
             _isMovementDelay = false;
+        }
+
+        private void OnCollisionStay2D(Collision2D other)
+        {
+            if (_movementAbility is DashAbility dashAbility && dashAbility.IsUsing)
+            {
+                var knockBack = ((DashAbilityDataSO) dashAbility.AbilityDataSO).KnockBackRadius;
+                var damageables = Physics2D.OverlapCircleAll(transform.position, knockBack)
+                    .Where(x => x.TryGetComponent(out IDamageableWithPhysicsImpact _))
+                    .Select(x => x.GetComponent<IDamageableWithPhysicsImpact>());
+
+                foreach (var damageable in damageables)
+                {
+                    if (damageable.gameObject != gameObject)
+                        damageable.PhysicsImpactEffector.Act(transform.position, 20f);
+                }
+            }
         }
     }
 }

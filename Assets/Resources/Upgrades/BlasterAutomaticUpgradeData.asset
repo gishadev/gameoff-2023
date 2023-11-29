@@ -30,7 +30,7 @@ MonoBehaviour:
       Data: 0
     - Name: CardTitle
       Entry: 1
-      Data: Automatic blaster
+      Data: Full-Auto
     - Name: CardDescription
       Entry: 1
-      Data: Shoot with full auto!
+      Data: Cleaning blaster automatic upgrade.  Become an one-person party cannon!

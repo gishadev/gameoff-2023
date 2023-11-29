@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3917482445967802638, guid: ce08254f436805f429498a7ad6eeaf58, type: 3}
       propertyPath: m_Name
-      value: Boss_Projectile
+      value: Boss_Projectile Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce08254f436805f429498a7ad6eeaf58, type: 3}

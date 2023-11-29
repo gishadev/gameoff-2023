@@ -8,6 +8,7 @@ namespace gameoff.Core
     {
         [field: SerializeField] protected float FlySpeed { private set; get; } = 30f;
         [field: SerializeField] protected float LifeTime { private set; get; } = 0.5f;
+        [field: SerializeField] protected float ImpulseImpactForce { private set; get; } = 1f;
 
         private CancellationTokenSource _cts;
 
@@ -34,6 +35,12 @@ namespace gameoff.Core
             await UniTask.WaitForSeconds(LifeTime);
             if (!_cts.IsCancellationRequested)
                 Die();
+        }
+
+        protected virtual void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.TryGetComponent(out IDamageableWithPhysicsImpact damageable))
+                damageable.PhysicsImpactEffector.Act(transform.position, ImpulseImpactForce);
         }
     }
 }

@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using Aoiti.Pathfinding;
 using DG.Tweening;
+using gameoff.Core;
 using UnityEngine;
 
 namespace gameoff.Enemy
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class EnemyMovement : MonoBehaviour
+    public class EnemyMovement : MonoBehaviourWithMovementEffector
     {
         [SerializeField] private float gridSize = 0.5f;
 
@@ -18,6 +19,8 @@ namespace gameoff.Enemy
         private List<Vector2> _pathLeftToGo = new();
 
         public float MoveSpeed { get; private set; }
+
+        public Rigidbody2D Rigidbody => _rb;
 
         private Rigidbody2D _rb;
         private SpriteRenderer _spriteRenderer;
@@ -33,6 +36,9 @@ namespace gameoff.Enemy
 
         private void FixedUpdate()
         {
+            if (!IsDefaultMovementEnabled)
+                return;
+
             if (_pathLeftToGo.Count > 0)
                 HandleMovementToTarget();
             else
@@ -67,7 +73,7 @@ namespace gameoff.Enemy
         public void Stop()
         {
             _pathLeftToGo.Clear();
-            _rb.velocity = Vector3.zero;
+            Rigidbody.velocity = Vector3.zero;
         }
 
         public void ChangeMoveSpeed(float newSpeed)
@@ -85,7 +91,7 @@ namespace gameoff.Enemy
         {
             var dir = (Vector3) _pathLeftToGo[0] - transform.position;
             FlipTowardsPosition(_pathLeftToGo[0]);
-            _rb.velocity = dir.normalized * (MoveSpeed * Time.deltaTime);
+            Rigidbody.velocity = dir.normalized * (MoveSpeed * Time.deltaTime);
             if (((Vector2) transform.position - _pathLeftToGo[0]).sqrMagnitude <
                 MoveSpeed * MoveSpeed * Time.deltaTime * Time.deltaTime)
             {

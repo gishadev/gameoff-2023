@@ -1,4 +1,5 @@
-﻿using gameoff.Enemy;
+﻿using gameoff.Core;
+using gameoff.Enemy;
 using UnityEngine;
 
 namespace gameoff.UI.Game

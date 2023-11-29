@@ -37,7 +37,7 @@ MonoBehaviour:
         to attend in the first place"
   <AbilityCooldown>k__BackingField: 3
   <ProjectileDamage>k__BackingField: 5
-  <ProjectileCount>k__BackingField: 15
+  <ProjectileCount>k__BackingField: 19
   <ClearIterations>k__BackingField: 10
   <ClearMaxRadius>k__BackingField: 50
   <FullClearExpandingTime>k__BackingField: 0.39

@@ -635,6 +635,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2431296442014268787, guid: 93b85827bf41f314f93e9fbfc2c3dc2a, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 9b2aedd3bff67f245a1a3173dc8a30fa, type: 2}
+    - target: {fileID: 2431296442014268787, guid: 93b85827bf41f314f93e9fbfc2c3dc2a, type: 3}
+      propertyPath: m_LinearDrag
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431296442014268787, guid: 93b85827bf41f314f93e9fbfc2c3dc2a, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93b85827bf41f314f93e9fbfc2c3dc2a, type: 3}
 --- !u!4 &2516675052887735192 stripped

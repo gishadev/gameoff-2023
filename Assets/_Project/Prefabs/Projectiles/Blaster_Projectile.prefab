@@ -170,4 +170,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <FlySpeed>k__BackingField: 30
   <LifeTime>k__BackingField: 0.4
+  <ImpulseImpactForce>k__BackingField: 5
   clearRadiusInPixels: 4

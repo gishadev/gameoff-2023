@@ -44,6 +44,7 @@ namespace gameoff.Enemy.States
                 
                 _enemy.AnimationsHandler.TriggerAttackAnimation(Player.Current.transform);
                 Player.Current.TakeDamage(_enemy.EnemyDataSO.MeleeAttackDamage);
+                Player.Current.PhysicsImpactEffector.Act(_enemy.transform.position, 20f);
             }
         }
     }

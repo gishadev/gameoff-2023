@@ -1,4 +1,5 @@
 ﻿using System;
+using gameoff.Core;
 using gameoff.Enemy.SOs;
 using gameoff.UI.Game;
 using gishadev.tools.StateMachine;
@@ -9,7 +10,7 @@ using Player = gameoff.PlayerManager.Player;
 namespace gameoff.Enemy
 {
     [RequireComponent(typeof(EnemyMovement), typeof(EnemyAnimationsHandler))]
-    public abstract class Enemy : MonoBehaviour, IDamageable
+    public abstract class Enemy : MonoBehaviour, IDamageableWithPhysicsImpact
     {
         [Inject] protected DiContainer DiContainer;
 
@@ -22,6 +23,8 @@ namespace gameoff.Enemy
         public int CurrentHealth { get; private set; }
         public EnemyAnimationsHandler AnimationsHandler { get; private set; }
         protected EnemyMovement EnemyMovement { get; private set; }
+        public PhysicsImpactEffector PhysicsImpactEffector { get; private set; }
+
 
         public Vector2 StartPosition { get; private set; }
 
@@ -41,6 +44,7 @@ namespace gameoff.Enemy
 
         private void Start()
         {
+            PhysicsImpactEffector = new PhysicsImpactEffector(EnemyMovement.Rigidbody, EnemyMovement);
             CurrentHealth = EnemyDataSO.StartHealth;
             StartPosition = transform.position;
             if (EnemyDataSO.IsBoss)

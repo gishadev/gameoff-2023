@@ -1,6 +1,7 @@
 ﻿using System;
+using UnityEngine;
 
-namespace gameoff.Enemy
+namespace gameoff.Core
 {
     public interface IDamageable
     {
@@ -8,5 +9,8 @@ namespace gameoff.Enemy
         int CurrentHealth { get; }
         event Action<int> HealthChanged;
         void TakeDamage(int count);
+
+        GameObject gameObject { get; }
+        Transform transform { get; }
     }
 }

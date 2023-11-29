@@ -30,7 +30,7 @@ MonoBehaviour:
       Data: 0
     - Name: CardTitle
       Entry: 1
-      Data: Clearing multi shoot
+      Data: Multishoot
     - Name: CardDescription
       Entry: 1
-      Data: One ray is good, but two is better
+      Data: One ray is good, but three is better

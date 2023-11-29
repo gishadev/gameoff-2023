@@ -12,8 +12,9 @@ namespace gameoff.Enemy.Projectiles
             _damageCount = damageCount;
         }
         
-        private void OnTriggerEnter2D(Collider2D other)
+        protected override void OnTriggerEnter2D(Collider2D other)
         {
+            base.OnTriggerEnter2D(other);
             if (other.TryGetComponent(out IDamageable damageable))
                 damageable.TakeDamage(_damageCount);
 

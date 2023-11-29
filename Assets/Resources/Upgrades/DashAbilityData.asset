@@ -33,7 +33,10 @@ MonoBehaviour:
       Data: Dash
     - Name: CardDescription
       Entry: 1
-      Data: Dash ability description
+      Data: Cover short distances in the blink of an eye
   <AbilityCooldown>k__BackingField: 1
   <DashingPower>k__BackingField: 10
   <DashingTime>k__BackingField: 0.4
+  <KnockBackRadius>k__BackingField: 5
+  <StartClearRadius>k__BackingField: 5
+  <EndClearRadius>k__BackingField: 10

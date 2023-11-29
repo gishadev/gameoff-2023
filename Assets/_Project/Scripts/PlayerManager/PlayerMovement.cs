@@ -1,11 +1,12 @@
 using DG.Tweening;
+using gameoff.Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace gameoff.PlayerManager
 {
     [RequireComponent(typeof(Rigidbody2D), typeof(TrailRenderer))]
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerMovement : MonoBehaviourWithMovementEffector
     {
         [SerializeField] private float moveSpeed = 5f;
 
@@ -18,7 +19,6 @@ namespace gameoff.PlayerManager
         public Vector2 MoveInputVector { get; private set; }
 
         private static readonly int IsRunningID = Animator.StringToHash("IsRunning");
-        private bool _isEnabled = true;
 
         private void Awake()
         {
@@ -49,7 +49,7 @@ namespace gameoff.PlayerManager
 
         private void HandleBasicMovement()
         {
-            if (_isEnabled)
+            if (IsDefaultMovementEnabled)
                 Rigidbody.velocity = MoveInputVector * (moveSpeed * Time.deltaTime);
         }
 
@@ -73,7 +73,5 @@ namespace gameoff.PlayerManager
             MoveInputVector = Vector2.zero;
             _animator.SetBool(IsRunningID, false);
         }
-
-        public void SetDefaultMovement(bool status) => _isEnabled = status;
     }
 }

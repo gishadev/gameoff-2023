@@ -2,6 +2,7 @@
 using Cysharp.Threading.Tasks;
 using gameoff.Core;
 using gameoff.PlayerManager;
+using gameoff.World;
 using UnityEngine;
 using Zenject;
 
@@ -11,36 +12,41 @@ namespace gameoff.PlayerManager
     {
         public AbilityDataSO AbilityDataSO => _dashData;
         public bool IsUsing { get; private set; }
-        
+
         private readonly PlayerMovement _playerMovement;
-        
+
         private DashAbilityDataSO _dashData;
         private CancellationTokenSource _dashingCTS;
+        private ICreepClearing _creepClearing;
 
         public DashAbility(PlayerMovement playerMovement, DiContainer diContainer)
         {
             _playerMovement = playerMovement;
             _dashData = diContainer.Resolve<GameDataSO>().DashAbilityDataSO;
+            _creepClearing = diContainer.Resolve<ICreepClearing>();
         }
-        
+
         public async void Trigger()
         {
             if (_playerMovement.MoveInputVector.magnitude == 0)
                 return;
-            
+
             IsUsing = true;
-            _playerMovement.SetDefaultMovement(false);
-            
             _dashingCTS = new CancellationTokenSource();
-            _playerMovement.Rigidbody.AddForce(_playerMovement.MoveInputVector * _dashData.DashingPower, ForceMode2D.Impulse);
-            _playerMovement.TrailRenderer.emitting = true;
             
+            _playerMovement.DisableDefaultMovement();
+            _creepClearing.ClearCreep(_playerMovement.transform.position, _dashData.StartClearRadius);
+            _playerMovement.Rigidbody.AddForce(_playerMovement.MoveInputVector * _dashData.DashingPower,
+                ForceMode2D.Impulse);
+            _playerMovement.TrailRenderer.emitting = true;
+
             await UniTask.WaitForSeconds(_dashData.DashingTime, cancellationToken: _dashingCTS.Token)
                 .SuppressCancellationThrow();
 
+            _creepClearing.ClearCreep(_playerMovement.transform.position, _dashData.EndClearRadius);
             _playerMovement.TrailRenderer.emitting = false;
             IsUsing = false;
-            _playerMovement.SetDefaultMovement(true);
+            _playerMovement.EnableDefaultMovement();
         }
 
         public void Cancel()
