@@ -394,6 +394,17 @@ namespace gameoff
                 {
                     ""name"": """",
                     ""id"": ""f75cbcb6-0176-47b7-9e06-df24876352d4"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpecialAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eaf49027-9dfd-4aae-a90e-3725848fef8a"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
