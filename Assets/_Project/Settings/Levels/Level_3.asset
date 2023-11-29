@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7500f91e8654c3f840b55a62c4c5ec5, type: 3}
   m_Name: Level_3
   m_EditorClassIdentifier: 
-  levelIndex: 2
-  levelPrefab: {fileID: 1985805879455979372, guid: dc9fb3ebda0aff347938f036eace2eb8, type: 3}
+  levelOrder: 3
+  levelPrefab: {fileID: 1985805879455979372, guid: a68c66ba6977f4c45952c489856573b5, type: 3}
   levelName: Quasar Haven
-  difficulty: 3
+  difficulty: 1

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7500f91e8654c3f840b55a62c4c5ec5, type: 3}
   m_Name: Level_1
   m_EditorClassIdentifier: 
-  levelIndex: 0
+  levelOrder: 1
   levelPrefab: {fileID: 7307985437159335587, guid: 9bff565824015bf499dfab63268eeb8c, type: 3}
   levelName: Xyloptara
   difficulty: 1

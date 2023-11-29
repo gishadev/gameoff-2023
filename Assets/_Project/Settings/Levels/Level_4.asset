@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7500f91e8654c3f840b55a62c4c5ec5, type: 3}
-  m_Name: Level_2
+  m_Name: Level_4
   m_EditorClassIdentifier: 
-  levelOrder: 2
-  levelPrefab: {fileID: 3572131395190726655, guid: 6b153962dad789c4facd89e6589051e7, type: 3}
-  levelName: Nebulon Prime
+  levelOrder: 4
+  levelPrefab: {fileID: 1985805879455979372, guid: 25328f2f09b6c434dad0646d268b7a9c, type: 3}
+  levelName: Zyntharix
   difficulty: 1
