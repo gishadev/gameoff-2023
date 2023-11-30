@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using gameoff.Core;
 using gameoff.PlayerManager;
 using gameoff.World;
+using gishadev.tools.Effects;
 using UnityEngine;
 using Zenject;
 
@@ -33,12 +34,14 @@ namespace gameoff.PlayerManager
 
             IsUsing = true;
             _dashingCTS = new CancellationTokenSource();
-            
+
             _playerMovement.DisableDefaultMovement();
             _creepClearing.ClearCreep(_playerMovement.transform.position, _dashData.StartClearRadius);
             _playerMovement.Rigidbody.AddForce(_playerMovement.MoveInputVector * _dashData.DashingPower,
                 ForceMode2D.Impulse);
             _playerMovement.TrailRenderer.emitting = true;
+            
+            VFXEmitter.I.EmitAt(VisualEffectsEnum.DASH_VFX, _playerMovement.transform.position, Quaternion.identity);
 
             await UniTask.WaitForSeconds(_dashData.DashingTime, cancellationToken: _dashingCTS.Token)
                 .SuppressCancellationThrow();

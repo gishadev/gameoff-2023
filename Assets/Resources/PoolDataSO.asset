@@ -17,6 +17,9 @@ MonoBehaviour:
   - <Name>k__BackingField: Explosion_Ability_VFX
     <Prefabs>k__BackingField:
     - {fileID: 855633080919731518, guid: bc771b02c8fd7014db5e4079152be5f5, type: 3}
+  - <Name>k__BackingField: Dash_VFX
+    <Prefabs>k__BackingField:
+    - {fileID: 8518813391421095512, guid: 31c73bef67703e34aac80fffc09374d0, type: 3}
   <OtherPoolObjects>k__BackingField:
   - <Name>k__BackingField: Blaster_Projectile
     <Prefabs>k__BackingField:

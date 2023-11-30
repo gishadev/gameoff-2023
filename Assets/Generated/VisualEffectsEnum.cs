@@ -1,4 +1,5 @@
 public enum VisualEffectsEnum
 {
-	EXPLOSION_ABILITY_VFX
+	EXPLOSION_ABILITY_VFX,
+	DASH_VFX
 }

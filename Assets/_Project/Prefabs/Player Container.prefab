@@ -63,7 +63,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238890460116672758}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.115366, y: 0.14647597, z: 0}
+  m_LocalPosition: {x: 8.410999, y: -3.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -383,7 +383,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238890461244922400}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.115366, y: 0.14647597, z: 0}
+  m_LocalPosition: {x: 8.410999, y: -3.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -593,11 +593,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2431296442014268782, guid: 93b85827bf41f314f93e9fbfc2c3dc2a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.115366
+      value: 8.411
       objectReference: {fileID: 0}
     - target: {fileID: 2431296442014268782, guid: 93b85827bf41f314f93e9fbfc2c3dc2a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.14647597
+      value: -3.29
       objectReference: {fileID: 0}
     - target: {fileID: 2431296442014268782, guid: 93b85827bf41f314f93e9fbfc2c3dc2a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -634,18 +634,6 @@ PrefabInstance:
     - target: {fileID: 2431296442014268783, guid: 93b85827bf41f314f93e9fbfc2c3dc2a, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2431296442014268787, guid: 93b85827bf41f314f93e9fbfc2c3dc2a, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 9b2aedd3bff67f245a1a3173dc8a30fa, type: 2}
-    - target: {fileID: 2431296442014268787, guid: 93b85827bf41f314f93e9fbfc2c3dc2a, type: 3}
-      propertyPath: m_LinearDrag
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2431296442014268787, guid: 93b85827bf41f314f93e9fbfc2c3dc2a, type: 3}
-      propertyPath: m_Interpolate
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93b85827bf41f314f93e9fbfc2c3dc2a, type: 3}
