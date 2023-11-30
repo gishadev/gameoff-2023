@@ -41,11 +41,15 @@ namespace gameoff.Enemy.States
                     .SuppressCancellationThrow();
                 if (_cts.IsCancellationRequested)
                     return;
-                
-                _enemy.AnimationsHandler.TriggerAttackAnimation(Player.Current.transform);
-                Player.Current.TakeDamage(_enemy.EnemyDataSO.MeleeAttackDamage);
-                Player.Current.PhysicsImpactEffector.Act(_enemy.transform.position, 20f);
+
+                _enemy.AnimationsHandler.TriggerAttackAnimation(Player.Current.transform, OnAttacked);
             }
+        }
+
+        private void OnAttacked()
+        {
+            Player.Current.TakeDamage(_enemy.EnemyDataSO.MeleeAttackDamage);
+            Player.Current.PhysicsImpactEffector.Act(_enemy.transform.position, 20f);
         }
     }
 }

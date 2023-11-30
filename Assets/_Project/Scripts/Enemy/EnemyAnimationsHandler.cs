@@ -22,7 +22,7 @@ namespace gameoff.Enemy
                 });
         }
 
-        public void TriggerAttackAnimation(Transform attackTarget)
+        public void TriggerAttackAnimation(Transform attackTarget, Action jumped)
         {
             if (attackTarget == null || _spriteRenderer == null)
                 return;
@@ -31,6 +31,7 @@ namespace gameoff.Enemy
                 .DOJump(attackTarget.position, 0.5f, 1, 0.1f)
                 .OnComplete(() =>
                 {
+                    jumped?.Invoke();
                     if (attackTarget == null || _spriteRenderer == null)
                         return;
                     

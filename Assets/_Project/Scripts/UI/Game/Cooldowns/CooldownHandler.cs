@@ -21,10 +21,17 @@ namespace gameoff.UI.Game
 
         public async void ShowCooldown(float cooldownTime)
         {
+            if (_cts.IsCancellationRequested)
+                return;
+
             cooldownImage.fillAmount = 1f;
             while (cooldownImage.fillAmount > 0f)
             {
-                await UniTask.Yield();
+                await UniTask.Yield(cancellationToken: _cts.Token).SuppressCancellationThrow();
+
+                if (_cts.IsCancellationRequested)
+                    return;
+
                 cooldownImage.fillAmount -= Time.deltaTime / cooldownTime;
             }
 
