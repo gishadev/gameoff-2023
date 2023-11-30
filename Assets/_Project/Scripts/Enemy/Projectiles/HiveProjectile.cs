@@ -28,6 +28,8 @@ namespace gameoff.Enemy.Projectiles
                 Die();
         }
 
+        public void SetCreepPixelsChangedLimit(int newValue) => creepPixelsChangedLimit = newValue;
+
         // protected override void OnTriggerEnter2D(Collider2D other)
         // {
         //     if (other.TryGetComponent(out HumanBase humanBase)) 

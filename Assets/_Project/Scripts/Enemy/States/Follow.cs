@@ -37,7 +37,7 @@ namespace gameoff.Enemy.States
         {
             while (true)
             {
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.6f);
                 _enemyMovement.SetDestination(_player.transform.position);
             }
         }

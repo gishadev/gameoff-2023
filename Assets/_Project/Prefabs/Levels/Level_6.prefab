@@ -22920,6 +22920,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1985805879455979374}
     m_Modifications:
+    - target: {fileID: 840642112853401234, guid: b70a26c7a562f27438760e2e16e5947c, type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0.6428572
+      objectReference: {fileID: 0}
+    - target: {fileID: 840642112853401234, guid: b70a26c7a562f27438760e2e16e5947c, type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0.6428572
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062124551104264178, guid: b70a26c7a562f27438760e2e16e5947c, type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0.6428572
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062124551104264178, guid: b70a26c7a562f27438760e2e16e5947c, type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0.6428572
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856895541395456439, guid: b70a26c7a562f27438760e2e16e5947c, type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0.6428572
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856895541395456439, guid: b70a26c7a562f27438760e2e16e5947c, type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0.6428572
+      objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658524, guid: b70a26c7a562f27438760e2e16e5947c, type: 3}
       propertyPath: m_Name
       value: HumanBase
@@ -22995,7 +23019,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: creepGrowDelay
-      value: 0.2
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: spawnInnerRadius
@@ -23008,6 +23032,10 @@ PrefabInstance:
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: spawnDelayInSeconds
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: creepPixelsChangedLimit
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: <StartHealth>k__BackingField

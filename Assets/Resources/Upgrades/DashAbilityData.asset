@@ -35,8 +35,8 @@ MonoBehaviour:
       Entry: 1
       Data: Cover short distances in the blink of an eye
   <AbilityCooldown>k__BackingField: 1
-  <DashingPower>k__BackingField: 10
+  <DashingPower>k__BackingField: 50
   <DashingTime>k__BackingField: 0.4
   <KnockBackRadius>k__BackingField: 5
-  <StartClearRadius>k__BackingField: 5
-  <EndClearRadius>k__BackingField: 10
+  <StartClearRadius>k__BackingField: 10
+  <EndClearRadius>k__BackingField: 5

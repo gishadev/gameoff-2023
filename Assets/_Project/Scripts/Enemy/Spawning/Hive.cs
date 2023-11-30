@@ -2,6 +2,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using gameoff.Core;
+using gameoff.Enemy.Projectiles;
 using gameoff.World;
 using gishadev.tools.Effects;
 using Sirenix.OdinInspector;
@@ -30,7 +31,10 @@ namespace gameoff.Enemy
         [SerializeField]
         private float creepGrowDelay = 5f;
 
-        
+        [BoxGroup("Creep expanding")]
+        [SerializeField]
+        private int creepPixelsChangedLimit = 100;
+
         [BoxGroup("Clearing on die")]
         [SerializeField]
         private int dieClearCreepRadius = 150;
@@ -115,8 +119,10 @@ namespace gameoff.Enemy
                 float rotZ = Mathf.Atan2(dirToHumanBase.y, dirToHumanBase.x) * Mathf.Rad2Deg;
                 Quaternion rotation = Quaternion.AngleAxis(rotZ, Vector3.forward);
 
-                var proj = OtherEmitter.I.EmitAt(OtherPoolEnum.HIVE_PROJECTILE, transform.position, rotation);
-                _diContainer.InjectGameObject(proj);
+                var proj = OtherEmitter.I.EmitAt(OtherPoolEnum.HIVE_PROJECTILE, transform.position, rotation)
+                    .GetComponent<HiveProjectile>();
+                proj.SetCreepPixelsChangedLimit(creepPixelsChangedLimit);
+                _diContainer.InjectGameObject(proj.gameObject);
 
                 await UniTask.WaitForSeconds(creepGrowDelay, cancellationToken: _creepGrowCTS.Token)
                     .SuppressCancellationThrow();
