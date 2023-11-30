@@ -62,5 +62,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3eb677edbac2dc944b123e9d7d11658d, type: 2}
   - {fileID: 11400000, guid: 7ab1ca6519fea2242b85955945ef2b3e, type: 2}
   - {fileID: 11400000, guid: 37fc133baf731fc47bf23476ac3b39b2, type: 2}
+  - {fileID: 11400000, guid: bdbea41cdca73034baca91c58bb72474, type: 2}
+  - {fileID: 11400000, guid: 42f171df736615e4093aabb6c79829b0, type: 2}
+  - {fileID: 11400000, guid: fb6ea31da3662f4409db3b74d165300b, type: 2}
   playerPrefab: {fileID: 238890459972768344, guid: 6f2f880611c801a41af2cd88d935802d, type: 3}
   <UnlockEventChannel>k__BackingField: {fileID: 11400000, guid: 421c636a6305b4b40b3d0f531af8df80, type: 2}
