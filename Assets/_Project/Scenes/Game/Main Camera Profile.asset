@@ -21,10 +21,10 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.35
+    m_Value: 0.368
   smoothness:
-    m_OverrideState: 0
-    m_Value: 0.2
+    m_OverrideState: 1
+    m_Value: 0.23
   rounded:
     m_OverrideState: 0
     m_Value: 0
@@ -43,10 +43,10 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.92537564, z: 0.8696857, w: 0.066079296}
+    m_Value: {x: 1, y: 0.9502077, z: 0.83759344, w: 0.066079296}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.93421036, z: 0.93421036, w: -0.17621148}
+    m_Value: {x: 1, y: 0.91092706, z: 0.96802443, w: -0.17621148}
   highlights:
     m_OverrideState: 0
     m_Value: {x: 1, y: 1, z: 1, w: -1}
@@ -62,31 +62,6 @@ MonoBehaviour:
   highlightsEnd:
     m_OverrideState: 0
     m_Value: 1
---- !u!114 &-7236552356123037100
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29fa0085f50d5e54f8144f766051a691, type: 3}
-  m_Name: FilmGrain
-  m_EditorClassIdentifier: 
-  active: 1
-  type:
-    m_OverrideState: 0
-    m_Value: 0
-  intensity:
-    m_OverrideState: 0
-    m_Value: 0
-  response:
-    m_OverrideState: 0
-    m_Value: 0.8
-  texture:
-    m_OverrideState: 0
-    m_Value: {fileID: 0}
 --- !u!114 &-2764996865496057318
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -119,4 +94,45 @@ MonoBehaviour:
   - {fileID: -7645982193374677144}
   - {fileID: -2764996865496057318}
   - {fileID: -7596996423965850417}
-  - {fileID: -7236552356123037100}
+  - {fileID: 7670195984826225274}
+--- !u!114 &7670195984826225274
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b2db86121404754db890f4c8dfe81b2, type: 3}
+  m_Name: Bloom
+  m_EditorClassIdentifier: 
+  active: 1
+  threshold:
+    m_OverrideState: 1
+    m_Value: 0.9
+  intensity:
+    m_OverrideState: 1
+    m_Value: 1
+  scatter:
+    m_OverrideState: 0
+    m_Value: 0.7
+  clamp:
+    m_OverrideState: 0
+    m_Value: 65472
+  tint:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  highQualityFiltering:
+    m_OverrideState: 0
+    m_Value: 0
+  skipIterations:
+    m_OverrideState: 0
+    m_Value: 1
+  dirtTexture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+    dimension: 1
+  dirtIntensity:
+    m_OverrideState: 0
+    m_Value: 0
