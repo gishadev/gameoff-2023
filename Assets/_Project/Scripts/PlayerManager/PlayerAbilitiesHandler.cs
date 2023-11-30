@@ -68,6 +68,8 @@ namespace gameoff.PlayerManager
                 return;
 
             _specialAbility.Trigger();
+            IAbility.RaiseUsed(_specialAbility);
+
             _isSpecialDelay = true;
             await UniTask.WaitForSeconds(_specialAbility.AbilityDataSO.AbilityCooldown);
             _isSpecialDelay = false;
@@ -90,6 +92,8 @@ namespace gameoff.PlayerManager
                 return;
 
             _movementAbility.Trigger();
+            IAbility.RaiseUsed(_movementAbility);
+
             _isMovementDelay = true;
             await UniTask.WaitForSeconds(_movementAbility.AbilityDataSO.AbilityCooldown);
             _isMovementDelay = false;

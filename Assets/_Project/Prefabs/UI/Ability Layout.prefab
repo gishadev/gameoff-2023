@@ -311,7 +311,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 643503de2e4bfe54ab24b860f6f8d8f7, type: 3}
-  m_Type: 3
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -330,6 +330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4146547081069205413}
   - component: {fileID: 2404421526647756256}
+  - component: {fileID: 5837590274759686021}
   m_Layer: 0
   m_Name: Ability Layout
   m_TagString: Untagged
@@ -385,6 +386,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &5837590274759686021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912713409414286582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c80451958b4439891e15578cbb79c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownImage: {fileID: 8358442385422877075}
+  targetToListen: {fileID: 11400000, guid: 916b907a6ea04f548beb17df62a4a52f, type: 2}
 --- !u!1 &8758193228794661153
 GameObject:
   m_ObjectHideFlags: 0

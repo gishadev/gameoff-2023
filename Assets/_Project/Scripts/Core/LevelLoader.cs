@@ -37,6 +37,7 @@ namespace gameoff.Core
         {
             var player = _diContainer.InstantiatePrefab(_gameDataSO.PlayerPrefab, _sceneParent)
                 .GetComponentInChildren<Player>();
+            _diContainer.InjectGameObject(player.gameObject);
             player.transform.position = level.HumanBase.Spawnpoint.position;
         }
     }

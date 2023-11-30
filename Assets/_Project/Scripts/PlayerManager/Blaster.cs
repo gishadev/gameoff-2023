@@ -23,7 +23,10 @@ namespace gameoff.PlayerManager
         [Inject] private IPlayerUpgradesController _upgradesController;
 
         public event Action<int> AmmoChanged;
+        public event Action ReloadingStarted;
         public int CurrentAmmo { get; private set; }
+
+        public float ReloadingDelay => reloadingDelay;
 
         private bool _isShooting, _isReloading, _isShootingDelay;
         private bool _isFullAuto;
@@ -67,7 +70,11 @@ namespace gameoff.PlayerManager
 
         public void StartReloading()
         {
+            if (CurrentAmmo == MaxAmmo || _isReloading)
+                return;
+            
             ReloadingAsync();
+            ReloadingStarted?.Invoke();
         }
 
         private async void ShootingAsync()
@@ -123,7 +130,7 @@ namespace gameoff.PlayerManager
         private async void ReloadingAsync()
         {
             _isReloading = true;
-            await UniTask.WaitForSeconds(reloadingDelay);
+            await UniTask.WaitForSeconds(ReloadingDelay);
             CurrentAmmo = MaxAmmo;
             _isReloading = false;
 

@@ -207,7 +207,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 1
+  m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -1584,6 +1584,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2112039410}
     m_Modifications:
+    - target: {fileID: 445714078528336708, guid: db431327473255349b73ff05d5517c9d, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 532686997538185119, guid: db431327473255349b73ff05d5517c9d, type: 3}
+      propertyPath: targetToListen
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f7a0acfaa34606479ed926c2a55aba0, type: 2}
     - target: {fileID: 3344162286563284064, guid: db431327473255349b73ff05d5517c9d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1712,9 +1720,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5837590274759686021, guid: db431327473255349b73ff05d5517c9d, type: 3}
+      propertyPath: targetToListen
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f7a0acfaa34606479ed926c2a55aba0, type: 2}
     - target: {fileID: 7912713409414286582, guid: db431327473255349b73ff05d5517c9d, type: 3}
       propertyPath: m_Name
       value: Ability Layout
+      objectReference: {fileID: 0}
+    - target: {fileID: 7912713409414286582, guid: db431327473255349b73ff05d5517c9d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db431327473255349b73ff05d5517c9d, type: 3}

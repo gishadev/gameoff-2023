@@ -1,4 +1,4 @@
-﻿using gameoff.PlayerManager;
+﻿using System;
 
 namespace gameoff.PlayerManager
 {
@@ -8,5 +8,8 @@ namespace gameoff.PlayerManager
         AbilityDataSO AbilityDataSO { get; }
         void Trigger();
         void Cancel();
+
+        static event Action<IAbility> Used;
+        public static void RaiseUsed(IAbility ability) => Used?.Invoke(ability);
     }
 }
