@@ -18,6 +18,10 @@ namespace gameoff.World
                 return;
             }
 
+            var tilemaps = gridMainObject.GetComponentsInChildren<TilemapRenderer>();
+            foreach (var tilemap in tilemaps) 
+                tilemap.sortingLayerName = "Ground";
+
             CreateGridCopyAndAssignMinimapLayer();
         }
 

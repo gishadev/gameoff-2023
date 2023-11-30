@@ -20,6 +20,12 @@ MonoBehaviour:
   - <Name>k__BackingField: Dash_VFX
     <Prefabs>k__BackingField:
     - {fileID: 8518813391421095512, guid: 31c73bef67703e34aac80fffc09374d0, type: 3}
+  - <Name>k__BackingField: Enemy_Die_VFX
+    <Prefabs>k__BackingField:
+    - {fileID: 2948717616527272706, guid: 7d12d4cc849a6b44281dd805dd337133, type: 3}
+  - <Name>k__BackingField: Hive_Die_VFX
+    <Prefabs>k__BackingField:
+    - {fileID: 8476722820487186205, guid: 817e590e3572b8b4ea945567c59e59b2, type: 3}
   <OtherPoolObjects>k__BackingField:
   - <Name>k__BackingField: Blaster_Projectile
     <Prefabs>k__BackingField:

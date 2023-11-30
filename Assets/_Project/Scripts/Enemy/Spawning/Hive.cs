@@ -90,6 +90,8 @@ namespace gameoff.Enemy
         private void Die()
         {
             ClearAreaInCircleAsync(dieClearCreepIterationsCount, dieClearCreepExpandingTime);
+            
+            VFXEmitter.I.EmitAt(VisualEffectsEnum.HIVE_DIE_VFX, transform.position, Quaternion.identity);
 
             Destroy(gameObject);
             Died?.Invoke(this);

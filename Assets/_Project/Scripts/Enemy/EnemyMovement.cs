@@ -14,6 +14,9 @@ namespace gameoff.Enemy
         [SerializeField] private LayerMask obstaclesMask;
         [SerializeField] private bool drawDebugLines;
 
+        [SerializeField] private ParticleSystem movementVFX;
+
+
         private Pathfinder<Vector2> _pathfinder;
         private List<Vector2> _path = new();
         private List<Vector2> _pathLeftToGo = new();
@@ -37,7 +40,10 @@ namespace gameoff.Enemy
         private void FixedUpdate()
         {
             if (!IsDefaultMovementEnabled)
+            {
+                movementVFX.Stop();
                 return;
+            }
 
             if (_pathLeftToGo.Count > 0)
                 HandleMovementToTarget();
@@ -74,6 +80,7 @@ namespace gameoff.Enemy
         {
             _pathLeftToGo.Clear();
             Rigidbody.velocity = Vector3.zero;
+            movementVFX.Stop();
         }
 
         public void ChangeMoveSpeed(float newSpeed)
@@ -98,6 +105,9 @@ namespace gameoff.Enemy
                 //transform.position = _pathLeftToGo[0];
                 _pathLeftToGo.RemoveAt(0);
             }
+
+            if (!movementVFX.isPlaying)
+                movementVFX.Play();
         }
 
         private void DrawDebugLines()

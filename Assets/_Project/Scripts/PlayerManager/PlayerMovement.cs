@@ -9,6 +9,7 @@ namespace gameoff.PlayerManager
     public class PlayerMovement : MonoBehaviourWithMovementEffector
     {
         [SerializeField] private float moveSpeed = 5f;
+        [SerializeField] private ParticleSystem movementVFX;
 
         public Rigidbody2D Rigidbody { get; private set; }
         public TrailRenderer TrailRenderer { get; private set; }
@@ -66,12 +67,14 @@ namespace gameoff.PlayerManager
         {
             MoveInputVector = value.ReadValue<Vector2>();
             _animator.SetBool(IsRunningID, true);
+            movementVFX.Play();
         }
 
         private void OnMovementCanceled(InputAction.CallbackContext value)
         {
             MoveInputVector = Vector2.zero;
             _animator.SetBool(IsRunningID, false);
+            movementVFX.Stop();
         }
     }
 }
