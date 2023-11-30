@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Level_12
   m_EditorClassIdentifier: 
   levelOrder: 12
-  levelPrefab: {fileID: 1985805879455979372, guid: 6e68e136fb5132b4d80efd3ef497e565, type: 3}
+  levelPrefab: {fileID: 1985805879455979372, guid: 53c1883cd6352a142a4686cdb3ad634d, type: 3}
   levelName: Lumina Limbo
   difficulty: 3
