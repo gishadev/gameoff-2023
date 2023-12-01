@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7500f91e8654c3f840b55a62c4c5ec5, type: 3}
+  m_Name: Level_15
+  m_EditorClassIdentifier: 
+  levelOrder: 15
+  levelPrefab: {fileID: 1985805879455979372, guid: 29c29dbd0ba6f6247b6fb22457efdc74, type: 3}
+  levelName: Lumina Limbo
+  difficulty: 3
