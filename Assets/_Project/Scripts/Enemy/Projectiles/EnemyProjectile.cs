@@ -11,12 +11,13 @@ namespace gameoff.Enemy.Projectiles
         {
             _damageCount = damageCount;
         }
-        
+
         protected override void OnTriggerEnter2D(Collider2D other)
         {
             base.OnTriggerEnter2D(other);
             if (other.TryGetComponent(out IDamageable damageable))
-                damageable.TakeDamage(_damageCount);
+                if (damageable is not Hive)
+                    damageable.TakeDamage(_damageCount);
 
             Die();
         }
