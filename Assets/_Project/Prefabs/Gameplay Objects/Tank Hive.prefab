@@ -235,8 +235,14 @@ MonoBehaviour:
     <MinSpawnCount>k__BackingField: 1
     <MaxSpawnCount>k__BackingField: 1
     <SpawnChance>k__BackingField: 1
+  - <EnemyDataSO>k__BackingField: {fileID: 11400000, guid: 3091e70150fed024b84d2a9b1b0bcf2b, type: 2}
+    <MaxCount>k__BackingField: 1
+    <MinSpawnCount>k__BackingField: 1
+    <MaxSpawnCount>k__BackingField: 1
+    <SpawnChance>k__BackingField: 1
   spawnFillCreepRadius: 60
   creepGrowDelay: 30
+  creepPixelsChangedLimit: 100
   dieClearCreepRadius: 80
   dieClearCreepExpandingTime: 4
   dieClearCreepIterationsCount: 60

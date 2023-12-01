@@ -18,8 +18,6 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: 916b907a6ea04f548beb17df62a4a52f, type: 2}
     - {fileID: 11400000, guid: 7f7a0acfaa34606479ed926c2a55aba0, type: 2}
-    - {fileID: 11400000, guid: dbbc4ab93b3e825489cc967c82f30ddf, type: 2}
-    - {fileID: 11400000, guid: 965f1de1f617c2842a481f2d1709926d, type: 2}
     - {fileID: 5246885601541338336, guid: c20359b6ee4149b409fdd37cd7c77cca, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -36,14 +34,14 @@ MonoBehaviour:
       Entry: 10
       Data: 1
     - Name: MultirayUpgradeDataSO
-      Entry: 10
-      Data: 2
+      Entry: 6
+      Data: 
     - Name: AutoBlasterUpgradeDataSO
-      Entry: 10
-      Data: 3
+      Entry: 6
+      Data: 
     - Name: UpgradeCardPrefab
       Entry: 10
-      Data: 4
+      Data: 2
   upgradesPack:
   - targetLevelNumber: 3
     upgrades:
