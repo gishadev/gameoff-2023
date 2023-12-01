@@ -1,5 +1,6 @@
 using DG.Tweening;
 using gameoff.Core;
+using gishadev.tools.Audio;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,7 +27,7 @@ namespace gameoff.PlayerManager
             _input = new CustomInput();
             Rigidbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
-            
+
             TrailRenderer = GetComponent<TrailRenderer>();
             TrailRenderer.emitting = false;
         }
@@ -60,6 +61,7 @@ namespace gameoff.PlayerManager
                 transform.DOScaleY(.9f, .1f).SetEase(Ease.InSine).OnComplete(() =>
                 {
                     transform.DOScaleY(1f, .1f).SetEase(Ease.InSine);
+                    AudioManager.I.PlayAudio(SFXAudioEnum.FOOTSTEP);
                 });
         }
 

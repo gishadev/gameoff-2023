@@ -1,6 +1,7 @@
 ﻿using System;
 using gameoff.Core;
 using gameoff.Enemy;
+using gishadev.tools.Audio;
 using UnityEngine;
 
 namespace gameoff.PlayerManager
@@ -52,8 +53,7 @@ namespace gameoff.PlayerManager
             }
 
             HealthChanged?.Invoke(CurrentHealth);
-
-            Debug.Log("Damage taken");
+            AudioManager.I.PlayAudio(SFXAudioEnum.ENEMY_HIT);
         }
 
         private void Die()

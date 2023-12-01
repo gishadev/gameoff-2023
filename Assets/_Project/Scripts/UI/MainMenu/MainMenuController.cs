@@ -15,7 +15,8 @@ namespace gameoff.UI.MainMenu
     public class MainMenuController : MenuController
     {
         [SerializeField] private Transform levelGUIParent;
-
+        [SerializeField] private Page levelsPage;
+        
         [SerializeField, BoxGroup("Level Info Box")]
         private GameObject levelInfoBox;
 
@@ -69,9 +70,30 @@ namespace gameoff.UI.MainMenu
             LevelGUI.PointerExit -= OnLevelPointerExit;
         }
 
-        public static void OnPlayClicked() => SceneLoader.I.AsyncSceneLoad(Constants.GAME_SCENE_NAME);
-        public void OnQuitClicked() => Application.Quit();
+        public static void OnPlayClicked()
+        {
+            SceneLoader.I.AsyncSceneLoad(Constants.GAME_SCENE_NAME);
+            AudioManager.I.PlayAudio(SFXAudioEnum.CLICK);
+        }
 
+        public void OnQuitClicked()
+        {
+            Application.Quit();
+            AudioManager.I.PlayAudio(SFXAudioEnum.CLICK);
+        }
+
+        public void OnLevelsPageClicked()
+        {
+            PushPage(levelsPage);
+            AudioManager.I.PlayAudio(SFXAudioEnum.CLICK);
+        }
+        
+        public void OnMainPageClicked()
+        {
+            PopPage();
+            AudioManager.I.PlayAudio(SFXAudioEnum.CANCEL);
+        }
+        
         private void OnLevelPointerEnter(LevelDataSO levelData)
         {
             levelTitle.text = $"Sector {levelData.LevelOrder}: {levelData.LevelName}";

@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 using gameoff.PlayerManager;
+using gishadev.tools.Audio;
 
 namespace gameoff.Enemy.States
 {
@@ -43,6 +44,7 @@ namespace gameoff.Enemy.States
                     return;
 
                 _enemy.AnimationsHandler.TriggerAttackAnimation(Player.Current.transform, OnAttacked);
+                AudioManager.I.PlayAudio(SFXAudioEnum.ENEMY_ATTACK);
             }
         }
 

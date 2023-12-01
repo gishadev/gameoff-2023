@@ -1,6 +1,7 @@
 ﻿using gameoff.Core;
 using gameoff.PlayerManager;
 using gameoff.SavingLoading;
+using gishadev.tools.Audio;
 using gishadev.tools.SceneLoading;
 using gishadev.tools.UI;
 using UnityEngine;
@@ -32,18 +33,24 @@ namespace gameoff.UI.Game
             GameManager.Lost -= OnLost;
         }
 
-        public void OnRestartClicked() => GameManager.RestartGame();
+        public void OnRestartClicked()
+        {
+            GameManager.RestartGame();
+            AudioManager.I.PlayAudio(SFXAudioEnum.CLICK);
+        }
 
         public void OnResumeClicked()
         {
             PopPage();
             GameManager.ResumeGame();
+            AudioManager.I.PlayAudio(SFXAudioEnum.CLICK);
         }
 
         public void OnContinueClicked()
         {
             GameManager.NextLevel();
             _saveLoadController.SaveGame();
+            AudioManager.I.PlayAudio(SFXAudioEnum.CLICK);
         }
         
         public void OnMainMenuClicked()
@@ -51,6 +58,7 @@ namespace gameoff.UI.Game
             GameManager.ResumeGame();
             SceneLoader.I.AsyncSceneLoad(Constants.MAIN_MENU_SCENE_NAME);
             _saveLoadController.SaveGame();
+            AudioManager.I.PlayAudio(SFXAudioEnum.CLICK);
         }
 
         private void OnLost()

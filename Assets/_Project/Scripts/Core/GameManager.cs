@@ -76,6 +76,8 @@ namespace gameoff.Core
             IsPaused = true;
             PauseChanged?.Invoke(IsPaused);
             Time.timeScale = 0f;
+            
+            AudioManager.I.PlayAudio(SFXAudioEnum.CANCEL);
         }
 
         [HorizontalGroup("Split1")]
@@ -125,6 +127,8 @@ namespace gameoff.Core
                 _saveLoadController.CurrentSaveData.CompletedLevelsCount = CurrentLevelNumber;
                 _saveLoadController.SaveGame();
             }
+            
+            AudioManager.I.PlayAudio(SFXAudioEnum.WIN);
         }
 
         [HorizontalGroup("Split2")]
@@ -135,6 +139,8 @@ namespace gameoff.Core
             _pauseBlocked = true;
             Lost?.Invoke();
             Time.timeScale = 0f;
+            
+            AudioManager.I.PlayAudio(SFXAudioEnum.LOSE);
         }
 
         private void PlayLevelMusic()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using gishadev.tools.Audio;
 using gishadev.tools.Effects;
 using UnityEngine;
 using Zenject;
@@ -135,6 +136,8 @@ namespace gameoff.PlayerManager
             _isReloading = false;
 
             AmmoChanged?.Invoke(CurrentAmmo);
+            
+            AudioManager.I.PlayAudio(SFXAudioEnum.BLASTER_RELOADED);
         }
 
         private void ShootProjectile()
@@ -148,6 +151,8 @@ namespace gameoff.PlayerManager
 
             CurrentAmmo--;
             AmmoChanged?.Invoke(CurrentAmmo);
+            
+            AudioManager.I.PlayAudio(SFXAudioEnum.BLASTER_SHOOT);
         }
     }
 }

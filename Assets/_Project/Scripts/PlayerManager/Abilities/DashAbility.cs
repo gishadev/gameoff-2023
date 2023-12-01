@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using gameoff.Core;
 using gameoff.PlayerManager;
 using gameoff.World;
+using gishadev.tools.Audio;
 using gishadev.tools.Effects;
 using UnityEngine;
 using Zenject;
@@ -41,6 +42,7 @@ namespace gameoff.PlayerManager
                 ForceMode2D.Impulse);
             _playerMovement.TrailRenderer.emitting = true;
             
+            AudioManager.I.PlayAudio(SFXAudioEnum.ABILITY_DASH);
             VFXEmitter.I.EmitAt(VisualEffectsEnum.DASH_VFX, _playerMovement.transform.position, Quaternion.identity);
 
             await UniTask.WaitForSeconds(_dashData.DashingTime, cancellationToken: _dashingCTS.Token)

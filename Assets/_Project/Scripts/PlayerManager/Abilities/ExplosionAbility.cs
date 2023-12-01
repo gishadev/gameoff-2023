@@ -2,6 +2,7 @@
 using gameoff.Core;
 using gameoff.PlayerManager;
 using gameoff.World;
+using gishadev.tools.Audio;
 using gishadev.tools.Effects;
 using UnityEngine;
 using Zenject;
@@ -36,9 +37,12 @@ namespace gameoff.PlayerManager
             _triggeredPosition = _player.transform.position;
             SpawnProjectilesInCircle();
             ClearAreaInCircleAsync();
+            
+            IsUsing = false;
+            
+            AudioManager.I.PlayAudio(SFXAudioEnum.ABILITY_EXPLOSION);
             VFXEmitter.I.EmitAt(VisualEffectsEnum.EXPLOSION_ABILITY_VFX, _player.transform.position,
                 Quaternion.identity);
-            IsUsing = false;
         }
 
         public void Cancel()

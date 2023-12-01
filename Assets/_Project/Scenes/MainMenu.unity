@@ -1878,6 +1878,7 @@ MonoBehaviour:
   zeroPagesAllowed: 0
   popOnSamePagePush: 0
   levelGUIParent: {fileID: 1851547801}
+  levelsPage: {fileID: 1188271786}
   levelInfoBox: {fileID: 257941552}
   levelTitle: {fileID: 1229588958}
   levelStatusLabel: {fileID: 1699907870}
@@ -6707,13 +6708,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 115154074}
     m_Modifications:
     - target: {fileID: 1829084218649385765, guid: 7b74549ada70f814db96d7283e3cc779, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829084218649385765, guid: 7b74549ada70f814db96d7283e3cc779, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 416336829}
     - target: {fileID: 1829084218649385765, guid: 7b74549ada70f814db96d7283e3cc779, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnLevelsPageClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829084218649385765, guid: 7b74549ada70f814db96d7283e3cc779, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: gameoff.UI.MainMenu.MainMenuController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829084218649385765, guid: 7b74549ada70f814db96d7283e3cc779, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1188271786}
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829084218649385765, guid: 7b74549ada70f814db96d7283e3cc779, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1829084218649385766, guid: 7b74549ada70f814db96d7283e3cc779, type: 3}
       propertyPath: m_Name
       value: PlayBtn
@@ -8653,8 +8670,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 416336829}
-        m_TargetAssemblyTypeName: gishadev.tools.UI.MenuController, Assembly-CSharp
-        m_MethodName: PopPage
+        m_TargetAssemblyTypeName: gameoff.UI.MainMenu.MainMenuController, Assembly-CSharp
+        m_MethodName: OnMainPageClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

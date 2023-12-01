@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using gameoff.Core;
 using gameoff.Enemy.Projectiles;
 using gameoff.PlayerManager;
+using gishadev.tools.Audio;
 using gishadev.tools.Effects;
 using gishadev.tools.StateMachine;
 using UnityEngine;
@@ -61,6 +62,8 @@ namespace gameoff.Enemy.States
                     .EmitAt(projectilePoolKey, _shootEnemy.ShootPoint.position, shootRotation)
                     .GetComponent<EnemyProjectile>();
                 projectile.SetDamage(_shootEnemy.ShootData.ShootProjectileDamage);
+                
+                AudioManager.I.PlayAudio(SFXAudioEnum.ENEMY_SHOOT);
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using gameoff.Core;
 using gameoff.PlayerManager;
+using gishadev.tools.Audio;
 using UnityEngine;
 using Zenject;
 
@@ -32,6 +33,8 @@ namespace gameoff.UI.Game
                 return;
 
             _playerUpgradesController.Upgrade(_selectedCard.UpgradeEnumType);
+            
+            AudioManager.I.PlayAudio(SFXAudioEnum.CLICK);
         }
 
         private void OnUpgradesShowed(UpgradeDataSO[] upgradesToShow)
@@ -55,6 +58,8 @@ namespace gameoff.UI.Game
 
             _selectedCard = upgradeCardGUI;
             upgradeCardGUI.Outline.enabled = true;
+            
+            AudioManager.I.PlayAudio(SFXAudioEnum.UPGRADE_SELECT);
         }
 
         private void ClearCards()

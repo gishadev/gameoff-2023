@@ -44,4 +44,104 @@ MonoBehaviour:
     <Pitch>k__BackingField: 1
     <IsLooping>k__BackingField: 1
     <IsFade>k__BackingField: 1
-  <SFXCollection>k__BackingField: []
+  <SFXCollection>k__BackingField:
+  - <Name>k__BackingField: footstep
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: 921c17915c9be14428080b92d4419341, type: 3}
+    - {fileID: 8300000, guid: 59d0fa36f629c0f409d3295fe369ce1b, type: 3}
+    - {fileID: 8300000, guid: 4950d1c1f09b56f4088e25401ab4b13d, type: 3}
+    - {fileID: 8300000, guid: b160161482a89184193bd91d349a212c, type: 3}
+    - {fileID: 8300000, guid: 59422217c40d7504bbed904af350efd0, type: 3}
+    <InitialVolume>k__BackingField: 0.7
+    <Pitch>k__BackingField: 2
+  - <Name>k__BackingField: click
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: 0dd9245b6d774804d931f176eb303157, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+  - <Name>k__BackingField: upgrade_select
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: 130a177e727814a2ea78a886ab72213d, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+  - <Name>k__BackingField: cancel
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: 19f89c6e740e7447f9e12a8310d3e973, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+  - <Name>k__BackingField: blaster_shoot
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: 9b12230f8a1cc4543b19eed02549b364, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+  - <Name>k__BackingField: blaster_reloaded
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: 3becec1909f194046945d85ac1077772, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+  - <Name>k__BackingField: blaster_reload
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: 3becec1909f194046945d85ac1077772, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 2
+  - <Name>k__BackingField: ability_explosion
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: b99da9a57308d4ba1bee1cf1d9038376, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+  - <Name>k__BackingField: ability_dash
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: 1b9d7504bcacbe344bcab389633c685a, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+  - <Name>k__BackingField: ability_reloaded
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: 7e9ee6dc04a5d40d1a5dfc4beb9865e7, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+  - <Name>k__BackingField: denied
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: 724131bc8a7f34041bb9f1701f0cb58d, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+  - <Name>k__BackingField: enemy_attack
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
+    - {fileID: 8300000, guid: d46323e22e74e46baa241cbf48c85671, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+  - <Name>k__BackingField: enemy_hit
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: 6e8772b49f34d402a90016ed445d8a2f, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+  - <Name>k__BackingField: enemy_shoot
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: 81652031b64c342cc8dbc59c138d77c5, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+  - <Name>k__BackingField: enemy_spawn
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+  - <Name>k__BackingField: hive_destroy
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: 16ac73e6e4b09cc469aedf9dd5fcb39c, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+  - <Name>k__BackingField: hive_hit
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: d796839a1e9d1ef4b83bb36f9da520d0, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+  - <Name>k__BackingField: win
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: 7478151cf36724a7dada558f746c3633, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+  - <Name>k__BackingField: lose
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: 72127805eb2bc4e7fbf2e02eca266cfa, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1

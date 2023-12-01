@@ -2,6 +2,7 @@
 using gameoff.Core;
 using gameoff.Enemy.SOs;
 using gameoff.UI.Game;
+using gishadev.tools.Audio;
 using gishadev.tools.StateMachine;
 using UnityEngine;
 using Zenject;
@@ -47,6 +48,8 @@ namespace gameoff.Enemy
                 transform.localScale = Vector3.one;
             
             GetComponentInChildren<HealthBarGUI>(true).gameObject.SetActive(EnemyDataSO.IsBoss);
+            
+            AudioManager.I.PlayAudio(SFXAudioEnum.ENEMY_SPAWN);
         }
 
         private void OnDisable() => StateMachine.CurrentState.OnExit();
@@ -65,6 +68,8 @@ namespace gameoff.Enemy
             CurrentHealth -= count;
             Debug.Log($"{count}/{EnemyDataSO.StartHealth}");
             HealthChanged?.Invoke(CurrentHealth);
+            
+            AudioManager.I.PlayAudio(SFXAudioEnum.ENEMY_HIT);
         }
 
         public void SetData(EnemyDataSO enemyData)

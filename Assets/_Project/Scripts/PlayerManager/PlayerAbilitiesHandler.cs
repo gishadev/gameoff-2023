@@ -2,6 +2,7 @@
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using gameoff.Core;
+using gishadev.tools.Audio;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
@@ -65,13 +66,18 @@ namespace gameoff.PlayerManager
         private async void OnSpecialAbilityPerformed(InputAction.CallbackContext value)
         {
             if (_specialAbility == null || _isSpecialDelay)
+            {
+                AudioManager.I.PlayAudio(SFXAudioEnum.DENIED);
                 return;
+            }
 
             _specialAbility.Trigger();
             IAbility.RaiseUsed(_specialAbility);
 
             _isSpecialDelay = true;
             await UniTask.WaitForSeconds(_specialAbility.AbilityDataSO.AbilityCooldown);
+            
+            AudioManager.I.PlayAudio(SFXAudioEnum.ABILITY_RELOADED);
             _isSpecialDelay = false;
         }
 
@@ -83,13 +89,18 @@ namespace gameoff.PlayerManager
             _specialAbility.Cancel();
             _isSpecialDelay = true;
             await UniTask.WaitForSeconds(_specialAbility.AbilityDataSO.AbilityCooldown);
+            
+            AudioManager.I.PlayAudio(SFXAudioEnum.ABILITY_RELOADED);
             _isSpecialDelay = false;
         }
 
         private async void OnMovementAbilityPerformed(InputAction.CallbackContext value)
         {
             if (_movementAbility == null || _isMovementDelay)
+            {
+                AudioManager.I.PlayAudio(SFXAudioEnum.DENIED);
                 return;
+            }
 
             _movementAbility.Trigger();
             IAbility.RaiseUsed(_movementAbility);

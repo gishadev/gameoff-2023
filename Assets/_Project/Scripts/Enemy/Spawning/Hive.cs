@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using gameoff.Core;
 using gameoff.Enemy.Projectiles;
 using gameoff.World;
+using gishadev.tools.Audio;
 using gishadev.tools.Effects;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -85,6 +86,7 @@ namespace gameoff.Enemy
                 Die();
 
             HealthChanged?.Invoke(CurrentHealth);
+            AudioManager.I.PlayAudio(SFXAudioEnum.HIVE_HIT);
         }
 
         private void Die()
@@ -92,6 +94,7 @@ namespace gameoff.Enemy
             ClearAreaInCircleAsync(dieClearCreepIterationsCount, dieClearCreepExpandingTime);
             
             VFXEmitter.I.EmitAt(VisualEffectsEnum.HIVE_DIE_VFX, transform.position, Quaternion.identity);
+            AudioManager.I.PlayAudio(SFXAudioEnum.HIVE_DESTROY);
 
             Destroy(gameObject);
             Died?.Invoke(this);
