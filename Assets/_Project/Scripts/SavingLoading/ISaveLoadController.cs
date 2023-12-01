@@ -7,6 +7,7 @@ namespace gameoff.SavingLoading
         GameSaveData CurrentSaveData { get; }
         event Action<GameSaveData> GameDataLoaded;
         void SaveGame();
+        void ResetAndSave();
         GameSaveData LoadGame();
     }
 }

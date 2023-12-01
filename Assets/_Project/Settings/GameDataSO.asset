@@ -42,6 +42,8 @@ MonoBehaviour:
     - Name: UpgradeCardPrefab
       Entry: 10
       Data: 2
+  <MusicVolumeEvent>k__BackingField: {fileID: 11400000, guid: fded01496c3d85246bd6df7bb817463f, type: 2}
+  <SFXVolumeEvent>k__BackingField: {fileID: 11400000, guid: 60367699b744ca443ab5fdc9be67e2fc, type: 2}
   upgradesPack:
   - targetLevelNumber: 3
     upgrades:

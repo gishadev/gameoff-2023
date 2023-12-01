@@ -64,6 +64,12 @@ namespace gameoff.Core
             _customInput.Disable();
         }
 
+        private void Start()
+        {
+            AudioManager.I.SetMusicVolume(_gameDataSO.MusicVolumeEvent.Value);
+            AudioManager.I.SetSFXVolume(_gameDataSO.SFXVolumeEvent.Value);
+        }
+
         public static void SetCurrentLevel(int levelNumber) => CurrentLevelNumber = levelNumber;
 
         [HorizontalGroup("Split1")]
@@ -76,7 +82,7 @@ namespace gameoff.Core
             IsPaused = true;
             PauseChanged?.Invoke(IsPaused);
             Time.timeScale = 0f;
-            
+
             AudioManager.I.PlayAudio(SFXAudioEnum.CANCEL);
         }
 
@@ -127,7 +133,7 @@ namespace gameoff.Core
                 _saveLoadController.CurrentSaveData.CompletedLevelsCount = CurrentLevelNumber;
                 _saveLoadController.SaveGame();
             }
-            
+
             AudioManager.I.PlayAudio(SFXAudioEnum.WIN);
         }
 
@@ -139,7 +145,7 @@ namespace gameoff.Core
             _pauseBlocked = true;
             Lost?.Invoke();
             Time.timeScale = 0f;
-            
+
             AudioManager.I.PlayAudio(SFXAudioEnum.LOSE);
         }
 

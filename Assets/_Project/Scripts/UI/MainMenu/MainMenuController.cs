@@ -1,12 +1,8 @@
-﻿using System.Linq;
-using gameoff.Core;
+﻿using gameoff.Core;
 using gameoff.SavingLoading;
-using gameoff.World;
 using gishadev.tools.Audio;
 using gishadev.tools.SceneLoading;
 using gishadev.tools.UI;
-using Sirenix.OdinInspector;
-using TMPro;
 using UnityEngine;
 using Zenject;
 
@@ -14,24 +10,10 @@ namespace gameoff.UI.MainMenu
 {
     public class MainMenuController : MenuController
     {
-        [SerializeField] private Transform levelGUIParent;
-        [SerializeField] private Page levelsPage;
-        
-        [SerializeField, BoxGroup("Level Info Box")]
-        private GameObject levelInfoBox;
-
-        [SerializeField, BoxGroup("Level Info Box")]
-        private TMP_Text levelTitle;
-
-        [SerializeField, BoxGroup("Level Info Box")]
-        private TMP_Text levelStatusLabel;
-
-        [SerializeField, BoxGroup("Level Info Box")]
-        private Transform skullsParent;
+        [SerializeField] private Page levelsPage, settingsPage, creditsPage;
 
         [Inject] private ISaveLoadController _saveLoadController;
-
-        private LevelGUI[] _levelGUIs;
+        [Inject] private GameDataSO _gameData;
 
         protected override void Awake()
         {
@@ -39,36 +21,31 @@ namespace gameoff.UI.MainMenu
             if (_saveLoadController.CurrentSaveData == null)
                 _saveLoadController.LoadGame();
 
-            _levelGUIs = levelGUIParent.GetComponentsInChildren<LevelGUI>()
-                .OrderBy(x => x.LevelData.LevelOrder)
-                .ToArray();
-
-            foreach (var level in _levelGUIs)
-                level.SetClosed();
-
-            var completedLevels = _saveLoadController.CurrentSaveData.CompletedLevelsCount;
-            for (int i = 0; i < _levelGUIs.Length && i < completedLevels + 1; i++)
-            {
-                if (IsCleared(_levelGUIs[i].LevelData))
-                    _levelGUIs[i].SetCompleted();
-                else if (IsInfected(_levelGUIs[i].LevelData))
-                    _levelGUIs[i].SetInfected();
-            }
-            
             AudioManager.I.PlayAudio(MusicAudioEnum.MENU_MUSIC);
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+
+            AudioManager.I.SetMusicVolume(_gameData.MusicVolumeEvent.Value);
+            AudioManager.I.SetSFXVolume(_gameData.SFXVolumeEvent.Value);
         }
 
         private void OnEnable()
         {
-            LevelGUI.PointerEnter += OnLevelPointerEnter;
-            LevelGUI.PointerExit += OnLevelPointerExit;
+            _gameData.MusicVolumeEvent.ChangedValue += OnMusicVolumeChanged;
+            _gameData.SFXVolumeEvent.ChangedValue += OnSFXVolumeChanged;
         }
 
         private void OnDisable()
         {
-            LevelGUI.PointerEnter -= OnLevelPointerEnter;
-            LevelGUI.PointerExit -= OnLevelPointerExit;
+            _gameData.MusicVolumeEvent.ChangedValue -= OnMusicVolumeChanged;
+            _gameData.SFXVolumeEvent.ChangedValue -= OnSFXVolumeChanged;
         }
+
+        private void OnSFXVolumeChanged(float volume) => AudioManager.I.SetSFXVolume(volume);
+        private void OnMusicVolumeChanged(float volume) => AudioManager.I.SetMusicVolume(volume);
 
         public static void OnPlayClicked()
         {
@@ -87,45 +64,31 @@ namespace gameoff.UI.MainMenu
             PushPage(levelsPage);
             AudioManager.I.PlayAudio(SFXAudioEnum.CLICK);
         }
-        
+        public void OnCreditsPageClicked()
+        {
+            PushPage(creditsPage);
+            AudioManager.I.PlayAudio(SFXAudioEnum.CLICK);
+        }
+
+        public void OnSettingsPageClicked()
+        {
+            PushPage(settingsPage);
+
+            AudioManager.I.PlayAudio(SFXAudioEnum.CLICK);
+        }
+
+        public void OnResetClicked()
+        {
+            _saveLoadController.ResetAndSave();
+            _saveLoadController.LoadGame();
+
+            AudioManager.I.PlayAudio(SFXAudioEnum.CLICK);
+        }
+
         public void OnMainPageClicked()
         {
             PopPage();
             AudioManager.I.PlayAudio(SFXAudioEnum.CANCEL);
-        }
-        
-        private void OnLevelPointerEnter(LevelDataSO levelData)
-        {
-            levelTitle.text = $"Sector {levelData.LevelOrder}: {levelData.LevelName}";
-
-            if (IsCleared(levelData))
-                levelStatusLabel.text = $"Status: Cleared";
-            else if (IsInfected(levelData))
-                levelStatusLabel.text = $"Status: Infected";
-            else
-                levelStatusLabel.text = $"Status: Closed";
-
-            for (int i = 0; i < skullsParent.childCount; i++)
-                skullsParent.GetChild(i).gameObject.SetActive(i < levelData.Difficulty);
-
-            levelInfoBox.SetActive(true);
-        }
-
-        private void OnLevelPointerExit()
-        {
-            levelInfoBox.SetActive(false);
-        }
-
-        public bool IsCleared(LevelDataSO levelData)
-        {
-            var completedLevels = _saveLoadController.CurrentSaveData.CompletedLevelsCount;
-            return levelData.LevelOrder <= completedLevels;
-        }
-
-        public bool IsInfected(LevelDataSO levelData)
-        {
-            var completedLevels = _saveLoadController.CurrentSaveData.CompletedLevelsCount;
-            return levelData.LevelOrder == completedLevels + 1;
         }
     }
 }

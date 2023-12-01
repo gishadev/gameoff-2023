@@ -38,5 +38,11 @@ namespace gameoff.SavingLoading
             GameDataLoaded?.Invoke(CurrentSaveData);
             return CurrentSaveData;
         }
+
+        public void ResetAndSave()
+        {
+            CurrentSaveData = new GameSaveData();
+            SaveGame();
+        }
     }
 }

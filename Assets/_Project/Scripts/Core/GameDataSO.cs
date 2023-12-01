@@ -14,6 +14,11 @@ namespace gameoff.Core
     [CreateAssetMenu(fileName = "GameDataSO", menuName = "ScriptableObjects/GameDataSO")]
     public class GameDataSO : SerializedScriptableObject
     {
+        [field: SerializeField] public FloatEventChannelSO MusicVolumeEvent { private set; get; }
+        [field: SerializeField] public FloatEventChannelSO SFXVolumeEvent { private set; get; }
+        
+        
+        
         [Title("Upgrades giving rules")]
         [TabGroup("Upgrades"), InfoBox("Winning every [x] level will give to player an upgrade to choose")]
         [OdinSerialize, ShowInInspector, PropertyOrder(-1)]
