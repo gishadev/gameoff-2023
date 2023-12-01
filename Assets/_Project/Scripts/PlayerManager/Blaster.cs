@@ -131,6 +131,8 @@ namespace gameoff.PlayerManager
         private async void ReloadingAsync()
         {
             _isReloading = true;
+            
+            AudioManager.I.PlayAudio(SFXAudioEnum.BLASTER_RELOAD);
             await UniTask.WaitForSeconds(ReloadingDelay);
             CurrentAmmo = MaxAmmo;
             _isReloading = false;

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AudioMasterSO
   m_EditorClassIdentifier: 
   <FadeTransitionTime>k__BackingField: 2
-  <MusicAutoSequencing>k__BackingField: 1
+  <MusicAutoSequencing>k__BackingField: 0
   <MusicCollection>k__BackingField:
   - <Name>k__BackingField: Menu_Music
     <AudioClips>k__BackingField:
@@ -21,7 +21,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 3e350732b6e2d494295eda933a188623, type: 3}
     <InitialVolume>k__BackingField: 1
     <Pitch>k__BackingField: 1
-    <IsLooping>k__BackingField: 0
+    <IsLooping>k__BackingField: 1
     <IsFade>k__BackingField: 1
   - <Name>k__BackingField: Game_Music_1
     <AudioClips>k__BackingField:
@@ -52,7 +52,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 4950d1c1f09b56f4088e25401ab4b13d, type: 3}
     - {fileID: 8300000, guid: b160161482a89184193bd91d349a212c, type: 3}
     - {fileID: 8300000, guid: 59422217c40d7504bbed904af350efd0, type: 3}
-    <InitialVolume>k__BackingField: 0.7
+    <InitialVolume>k__BackingField: 0.55
     <Pitch>k__BackingField: 2
   - <Name>k__BackingField: click
     <AudioClips>k__BackingField:
