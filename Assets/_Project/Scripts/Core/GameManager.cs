@@ -4,6 +4,7 @@ using gameoff.Enemy;
 using gameoff.PlayerManager;
 using gameoff.SavingLoading;
 using gameoff.World;
+using gishadev.tools.Audio;
 using gishadev.tools.SceneLoading;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -39,7 +40,10 @@ namespace gameoff.Core
             _pauseBlocked = false;
 
             _gameDataSO = _diContainer.Resolve<GameDataSO>();
+
+            PlayLevelMusic();
         }
+
 
         private void OnEnable()
         {
@@ -131,6 +135,26 @@ namespace gameoff.Core
             _pauseBlocked = true;
             Lost?.Invoke();
             Time.timeScale = 0f;
+        }
+
+        private void PlayLevelMusic()
+        {
+            int difficulty = _gameDataSO.Levels[CurrentLevelNumber - 1].Difficulty;
+            MusicAudioEnum gameMusicEnum;
+            switch (difficulty)
+            {
+                case 1:
+                    gameMusicEnum = MusicAudioEnum.GAME_MUSIC_1;
+                    break;
+                case 2:
+                    gameMusicEnum = MusicAudioEnum.GAME_MUSIC_2;
+                    break;
+                default:
+                    gameMusicEnum = MusicAudioEnum.GAME_MUSIC_3;
+                    break;
+            }
+
+            AudioManager.I.PlayAudio(gameMusicEnum);
         }
 
         private void OnPausePerformed(InputAction.CallbackContext value)

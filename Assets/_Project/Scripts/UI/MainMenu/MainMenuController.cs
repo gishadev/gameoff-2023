@@ -2,6 +2,7 @@
 using gameoff.Core;
 using gameoff.SavingLoading;
 using gameoff.World;
+using gishadev.tools.Audio;
 using gishadev.tools.SceneLoading;
 using gishadev.tools.UI;
 using Sirenix.OdinInspector;
@@ -52,6 +53,8 @@ namespace gameoff.UI.MainMenu
                 else if (IsInfected(_levelGUIs[i].LevelData))
                     _levelGUIs[i].SetInfected();
             }
+            
+            AudioManager.I.PlayAudio(MusicAudioEnum.MENU_MUSIC);
         }
 
         private void OnEnable()

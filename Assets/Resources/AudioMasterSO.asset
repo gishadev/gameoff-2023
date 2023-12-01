@@ -14,5 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <FadeTransitionTime>k__BackingField: 2
   <MusicAutoSequencing>k__BackingField: 1
-  <MusicCollection>k__BackingField: []
+  <MusicCollection>k__BackingField:
+  - <Name>k__BackingField: Menu_Music
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: 994ec07a220f39849b5c22b6e850e8ff, type: 3}
+    - {fileID: 8300000, guid: 3e350732b6e2d494295eda933a188623, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+    <IsLooping>k__BackingField: 0
+    <IsFade>k__BackingField: 1
+  - <Name>k__BackingField: Game_Music_1
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: e9a52cab8d2c840448c0484444b34cac, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+    <IsLooping>k__BackingField: 1
+    <IsFade>k__BackingField: 1
+  - <Name>k__BackingField: Game_Music_2
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: dbf6dd7e8d230488ea47b1458ce65f59, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+    <IsLooping>k__BackingField: 1
+    <IsFade>k__BackingField: 1
+  - <Name>k__BackingField: Game_Music_3
+    <AudioClips>k__BackingField:
+    - {fileID: 8300000, guid: 166471aa408354a628f742ec3ed1be23, type: 3}
+    <InitialVolume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+    <IsLooping>k__BackingField: 1
+    <IsFade>k__BackingField: 1
   <SFXCollection>k__BackingField: []
