@@ -36,8 +36,8 @@ MonoBehaviour:
       Data: "Clears everything around you. \n\nIdeal for parties you didn't want
         to attend in the first place"
   <AbilityCooldown>k__BackingField: 3
-  <ProjectileDamage>k__BackingField: 5
-  <ProjectileCount>k__BackingField: 19
+  <ProjectileDamage>k__BackingField: 6
+  <ProjectileCount>k__BackingField: 20
   <ClearIterations>k__BackingField: 10
   <ClearMaxRadius>k__BackingField: 50
   <FullClearExpandingTime>k__BackingField: 0.39

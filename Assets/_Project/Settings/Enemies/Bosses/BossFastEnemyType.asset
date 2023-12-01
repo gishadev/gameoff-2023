@@ -32,7 +32,7 @@ MonoBehaviour:
       Data: 101
     - Name: MoveSpeed
       Entry: 4
-      Data: 600
+      Data: 800
     - Name: StartAreaRadius
       Entry: 4
       Data: 3
@@ -41,13 +41,10 @@ MonoBehaviour:
       Data: 4
     - Name: MeleeAttackDelay
       Entry: 4
-      Data: 0.4
-    - Name: MeleeAttackKnockBack
-      Entry: 4
-      Data: 50
+      Data: 0.1
     - Name: MeleeAttackDamage
       Entry: 3
-      Data: 25
+      Data: 5
     - Name: FollowRadius
       Entry: 4
       Data: 20

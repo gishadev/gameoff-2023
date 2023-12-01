@@ -41,13 +41,10 @@ MonoBehaviour:
       Data: 4
     - Name: MeleeAttackDelay
       Entry: 4
-      Data: 0.4
-    - Name: MeleeAttackKnockBack
-      Entry: 4
-      Data: 50
+      Data: 0.7
     - Name: MeleeAttackDamage
       Entry: 3
-      Data: 25
+      Data: 50
     - Name: FollowRadius
       Entry: 4
       Data: 20

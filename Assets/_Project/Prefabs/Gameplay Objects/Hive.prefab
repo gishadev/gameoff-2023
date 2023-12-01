@@ -226,15 +226,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <StartHealth>k__BackingField: 100
-  spawnDelayInSeconds: 1
+  spawnDelayInSeconds: 2
   spawnOuterRadius: 5
   spawnInnerRadius: 3
   enemySpawnSettings:
   - <EnemyDataSO>k__BackingField: {fileID: 11400000, guid: 62b3462fa61802745b8de8e07d111ae6, type: 2}
     <MaxCount>k__BackingField: 5
     <MinSpawnCount>k__BackingField: 1
-    <MaxSpawnCount>k__BackingField: 3
-    <SpawnChance>k__BackingField: 0.1
+    <MaxSpawnCount>k__BackingField: 1
+    <SpawnChance>k__BackingField: 1
   spawnFillCreepRadius: 60
   creepGrowDelay: 4
   creepPixelsChangedLimit: 200

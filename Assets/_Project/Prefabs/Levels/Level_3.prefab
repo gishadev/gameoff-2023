@@ -37,6 +37,7 @@ Transform:
   - {fileID: 1985805879753152750}
   - {fileID: 5740717623248735800}
   - {fileID: 1985805881074620599}
+  - {fileID: 27192606452650586}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -73745,6 +73746,104 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf6077c72d594b7db2991a637abe173e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &6072334604141103812
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1985805879455979374}
+    m_Modifications:
+    - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: creepGrowDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: spawnInnerRadius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: spawnOuterRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: <StartHealth>k__BackingField
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: enemySpawnSettings.Array.data[0].<MaxCount>k__BackingField
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: enemySpawnSettings.Array.data[0].<EnemyDataSO>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 62b3462fa61802745b8de8e07d111ae6, type: 2}
+    - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: enemySpawnSettings.Array.data[0].<SpawnChance>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: enemySpawnSettings.Array.data[0].<MaxSpawnCount>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: enemySpawnSettings.Array.data[0].<MinSpawnCount>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658524, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: m_Name
+      value: Hive
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658526, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658526, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 91.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658526, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658526, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658526, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658526, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658526, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658526, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658526, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658526, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658526, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+--- !u!4 &27192606452650586 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6063498413033658526, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+  m_PrefabInstance: {fileID: 6072334604141103812}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6721161252295960858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74289,15 +74388,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: creepGrowDelay
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: spawnInnerRadius
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: spawnOuterRadius
-      value: 9
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: spawnDelayInSeconds
@@ -74309,11 +74408,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: <StartHealth>k__BackingField
-      value: 500
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: enemySpawnSettings.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: enemySpawnSettings.Array.data[0].<Prefab>k__BackingField
@@ -74321,12 +74420,16 @@ PrefabInstance:
       objectReference: {fileID: 7958972308095696765, guid: 8db0d0964172d6445a9f0d19f39240f6, type: 3}
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: enemySpawnSettings.Array.data[0].<MaxCount>k__BackingField
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: enemySpawnSettings.Array.data[1].<MaxCount>k__BackingField
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
+      propertyPath: enemySpawnSettings.Array.data[0].<EnemyDataSO>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 4e3cf1c2b5a196b4fb05d0155ef879ea, type: 2}
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: enemySpawnSettings.Array.data[0].<SpawnChance>k__BackingField
       value: 1
@@ -74341,11 +74444,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: enemySpawnSettings.Array.data[0].<MaxSpawnCount>k__BackingField
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: enemySpawnSettings.Array.data[0].<MinSpawnCount>k__BackingField
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: enemySpawnSettings.Array.data[1].<MaxSpawnCount>k__BackingField
@@ -74365,11 +74468,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658526, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 94.62
+      value: 91.98
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658526, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.48
+      value: 1.42
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658526, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -74605,7 +74708,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: creepGrowDelay
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: enemySpawnSettings.Array.data[0].<MaxCount>k__BackingField
@@ -74803,7 +74906,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: creepGrowDelay
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6063498413033658520, guid: 4a49922772e193446aafbdaac3f4075f, type: 3}
       propertyPath: spawnOuterRadius
