@@ -16,6 +16,8 @@ namespace gameoff.Enemy
                 .GetComponent<Enemy>();
             enemy.SetData(enemyToSpawn);
             _diContainer.Inject(enemy);
+            
+            enemy.OnSpawned();
         }
 
         public void SetData(EnemyDataSO newData)

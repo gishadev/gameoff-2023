@@ -14,8 +14,16 @@ namespace gameoff.UI.Game
 
         protected abstract IDamageable Damageable { get; set; }
         
-        protected virtual void OnEnable() => Damageable.HealthChanged += OnHealthChanged;
-        protected virtual void OnDisable() => Damageable.HealthChanged -= OnHealthChanged;
+        protected virtual void OnEnable()
+        {
+            OnHealthChanged(Damageable.StartHealth);
+            Damageable.HealthChanged += OnHealthChanged;
+        }
+
+        protected virtual void OnDisable()
+        {
+            Damageable.HealthChanged -= OnHealthChanged;
+        }
 
         private void OnHealthChanged(int healthCount)
         {

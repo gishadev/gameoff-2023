@@ -34,10 +34,19 @@ namespace gameoff.Enemy
             AnimationsHandler = GetComponentInChildren<EnemyAnimationsHandler>();
         }
 
-        private void OnEnable()
+        public void OnSpawned()
         {
             CurrentHealth = EnemyDataSO.StartHealth;
+            StartPosition = transform.position;
+
             InitStateMachine();
+
+            if (EnemyDataSO.IsBoss)
+                transform.localScale = Vector3.one * 2f;
+            else
+                transform.localScale = Vector3.one;
+            
+            GetComponentInChildren<HealthBarGUI>(true).gameObject.SetActive(EnemyDataSO.IsBoss);
         }
 
         private void OnDisable() => StateMachine.CurrentState.OnExit();
@@ -45,14 +54,6 @@ namespace gameoff.Enemy
         private void Start()
         {
             PhysicsImpactEffector = new PhysicsImpactEffector(EnemyMovement.Rigidbody, EnemyMovement);
-            CurrentHealth = EnemyDataSO.StartHealth;
-            StartPosition = transform.position;
-            if (EnemyDataSO.IsBoss)
-                transform.localScale = Vector3.one * 2f;
-            else
-                transform.localScale = Vector3.one;
-
-            GetComponentInChildren<HealthBarGUI>(true).gameObject.SetActive(EnemyDataSO.IsBoss);
         }
 
         private void Update() => StateMachine.Tick();
@@ -62,12 +63,16 @@ namespace gameoff.Enemy
         public virtual void TakeDamage(int count)
         {
             CurrentHealth -= count;
+            Debug.Log($"{count}/{EnemyDataSO.StartHealth}");
             HealthChanged?.Invoke(CurrentHealth);
         }
 
         public void SetData(EnemyDataSO enemyData)
         {
             EnemyDataSO = enemyData;
+
+            if (enemyData.IsBoss)
+                Debug.Log(("booss"));
         }
 
         public void SetSpawnData(IEnemySpawnData spawnData) => SpawnData = spawnData;
