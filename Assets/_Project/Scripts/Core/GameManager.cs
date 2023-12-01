@@ -16,6 +16,7 @@ namespace gameoff.Core
     {
         [Inject] private ISaveLoadController _saveLoadController;
         [Inject] private DiContainer _diContainer;
+        private static GameDataSO _gameDataSO;
         public static bool IsPaused { private set; get; }
 
         [ShowInInspector] public static int CurrentLevelNumber { get; private set; } = 1;
@@ -36,6 +37,8 @@ namespace gameoff.Core
 
             _customInput = new CustomInput();
             _pauseBlocked = false;
+
+            _gameDataSO = _diContainer.Resolve<GameDataSO>();
         }
 
         private void OnEnable()
@@ -92,6 +95,13 @@ namespace gameoff.Core
         [Button("NextLevel")]
         public static void NextLevel()
         {
+            if (CurrentLevelNumber + 1 > _gameDataSO.Levels.Length)
+            {
+                ResumeGame();
+                SceneLoader.I.AsyncSceneLoad(Constants.WIN_SCENE_NAME);
+                return;
+            }
+
             CurrentLevelNumber++;
             ResumeGame();
             SceneLoader.I.AsyncSceneLoad(Constants.GAME_SCENE_NAME);

@@ -6,6 +6,7 @@ namespace gameoff.Core
     {
         public const string GAME_SCENE_NAME = "Game";
         public const string MAIN_MENU_SCENE_NAME = "MainMenu";
+        public const string WIN_SCENE_NAME = "Win";
         public const string RESOURCES_UPGRADES_PATH = "Upgrades";
         public const string SAVE_FILE_STRING = "savefile";
         
