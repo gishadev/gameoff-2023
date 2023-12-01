@@ -236,7 +236,8 @@ MonoBehaviour:
     <MaxSpawnCount>k__BackingField: 3
     <SpawnChance>k__BackingField: 0.1
   spawnFillCreepRadius: 60
-  creepGrowDelay: 2
+  creepGrowDelay: 4
+  creepPixelsChangedLimit: 200
   dieClearCreepRadius: 80
   dieClearCreepExpandingTime: 4
   dieClearCreepIterationsCount: 60

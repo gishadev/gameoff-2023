@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelOrder: 13
   levelPrefab: {fileID: 1985805879455979372, guid: a867a22ca2984a649add98d70b0b1f7e, type: 3}
-  levelName: Lumina Limbo
+  levelName: Infinity Isle
   difficulty: 3

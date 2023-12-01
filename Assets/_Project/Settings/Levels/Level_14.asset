@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelOrder: 14
   levelPrefab: {fileID: 1985805879455979372, guid: db9e61dbe97897f49add1bd5b2495bc6, type: 3}
-  levelName: Lumina Limbo
+  levelName: Nebulosa Nook
   difficulty: 3
