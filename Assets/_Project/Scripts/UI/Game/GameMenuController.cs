@@ -14,9 +14,12 @@ namespace gameoff.UI.Game
 
         [Inject] private IPlayerUpgradesController _playerUpgradesController;
         [Inject] private ISaveLoadController _saveLoadController;
+
+        private bool _blockPopupShowing;
         
         private void OnEnable()
         {
+            _blockPopupShowing = false;
             GameManager.PauseChanged += OnPauseChanged;
             GameManager.Won += OnWon;
             GameManager.Lost += OnLost;
@@ -52,11 +55,19 @@ namespace gameoff.UI.Game
 
         private void OnLost()
         {
+            if (_blockPopupShowing)
+                return;
+            _blockPopupShowing = true;
+            
             PushPage(losePopup);
         }
 
         private void OnWon()
         {
+            if (_blockPopupShowing)
+                return;
+            _blockPopupShowing = true;
+            
             if (_playerUpgradesController.UpgradesCanBeShown())
             {
                 PushPage(upgradesPopup);
