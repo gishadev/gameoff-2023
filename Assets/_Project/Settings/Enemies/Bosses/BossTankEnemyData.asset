@@ -50,4 +50,4 @@ MonoBehaviour:
       Data: 20
     - Name: ProjectileShieldRadius
       Entry: 4
-      Data: 7
+      Data: 6
