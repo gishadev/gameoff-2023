@@ -11,6 +11,15 @@ TagManager:
   - 
   - Water
   - UI
+  - Player
+  - Obstacle
+  - PlayerProjectile
+  - Minimap
+  - ProjectileShield
+  - IgnorePlayerProjectile
+  - EnemyProjectile
+  - Enemy
+  - HiveProjectile
   - 
   - 
   - 
@@ -26,18 +35,15 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - CityBounds
+  - LevelBounds
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 67974053
+    locked: 0
+  - name: VFX
+    uniqueID: 1509167247
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

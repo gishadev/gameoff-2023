@@ -34,13 +34,35 @@ namespace gishadev.tools.Audio
 
         private AudioMasterSO _masterData;
         private bool _isInitialized;
-        
+
+        private float _musicVolumePercentage;
+        private float _sfxVolumePercentage;
+
 
         private void Awake()
         {
             TryInit();
         }
 
+        public void SetSFXVolume(float volumePercent)
+        {
+            var sfxData = GetAudioCollection<SFXData>();
+
+            foreach (var sfx in sfxData)
+                sfx.AudioSource.volume = volumePercent * sfx.InitialVolume;
+
+            _sfxVolumePercentage = volumePercent;
+        }
+
+        public void SetMusicVolume(float volumePercent)
+        {
+            var musicData = GetAudioCollection<MusicData>();
+
+            foreach (var music in musicData)
+                music.AudioSource.volume = volumePercent * music.InitialVolume;
+
+            _musicVolumePercentage = volumePercent;
+        }
 
         public void PlayAudio<T>(int index) where T : AudioData, new()
         {
@@ -55,8 +77,9 @@ namespace gishadev.tools.Audio
             }
 
             var data = audioCollection.ToArray()[index];
+
             data.Play();
-            
+
             AudioStarted?.Invoke(data);
 
             Debug.Log($"I'm playing: {data.Name} of type {typeof(T)}");
@@ -123,9 +146,9 @@ namespace gishadev.tools.Audio
             audioData.AudioSource.volume = 0f;
             var volume = audioData.AudioSource.volume;
 
-            while (audioData.AudioSource.volume < audioData.InitialVolume)
+            while (audioData.AudioSource.volume * _musicVolumePercentage < audioData.InitialVolume * _musicVolumePercentage)
             {
-                volume += Time.deltaTime / MasterData.FadeTransitionTime;
+                volume += Time.deltaTime / MasterData.FadeTransitionTime * _musicVolumePercentage;
                 audioData.AudioSource.volume = volume;
                 yield return null;
             }
@@ -135,9 +158,9 @@ namespace gishadev.tools.Audio
         {
             var volume = audioData.AudioSource.volume;
 
-            while (audioData.AudioSource.volume > 0)
+            while (audioData.AudioSource.volume * _musicVolumePercentage > 0)
             {
-                volume -= Time.deltaTime / MasterData.FadeTransitionTime;
+                volume -= Time.deltaTime / MasterData.FadeTransitionTime * _musicVolumePercentage;
                 audioData.AudioSource.volume = volume;
                 yield return null;
             }
@@ -145,7 +168,7 @@ namespace gishadev.tools.Audio
             if (audioData.AudioSource.volume == 0)
             {
                 audioData.AudioSource.Stop();
-                audioData.AudioSource.volume = audioData.InitialVolume;
+                audioData.AudioSource.volume = audioData.InitialVolume * _musicVolumePercentage;
             }
         }
 

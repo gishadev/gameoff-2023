@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1154b858cec74d09bdb6d2735eb6f77c, type: 3}
+  m_Name: DashAbilityData
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 21300000, guid: 7061e8bb2784dfa40972e2132e26e449, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: UpgradeEnumType
+      Entry: 3
+      Data: 0
+    - Name: CardIconSprite
+      Entry: 10
+      Data: 0
+    - Name: CardTitle
+      Entry: 1
+      Data: Dash
+    - Name: CardDescription
+      Entry: 1
+      Data: Cover short distances in the blink of an eye
+  <AbilityCooldown>k__BackingField: 1
+  <DashingPower>k__BackingField: 50
+  <DashingTime>k__BackingField: 0.4
+  <KnockBackRadius>k__BackingField: 5
+  <StartClearRadius>k__BackingField: 10
+  <EndClearRadius>k__BackingField: 5

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7500f91e8654c3f840b55a62c4c5ec5, type: 3}
+  m_Name: Level_8
+  m_EditorClassIdentifier: 
+  levelOrder: 8
+  levelPrefab: {fileID: 1985805879455979372, guid: 1c8b516eee325b34792fe91ed0fc72ec, type: 3}
+  levelName: Hyperion Hollow
+  difficulty: 2

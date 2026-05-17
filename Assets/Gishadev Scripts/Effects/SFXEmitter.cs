@@ -17,21 +17,15 @@ namespace gishadev.tools.Effects
 
                 _current = new GameObject("[SFXEmitter]").AddComponent<SFXEmitter>();
                 DontDestroyOnLoad(_current.gameObject);
-
+                
                 return _current;
             }
         }
 
         private static SFXEmitter _current;
 
-        protected override Transform Parent { get; set; }
+        protected override Transform Parent => transform;
         protected override List<SFXPoolObject> PoolObjectsCollection => PoolDataSO.SFXPoolObjects.ToList();
-
-        protected override void Awake()
-        {
-            base.Awake();
-            Parent = transform;
-        }
 
         public GameObject EmitAt(int index, Vector3 position, Quaternion rotation)
         {

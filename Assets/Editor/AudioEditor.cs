@@ -44,12 +44,16 @@ namespace gishadev.tools.editor
             EditorDropAreaCreator<SFXPoolObject, GameObject>.Create(_poolData, _poolData.SFXPoolObjects);
             EditorGUILayout.Space();
             EditorDropAreaCreator<VFXPoolObject, GameObject>.Create(_poolData, _poolData.VFXPoolObjects);
+            EditorGUILayout.Space();
+            EditorDropAreaCreator<OtherPoolObject, GameObject>.Create(_poolData, _poolData.OtherPoolObjects);
             
             if (GUILayout.Button("Generate Enums"))
             {
                 var enumsGen = (ScriptableObjectEnumsGenerator) target;
                 enumsGen.OnCollectionChanged();
             }
+            
+            EditorUtility.SetDirty(_poolData);
         }
     }
 }
